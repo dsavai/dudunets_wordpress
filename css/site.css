@@ -782,6 +782,14 @@ video {
   margin-left: 24rem;
 }
 
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
+}
+
 .block {
   display: block;
 }
@@ -1132,6 +1140,11 @@ video {
   row-gap: 0.75rem;
 }
 
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1259,6 +1272,18 @@ video {
 
 .bg-white\/10 {
   background-color: rgb(255 255 255 / 0.1);
+}
+
+.bg-primary\/15 {
+  background-color: rgb(42 208 168 / 0.15);
+}
+
+.bg-primary\/20 {
+  background-color: rgb(42 208 168 / 0.2);
+}
+
+.bg-primary\/10 {
+  background-color: rgb(42 208 168 / 0.1);
 }
 
 .bg-opacity-20 {
@@ -1430,6 +1455,11 @@ video {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.py-\[5px\] {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .pb-0 {
