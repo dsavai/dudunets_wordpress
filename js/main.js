@@ -23,3 +23,29 @@ const clientsLogo = new Swiper(".clientLogos", {
         disableOnInteraction: false,
     },
 });
+
+$(document).ready(function() {
+    $(".fancy_youtube").fancybox({
+        maxWidth    : 800,
+        maxHeight   : 600,
+        fitToView   : false,
+        width       : '70%',
+        height      : '70%',
+        autoSize    : false,
+        closeClick  : false,
+        openEffect  : 'none',
+        closeEffect : 'none'
+    });
+
+    $('.accordion_title').click(function(e){
+        e.preventDefault();
+        var currentAttrvalue = $(this).attr('href');
+        if($(e.target).is('.active')){
+            $(this).removeClass('active');
+            $('.accordion_content:visible').slideUp(300);
+        } else {
+            $('.accordion_title').removeClass('active').filter(this).addClass('active');
+            $('.accordion_content').slideUp(300).filter(currentAttrvalue).slideDown(300);
+        }
+    });
+});

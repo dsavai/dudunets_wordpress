@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.accordion_title.active svg{
+    transform: rotate(180deg);
+}
