@@ -11,7 +11,10 @@ module.exports = {
       'secondary': "#02115E",
       'red': "#D11313",
       'gray-light': "#F8F8F8",
-      'white': "#ffffff"
+      'white': "#ffffff",
+      'fb-900': "#1877F2",
+      'tx-900': "#14171a",
+      'wa-900': "#128c7e",
     }
   },
   plugins: [],
