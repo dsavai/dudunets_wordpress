@@ -6,3 +6,13 @@
 .accordion_title.active svg{
     transform: rotate(180deg);
 }
+
+.seoblock-content a{
+    display: inline-block;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.seoblock-content a:hover{
+   text-decoration: none;
+}
