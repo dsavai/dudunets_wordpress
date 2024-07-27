@@ -1,0 +1,45 @@
+<?php
+$post_id = 208;
+$the_post = get_post_by_id($post_id);
+
+//$dudu_net_types = get_custom_posts_by_slug("dudunet-types","ASC");
+
+$dudu_net_types = get_net_types("DESC");
+?>
+
+<?php if (!empty($the_post)):?>
+    <section class="module module--products">
+        <div class="container mx-auto h-full">
+            <div class="py-16">
+                <?php echo apply_filters("the_content",$the_post->post_content);?>
+                <div class="grid grid-cols-3 gap-x-6 gap-y-10">
+                    <?php if (!empty($dudu_net_types)):?>
+                        <?php foreach ($dudu_net_types as $type):
+                            $image = get_net_type_image_url($type->term_id);
+                            ?>
+                            <div>
+                                <a href="<?php echo esc_url(get_term_link($type))?>" class="block">
+                                    <div class="mb-4 rounded-xl overflow-hidden">
+                                        <img src="<?php echo $image?>" alt="<?php echo $type->name?>" class="w-full h-full object-cover" />
+                                    </div>
+                                    <div class="flex flex-col justify-center items-center">
+                                        <h4 class="text-lg font-semibold"><?php echo $type->description;?></h4>
+                                        <div class="flex items-center gap-2 text-primary font-medium mt-2">
+                                            <span>Read more</span>
+                                            <span>
+                                            <svg class="w-5 h-5 fill-current">
+                                                <use xlink:href="#icon-right"></use>
+                                            </svg>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php endforeach;?>
+                    <?php endif;?>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif;?>
+
