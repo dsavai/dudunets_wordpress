@@ -690,6 +690,10 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
 .mb-16 {
   margin-bottom: 4rem;
 }
@@ -776,18 +780,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-40 {
-  margin-top: 10rem;
-}
-
-.mt-32 {
-  margin-top: 8rem;
-}
-
-.mb-14 {
-  margin-bottom: 3.5rem;
 }
 
 .block {
@@ -1197,14 +1189,6 @@ video {
   border-top-width: 1px;
 }
 
-.border-t-\[1px\] {
-  border-top-width: 1px;
-}
-
-.border-none {
-  border-style: none;
-}
-
 .border-black\/10 {
   border-color: rgb(20 20 22 / 0.1);
 }
@@ -1228,23 +1212,8 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
-.border-x-gray-light {
-  --tw-border-opacity: 1;
-  border-left-color: rgb(248 248 248 / var(--tw-border-opacity));
-  border-right-color: rgb(248 248 248 / var(--tw-border-opacity));
-}
-
 .border-b-secondary\/10 {
   border-bottom-color: rgb(2 17 94 / 0.1);
-}
-
-.border-t-gray-light {
-  --tw-border-opacity: 1;
-  border-top-color: rgb(248 248 248 / var(--tw-border-opacity));
-}
-
-.border-t-black\/20 {
-  border-top-color: rgb(20 20 22 / 0.2);
 }
 
 .border-t-black\/10 {
@@ -1677,6 +1646,50 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.m-nav ul li{
+  display: inline-block;
+  position: relative;
+}
+
+.m-nav ul>li>ul{
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  transform-origin: 0 0 0;
+  transition: all 0.3s ease-out 0s;
+  z-index: 10;
+  width: 265px;
+  text-align: left;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.05);
+  border-bottom: 4px solid #2AD0A8;
+  transform: scaleY(0);
+  background: #fff;
+}
+
+.m-nav ul>li:hover>ul{
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+}
+
+.m-nav ul>li>ul li{
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.m-nav ul>li>ul li a{
+  width: 100%;
+  display: block;
+  padding: 15px;
+}
+
+.m-nav ul>li>ul li a:hover{
+  color: #2AD0A8;
+}
+
 .accordion_title.active svg{
   transform: rotate(180deg);
 }
@@ -1701,6 +1714,25 @@ video {
   font-size: 16px;
   margin-bottom: 30px;
   line-height: 1.8;
+}
+
+.content-site-map h3{
+  font-size: 28px;
+}
+
+.content-site-map ul{
+  line-height: 2.1;
+}
+
+.content-site-map ul ul{
+  margin-left: 20px;
+}
+
+.content-site-map a{
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 .after\:\!text-\[18px\]::after {
@@ -1771,4 +1803,4 @@ video {
 
 .hover\:opacity-60:hover {
   opacity: 0.6;
-}
+}   
