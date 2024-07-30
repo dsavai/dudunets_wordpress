@@ -9,10 +9,10 @@ $dudu_net_types = get_net_types("DESC");
 
 <?php if (!empty($the_post)):?>
     <section class="module module--products">
-        <div class="container mx-auto h-full">
+        <div class="container mx-auto h-full px-4 lg:px-0">
             <div class="py-16">
                 <?php echo apply_filters("the_content",$the_post->post_content);?>
-                <div class="grid grid-cols-3 gap-x-6 gap-y-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
                     <?php if (!empty($dudu_net_types)):?>
                         <?php foreach ($dudu_net_types as $type):
                             $image = get_net_type_image_url($type->term_id);

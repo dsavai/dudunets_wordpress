@@ -17,14 +17,14 @@ $posts = get_posts($args);
 ?>
 
 <section class="module module--blog">
-    <div class="bg-gray-light">
+    <div class="bg-gray-light px-4 lg:px-0">
         <div class="container mx-auto">
             <div class="py-16">
                 <div class="mb-10">
                     <h4 class="text-sm uppercase text-primary font-bold mb-2">LATEST BLOG</h4>
                     <h2 class="text-3xl font-bold">Our news & articles</h2>
                 </div>
-                <div class="grid grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <?php if(!empty($posts)):?>
                     <?php foreach ($posts as $post):
                     $categories = get_the_category($post->ID);
