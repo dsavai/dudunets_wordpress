@@ -8,7 +8,8 @@
  *
  * @package dudunets
  */
-
+$brochure = get_post_by_id(240);
+$document = get_field('document',$brochure->ID);
 ?>
 
 <!DOCTYPE html>
@@ -119,54 +120,21 @@
                 <div class="flex justify-between">
                     <div class="flex items-center w-full lg:w-auto">
                         <ul class="flex justify-center lg:justify-start gap-4 lg:mr-7 w-full lg:w-auto">
-                            <li>
-                                <a href="#" class="block text-white">
-                                    <span class="sr-only">Facebook</span>
-                                    <svg class="w-5 h-5 fill-current">
-                                        <use xlink:href="#icon-facebook"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="block text-white">
-                                    <span class="sr-only">Twitter</span>
-                                    <svg class="w-5 h-5 fill-current">
-                                        <use xlink:href="#icon-twitter"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="block text-white">
-                                    <span class="sr-only">Instagram</span>
-                                    <svg class="w-5 h-5 fill-current">
-                                        <use xlink:href="#icon-instagram"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="block text-white">
-                                    <span class="sr-only">WhatsApp</span>
-                                    <svg class="w-5 h-5 fill-current">
-                                        <use xlink:href="#icon-whatsApp"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="block text-white">
-                                    <span class="sr-only">TikTok</span>
-                                    <svg class="w-5 h-5 fill-current">
-                                        <use xlink:href="#icon-tiktok"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="block text-white">
-                                    <span class="sr-only">YouTube</span>
-                                    <svg class="w-5 h-5 fill-current">
-                                        <use xlink:href="#icon-youtube"></use>
-                                    </svg>
-                                </a>
-                            </li>
+                            <?php $socials = get_custom_posts_by_slug('socials','ASC');
+                            ?>
+
+                            <?php
+                            foreach ($socials as $social):
+                            ?>
+                                <li>
+                                    <a href="<?php echo get_field("social_link",$social->ID)?>" class="block text-white">
+                                        <span class="sr-only"><?php echo $social->post_title?></span>
+                                        <svg class="w-5 h-5 fill-current">
+                                            <use xlink:href="<?php echo get_field("icon",$social->ID)?>"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            <?php endforeach;?>
                         </ul>
                         <div class="hidden lg:block">
                             <div class="text-white text-sm font-medium">Mon - Sat: 08.00am - 5.00pm</div>
@@ -174,7 +142,7 @@
                     </div>
                     <div class="hidden lg:block">
                         <div>
-                            <a href="#" class="text-white flex items-center gap-2 text-sm">
+                            <a target="_blank" href="<?php echo $document?>" class="text-white flex items-center gap-2 text-sm">
                                 <svg class="w-5 h-5 fill-current">
                                     <use xlink:href="#icon-download"></use>
                                 </svg>
