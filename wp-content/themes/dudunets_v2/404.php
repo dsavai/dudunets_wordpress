@@ -1,60 +1,29 @@
 <?php
-/**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package dudunets
- */
+/*
+Template Name: Custom Blog Page
+*/
+$page = get_page_by_slug("page-not-found");
+$image = get_post_thumbnail($page->ID);
+get_header(); ?>
 
-get_header();
-?>
+<main class="main">
+    <section class="module module--banner">
+        <div class="w-full h-[300px] bg-cover bg-no-repeat relative" style="background-image: url(<?php echo $image['image'][0] ?>);">
+            <div class="bg-black/40 absolute inset-0"></div>
+            <div class="flex flex-col justify-center items-center h-full w-full relative z-20 text-white">
+                <div class="flex justify-center gap-2 border border-white bg-white/10 px-5 py-2 rounded-full">
+                    <span>
+                        <svg class="w-5 h-5 fill-current">
+                            <use xlink:href="#icon-documentfile"></use>
+                        </svg>
+                    </span>
+                </div>
+                <h1 class="text-6xl font-bold mt-4"><?php echo $page->post_title ?></h1>
+            </div>
+        </div>
+    </section>
 
-	<main id="primary" class="site-main">
+    <?php echo apply_filters("the_content",$page->post_content)?>
+</main>
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'dudunets' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'dudunets' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'dudunets' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$dudunets_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'dudunets' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$dudunets_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
-
-<?php
-get_footer();
+<?php get_footer(); ?>

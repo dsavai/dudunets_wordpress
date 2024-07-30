@@ -183,12 +183,15 @@
                 </div>
                 <?php
 
+
+
                 wp_nav_menu( array(
                     'menu'   => 'main-menu',
                     'theme_location' => 'main-menu',
                     'walker' => new Primary_menu_walker(),
                     'menu_class'     => 'flex gap-8',
                     'container'      => 'nav',
+                    'container_class' => 'm-nav',
                 ) );
                 ?>
                 <div class="flex items-center">
