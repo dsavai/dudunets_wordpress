@@ -12,7 +12,7 @@
 ?>
 
 
-<footer class="footer">
+<footer class="footer hidden">
     <div class="container mx-auto">
         <div class="bg-gray-light rounded-lg p-20 pb-0">
             <div class="flex mb-10 pb-14">

@@ -2,9 +2,22 @@
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./template-parts/*.{php,html,js}","./*.{php,html,js}"],
+  content: ["./**/*.php"],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ['DM Sans', 'sans-serif'],
+    },
+    colors: {
+      'black': "#141416",
+      'primary': "#2AD0A8",
+      'secondary': "#02115E",
+      'red': "#D11313",
+      'gray-light': "#F8F8F8",
+      'white': "#ffffff",
+      'fb-900': "#1877F2",
+      'tx-900': "#14171a",
+      'wa-900': "#128c7e",
+    },
   },
   plugins: [],
 }

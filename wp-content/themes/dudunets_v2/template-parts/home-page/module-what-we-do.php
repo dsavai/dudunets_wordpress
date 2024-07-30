@@ -4,7 +4,7 @@ $the_post = get_post_by_id(224);
 $image = get_post_thumbnail($the_post->ID);
 ?>
 
-<section class="module module--what-we-do">
+<section class="module module--what-we-do hidden">
     <div class="py-24 px-24">
         <div class="container mx-auto">
             <div class="grid grid-cols-2 gap-8">
