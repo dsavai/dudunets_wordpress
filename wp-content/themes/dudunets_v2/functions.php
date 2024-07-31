@@ -16,6 +16,7 @@ require 'includes/walkers/walker.php';
 require 'includes/walkers/primary_menu_walker.php';
 require 'includes/walkers/footer_walker.php';
 require 'includes/walkers/bottom_bar_nav_walker.php';
+require 'includes/walkers/sitemap_walker.php';
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
