@@ -28,7 +28,7 @@
                         </div>
                         <div class="relative mb-2 lg:mb-0">
                             <label for="location"class="block text-sm font-semibold mb-1">Location<span class="text-red">*</span></label>
-                            <input name="location" id="location" type="text" placeholder="Enter your location" class="w-full lg:w-[300px] h-[45px] border-[1px] border-secondary/10 py-2 px-5 rounded-lg text-sm" />
+                            <input name="location" id="location" type="text" placeholder="Enter your location" class="w-full lg:w-auto h-[45px] border-[1px] border-secondary/10 py-2 px-5 rounded-lg text-sm" />
                         </div>
                         <div class="relative top-[5px] lg:top-[10px] lg:block flex justify-end">
                             <button type="submit" class="flex justify-center items-center bg-secondary text-primary rounded-md w-[50px] h-[40px]">

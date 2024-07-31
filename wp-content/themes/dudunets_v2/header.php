@@ -205,7 +205,7 @@
                         ) );
                         ?>
                     </div>
-                    <div class="absolute right-4 text-black z-10 cursor-pointer">
+                    <div class="absolute right-4 text-black z-10 cursor-pointer lg:hidden">
                         <svg class="w-8 h-8 fill-current">
                             <use xlink:href="#icon-mobile-menu"></use>
                         </svg>
