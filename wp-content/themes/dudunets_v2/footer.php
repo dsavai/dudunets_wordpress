@@ -14,15 +14,15 @@
 
 <footer class="footer">
     <div class="container mx-auto">
-        <div class="bg-gray-light rounded-lg p-20 pb-0">
-            <div class="flex mb-10 pb-14">
-                <div class="basis-1/4">
+        <div class="bg-gray-light rounded-lg px-4 lg:px-0 lg:p-20">
+            <div class="lg:flex lg:mb-10 pb-6 lg:pb-14">
+                <div class="basis-1/4 py-6 lg:py-0">
                     <a href="#">
                         <span class="sr-only">Official Magnetic Dudu Nets Logo</span>
-                        <img src="<?php echo esc_url( wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0] );?>" alt="Official Magnetic Dudu Nets Logo" class="w-32" />
+                        <img src="<?php echo esc_url( wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0] );?>" alt="Official Magnetic Dudu Nets Logo" class="w-16 lg:w-32" />
                     </a>
                 </div>
-                <div class="basis-3/4 ml-10">
+                <div class="basis-3/4 lg:ml-10">
                     <h3 class="font-bold mb-3 text-lg">Products</h3>
                     <div class="flex gap-20">
                         <?php get_template_part("template-parts/shared/category","menu");?>
@@ -38,7 +38,7 @@
                         ?>
                     </div>
                 </div>
-                <div class="basis-1/4">
+                <div class="basis-1/4 mt-5 lg:mt-0">
                     <h3 class="font-bold mb-3 text-lg">Let’s keep in touch.</h3>
                     <form>
                         <div class="relative">
@@ -60,15 +60,15 @@
                     </form>
                 </div>
             </div>
-            <div class="flex justify-between items-center border-t border-black/10 py-4">
-                <div>
+            <div class="lg:flex lg:justify-between lg:items-center border-t border-black/10 py-4">
+                <div class="mb-5 lg:mb-0">
                     <?php
 
                     wp_nav_menu( array(
                         'menu'   => 'footer-menu-3',
                         'container' => false,
                         'theme_location' => 'footer-menu-3',
-                        'menu_class'     => 'flex gap-4',
+                        'menu_class'     => 'grid grid-cols-2 gap-2 lg:flex lg:gap-4',
                         'walker'         => new Bottom_Bar_Walker_Nav_Menu()
                     ) );
                     ?>
