@@ -37,8 +37,15 @@ $image = get_post_thumbnail($page->ID);
             <div class="container mx-auto">
                 <div class="w-9/12 mx-auto mt-10">
                     <section class="module module--blog-content mb-16">
-                        <div class="general-content">
-                            <?php echo apply_filters("the_content",$page->post_content);?>
+                        <div class="general-content content-site-map">
+                            <h3>Pages</h3>
+                            <?php
+                            wp_nav_menu(array(
+                                'menu'   => 'main-menu',
+                                'theme_location' => 'main-menu',
+                                'walker'         => new Sitemap_Walker(),
+                            ));
+                            ?>
                         </div>
                     </section>
                 </div>
