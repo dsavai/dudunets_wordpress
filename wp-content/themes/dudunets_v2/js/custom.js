@@ -315,7 +315,20 @@ jQuery(document).ready(function (){
 
 });
 
+const openMenuModal = document.getElementById("openMobileMenuOverlay");
+const menuMobileOverlay = document.getElementById("menuMobileOverlay");
+const body = document.querySelector("body")
+const menuMobileClose = document.getElementById("menuMobileClose")
 
+openMenuModal.addEventListener("click", () =>{
+    body.classList.add("disable-scrolling");
+    menuMobileOverlay.classList.add("show-mobile-menu")
+});
+
+menuMobileClose.addEventListener("click", () =>{
+    body.classList.remove("disable-scrolling");
+    menuMobileOverlay.classList.remove("show-mobile-menu")
+});
 
 const swiper = new Swiper(".home-slider", {
     navigation: {
@@ -335,11 +348,29 @@ const swiper = new Swiper(".home-slider", {
 
 const clientsLogo = new Swiper(".clientLogos", {
     watchSlidesProgress: true,
-    slidesPerView: 4,
+    slidesPerView: 1,
     spaceBetween: 20,
     autoplay: {
         delay: 2000,
         disableOnInteraction: false,
+    },
+    breakpoints: {
+        580: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+        },
+        1024: {
+            slidesPerView: 4,
+            spaceBetween: 50,
+        },
     },
 });
 
