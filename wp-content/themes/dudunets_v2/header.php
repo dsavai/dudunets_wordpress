@@ -124,6 +124,7 @@ $document = get_field('document',$brochure->ID);
                             ?>
 
                             <?php
+                            if(!empty($socials)):
                             foreach ($socials as $social):
                             ?>
                                 <li>
@@ -134,7 +135,9 @@ $document = get_field('document',$brochure->ID);
                                         </svg>
                                     </a>
                                 </li>
-                            <?php endforeach;?>
+                            <?php endforeach;
+                            endif;
+                            ?>
                         </ul>
                         <div class="hidden lg:block">
                             <div class="text-white text-sm font-medium">Mon - Sat: 08.00am - 5.00pm</div>
@@ -197,4 +200,5 @@ $document = get_field('document',$brochure->ID);
             </div>
         </div>
     </header>
+<?php
 

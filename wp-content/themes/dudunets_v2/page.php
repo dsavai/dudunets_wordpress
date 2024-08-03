@@ -11,9 +11,10 @@
  *
  * @package dudunets
  */
-$page = get_queried_object();
+
+$pager = get_queried_object();
 get_header();
-$image = get_post_thumbnail($page->ID);
+$image = get_post_thumbnail($pager->ID);
 ?>
 
     <main class="main">
@@ -27,9 +28,9 @@ $image = get_post_thumbnail($page->ID);
                                 <use xlink:href="#icon-documentfile"></use>
                             </svg>
                         </span>
-                        <span class="text-sm font-semibold uppercase"><?php echo $page->post_title?></span>
+                        <span class="text-sm font-semibold uppercase"><?php echo $pager->post_title?></span>
                     </div>
-                    <h1 class="text-6xl font-bold mt-4"><?php echo isset($page->post_excerpt)?$page->post_excerpt:""?></h1>
+                    <h1 class="text-6xl font-bold mt-4"><?php echo isset($pager->post_excerpt)?$pager->post_excerpt:""?></h1>
                 </div>
             </div>
         </section>
@@ -38,7 +39,7 @@ $image = get_post_thumbnail($page->ID);
                 <div class="w-9/12 mx-auto mt-10">
                     <section class="module module--blog-content mb-16">
                         <div class="general-content">
-                            <?php echo apply_filters("the_content",$page->post_content);?>
+                            <?php echo apply_filters("the_content",$pager->post_content);?>
                         </div>
                     </section>
                 </div>

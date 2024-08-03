@@ -8,8 +8,8 @@
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+    // Replace the version number of the theme on each release.
+    define( '_S_VERSION', '1.0.0' );
 }
 
 require 'includes/walkers/walker.php';
@@ -26,89 +26,89 @@ require 'includes/walkers/sitemap_walker.php';
  * as indicating support for post thumbnails.
  */
 function dudunets_setup() {
-	/*
-		* Make theme available for translation.
-		* Translations can be filed in the /languages/ directory.
-		* If you're building a theme based on dudunets, use a find and replace
-		* to change 'dudunets' to the name of your theme in all the template files.
-		*/
-	load_theme_textdomain( 'dudunets', get_template_directory() . '/languages' );
+    /*
+        * Make theme available for translation.
+        * Translations can be filed in the /languages/ directory.
+        * If you're building a theme based on dudunets, use a find and replace
+        * to change 'dudunets' to the name of your theme in all the template files.
+        */
+    load_theme_textdomain( 'dudunets', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+    // Add default posts and comments RSS feed links to head.
+    add_theme_support( 'automatic-feed-links' );
 
-	/*
-		* Let WordPress manage the document title.
-		* By adding theme support, we declare that this theme does not use a
-		* hard-coded <title> tag in the document head, and expect WordPress to
-		* provide it for us.
-		*/
-	add_theme_support( 'title-tag' );
+    /*
+        * Let WordPress manage the document title.
+        * By adding theme support, we declare that this theme does not use a
+        * hard-coded <title> tag in the document head, and expect WordPress to
+        * provide it for us.
+        */
+    add_theme_support( 'title-tag' );
 
-	/*
-		* Enable support for Post Thumbnails on posts and pages.
-		*
-		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		*/
-	add_theme_support( 'post-thumbnails' );
+    /*
+        * Enable support for Post Thumbnails on posts and pages.
+        *
+        * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+        */
+    add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus(
-		array(
+    // This theme uses wp_nav_menu() in one location.
+    register_nav_menus(
+        array(
             'header-menu' => __( 'Header Menu' ),
             'main-menu' => __( 'Main Menu' ),
             'footer-menu-1' => __( 'Footer Menu 1' ),
             'footer-menu-2' => __( 'Footer Menu 2' ),
             'footer-menu-3' => __( 'Footer Menu 3' ),
-		)
-	);
+        )
+    );
 
-	/*
-		* Switch default core markup for search form, comment form, and comments
-		* to output valid HTML5.
-		*/
-	add_theme_support(
-		'html5',
-		array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		)
-	);
+    /*
+        * Switch default core markup for search form, comment form, and comments
+        * to output valid HTML5.
+        */
+    add_theme_support(
+        'html5',
+        array(
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+            'style',
+            'script',
+        )
+    );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'dudunets_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
+    // Set up the WordPress core custom background feature.
+    add_theme_support(
+        'custom-background',
+        apply_filters(
+            'dudunets_custom_background_args',
+            array(
+                'default-color' => 'ffffff',
+                'default-image' => '',
+            )
+        )
+    );
 
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
+    // Add theme support for selective refresh for widgets.
+    add_theme_support( 'customize-selective-refresh-widgets' );
 
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
-	add_theme_support(
-		'custom-logo',
-		array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		)
-	);
+    /**
+     * Add support for core custom logo.
+     *
+     * @link https://codex.wordpress.org/Theme_Logo
+     */
+    add_theme_support(
+        'custom-logo',
+        array(
+            'height'      => 250,
+            'width'       => 250,
+            'flex-width'  => true,
+            'flex-height' => true,
+        )
+    );
 }
 add_action( 'after_setup_theme', 'dudunets_setup' );
 
@@ -120,7 +120,7 @@ add_action( 'after_setup_theme', 'dudunets_setup' );
  * @global int $content_width
  */
 function dudunets_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'dudunets_content_width', 640 );
+    $GLOBALS['content_width'] = apply_filters( 'dudunets_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'dudunets_content_width', 0 );
 
@@ -130,17 +130,17 @@ add_action( 'after_setup_theme', 'dudunets_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function dudunets_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'dudunets' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'dudunets' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Sidebar', 'dudunets' ),
+            'id'            => 'sidebar-1',
+            'description'   => esc_html__( 'Add widgets here.', 'dudunets' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
 }
 add_action( 'widgets_init', 'dudunets_widgets_init' );
 
@@ -148,10 +148,10 @@ add_action( 'widgets_init', 'dudunets_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dudunets_scripts() {
-	//wp_enqueue_style( 'dudunets-style', get_stylesheet_uri(), array(), _S_VERSION );
+    //wp_enqueue_style( 'dudunets-style', get_stylesheet_uri(), array(), _S_VERSION );
 
-	wp_style_add_data( 'dudunets-style', 'rtl', 'replace' );
-   // wp_enqueue_style('dudunets-css',get_template_directory_uri().'/css/dudunets.css',array(),'1.0.0');
+    wp_style_add_data( 'dudunets-style', 'rtl', 'replace' );
+    // wp_enqueue_style('dudunets-css',get_template_directory_uri().'/css/dudunets.css',array(),'1.0.0');
     wp_enqueue_style( 'output', get_template_directory_uri() . '/dist/output.css', array() );
 
 
@@ -172,8 +172,8 @@ function dudunets_scripts() {
 
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+        wp_enqueue_script( 'comment-reply' );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'dudunets_scripts' );
 
@@ -201,12 +201,12 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+    require get_template_directory() . '/inc/jetpack.php';
 }
 
 function dudunets_custom_body_class($classes){
-$classes[] = 'font-nunitosans font-[400] text-gray-dark';
-return $classes;
+    $classes[] = 'font-nunitosans font-[400] text-gray-dark';
+    return $classes;
 }
 
 
@@ -441,7 +441,7 @@ function get_category_permalink($term)
 }
 
 function get_post_tags($post_id){
-   return get_the_tags($post_id);
+    return get_the_tags($post_id);
 
 }
 
@@ -677,7 +677,7 @@ function get_post_terms_in_net_type($post_id) {
     if ($terms && !is_wp_error($terms)) {
         return $terms;
     } else {
-       return null;
+        return null;
     }
 }
 
@@ -769,11 +769,280 @@ add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
 
 
+function add_faqs_meta_box() {
+    $specific_page_id = 248; // Replace with your specific page ID
+    $custom_post_types = array(); // Replace with your custom post types
+
+    $current_post_type = get_post_type();
+    $current_post_id = isset($_GET['post']) ? $_GET['post'] : (isset($_POST['post_ID']) ? $_POST['post_ID'] : '');
+
+    if (in_array($current_post_type, $custom_post_types) || $current_post_id == $specific_page_id) {
+        add_meta_box(
+            'faqs_meta_box',
+            'FAQs',
+            'display_faqs_meta_box',
+            $current_post_type == 'page' ? 'page' : $current_post_type,
+            'normal',
+            'high'
+        );
+    }
+}
+add_action('add_meta_boxes', 'add_faqs_meta_box');
+
+
+function display_faqs_meta_box($post) {
+    $faqs_data = get_post_meta($post->ID, 'faqs', true);
+    wp_nonce_field('faqs_nonce', 'faqs_nonce_field');
+    ?>
+    <div id="faqs-field">
+        <?php if ($faqs_data) : ?>
+            <?php foreach ($faqs_data as $index => $data) : ?>
+                <div class="faqs-row">
+                    <input type="text" name="faqs[<?php echo $index; ?>][field_name]" value="<?php echo esc_attr($data['field_name']); ?>" placeholder="Field Name" />
+                    <textarea name="faqs[<?php echo $index; ?>][value]" placeholder="Value"><?php echo esc_textarea($data['value']); ?></textarea>
+                    <a href="#" class="remove-row">Remove</a>
+                </div>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <div class="faqs-row">
+                <input type="text" name="faqs[0][field_name]" value="" placeholder="Field Name" />
+                <textarea name="faqs[0][value]" placeholder="Value"></textarea>
+                <a href="#" class="remove-row">Remove</a>
+            </div>
+        <?php endif; ?>
+        <a href="#" class="add-row">Add Row</a>
+    </div>
+    <script>
+        jQuery(document).ready(function($) {
+            $('#faqs-field').on('click', '.add-row', function(e) {
+                e.preventDefault();
+                var row = $('.faqs-row:last').clone();
+                var rowCount = $('.faqs-row').length;
+                row.find('input, textarea').each(function() {
+                    var name = $(this).attr('name');
+                    var nameParts = name.match(/\[(\d+)\]/);
+                    if (nameParts) {
+                        var newName = name.replace(nameParts[1], rowCount);
+                        $(this).attr('name', newName).val('');
+                    }
+                });
+                row.insertAfter('.faqs-row:last');
+            });
+
+            $('#faqs-field').on('click', '.remove-row', function(e) {
+                e.preventDefault();
+                if ($('.faqs-row').length > 1) {
+                    $(this).closest('.faqs-row').remove();
+                }
+            });
+        });
+    </script>
+    <?php
+}
+
+
+function save_faqs_meta_box($post_id) {
+    if (!isset($_POST['faqs_nonce_field']) || !wp_verify_nonce($_POST['faqs_nonce_field'], 'faqs_nonce')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    if (isset($_POST['faqs'])) {
+        $faqs_data = array_values($_POST['faqs']);
+        update_post_meta($post_id, 'faqs', $faqs_data);
+    }
+}
+add_action('save_post', 'save_faqs_meta_box');
+
+
+// Values metabox for company page
+
+function add_values_meta_box() {
+    $specific_page_id = 387; // Replace with your specific page ID
+    $custom_post_types = array(); // Replace with your custom post types
+
+    $current_post_type = get_post_type();
+    $current_post_id = isset($_GET['post']) ? $_GET['post'] : (isset($_POST['post_ID']) ? $_POST['post_ID'] : '');
+
+    if (in_array($current_post_type, $custom_post_types) || $current_post_id == $specific_page_id) {
+        add_meta_box(
+            'values_meta_box',
+            'Values',
+            'display_values_meta_box',
+            $current_post_type == 'page' ? 'page' : $current_post_type,
+            'normal',
+            'high'
+        );
+    }
+}
+add_action('add_meta_boxes', 'add_values_meta_box');
 
 
 
+function display_values_meta_box($post) {
+    $values_data = get_post_meta($post->ID, 'values', true);
+    wp_nonce_field('values_nonce', 'values_nonce_field');
+    ?>
+    <div id="values-field">
+        <?php if ($values_data) : ?>
+            <?php foreach ($values_data as $index => $data) : ?>
+                <div class="values-row">
+                    <input type="text" name="values[<?php echo $index; ?>][field_name]" value="<?php echo esc_attr($data['field_name']); ?>" placeholder="Field Name" />
+                    <textarea name="values[<?php echo $index; ?>][value]" placeholder="Value"><?php echo esc_textarea($data['value']); ?></textarea>
+                    <a href="#" class="remove-row">Remove</a>
+                </div>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <div class="values-row">
+                <input type="text" name="values[0][field_name]" value="" placeholder="Field Name" />
+                <textarea name="values[0][value]" placeholder="Value"></textarea>
+                <a href="#" class="remove-row">Remove</a>
+            </div>
+        <?php endif; ?>
+        <a href="#" class="add-row">Add Row</a>
+    </div>
+    <script>
+        jQuery(document).ready(function($) {
+            $('#values-field').on('click', '.add-row', function(e) {
+                e.preventDefault();
+                var row = $('.values-row:last').clone();
+                var rowCount = $('.values-row').length;
+                row.find('input, textarea').each(function() {
+                    var name = $(this).attr('name');
+                    var nameParts = name.match(/\[(\d+)\]/);
+                    if (nameParts) {
+                        var newName = name.replace(nameParts[1], rowCount);
+                        $(this).attr('name', newName).val('');
+                    }
+                });
+                row.insertAfter('.values-row:last');
+            });
+
+            $('#values-field').on('click', '.remove-row', function(e) {
+                e.preventDefault();
+                if ($('.values-row').length > 1) {
+                    $(this).closest('.values-row').remove();
+                }
+            });
+        });
+    </script>
+    <?php
+}
 
 
+function save_values_meta_box($post_id) {
+    if (!isset($_POST['values_nonce_field']) || !wp_verify_nonce($_POST['values_nonce_field'], 'values_nonce')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    if (isset($_POST['values'])) {
+        $values_data = array_values($_POST['values']);
+        update_post_meta($post_id, 'values', $values_data);
+    }
+}
+add_action('save_post', 'save_values_meta_box');
+
+
+// Step 1: Add the Meta Box to Specific Pages and Custom Post Types
+function add_name_value_pair_meta_box() {
+    $specific_ids = array(
+        388 => 'Use this to display the stats',
+    );
+    $custom_post_types = array('custom_post_type1', 'custom_post_type2'); // Replace with your custom post types
+
+    $current_post_type = get_post_type();
+    $current_post_id = isset($_GET['post']) ? $_GET['post'] : (isset($_POST['post_ID']) ? $_POST['post_ID'] : '');
+
+    if (in_array($current_post_type, $custom_post_types) || array_key_exists($current_post_id, $specific_ids)) {
+        add_meta_box(
+            'name_value_pair_meta_box',
+            'Name Value Pair' . (array_key_exists($current_post_id, $specific_ids) ? ' (' . esc_html($specific_ids[$current_post_id]) . ')' : ''),
+            'display_name_value_pair_meta_box',
+            $current_post_type == 'page' ? 'page' : $current_post_type,
+            'normal',
+            'high'
+        );
+    }
+}
+add_action('add_meta_boxes', 'add_name_value_pair_meta_box');
+
+// Step 2: Display the Meta Box
+function display_name_value_pair_meta_box($post) {
+    $name_value_pair_data = get_post_meta($post->ID, 'name_value_pair', true);
+    wp_nonce_field('name_value_pair_nonce', 'name_value_pair_nonce_field');
+    ?>
+    <div id="name_value_pair-field">
+        <?php if ($name_value_pair_data) : ?>
+            <?php foreach ($name_value_pair_data as $index => $data) : ?>
+                <div class="name_value_pair-row">
+                    <input type="text" name="name_value_pair[<?php echo $index; ?>][field_name]" value="<?php echo esc_attr($data['field_name']); ?>" placeholder="Field Name" />
+                    <textarea name="name_value_pair[<?php echo $index; ?>][value]" placeholder="Value"><?php echo esc_textarea($data['value']); ?></textarea>
+                    <a href="#" class="remove-row">Remove</a>
+                </div>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <div class="name_value_pair-row">
+                <input type="text" name="name_value_pair[0][field_name]" value="" placeholder="Field Name" />
+                <textarea name="name_value_pair[0][value]" placeholder="Value"></textarea>
+                <a href="#" class="remove-row">Remove</a>
+            </div>
+        <?php endif; ?>
+        <a href="#" class="add-row">Add Row</a>
+    </div>
+    <script>
+        jQuery(document).ready(function($) {
+            $('#name_value_pair-field').on('click', '.add-row', function(e) {
+                e.preventDefault();
+                var row = $('.name_value_pair-row:last').clone();
+                var rowCount = $('.name_value_pair-row').length;
+                row.find('input, textarea').each(function() {
+                    var name = $(this).attr('name');
+                    var nameParts = name.match(/\[(\d+)\]/);
+                    if (nameParts) {
+                        var newName = name.replace(nameParts[1], rowCount);
+                        $(this).attr('name', newName).val('');
+                    }
+                });
+                row.insertAfter('.name_value_pair-row:last');
+            });
+
+            $('#name_value_pair-field').on('click', '.remove-row', function(e) {
+                e.preventDefault();
+                if ($('.name_value_pair-row').length > 1) {
+                    $(this).closest('.name_value_pair-row').remove();
+                }
+            });
+        });
+    </script>
+    <?php
+}
+
+// Step 3: Save the Name Value Pair Field Data
+function save_name_value_pair_meta_box($post_id) {
+    if (!isset($_POST['name_value_pair_nonce_field']) || !wp_verify_nonce($_POST['name_value_pair_nonce_field'], 'name_value_pair_nonce')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    if (isset($_POST['name_value_pair'])) {
+        $name_value_pair_data = array_values($_POST['name_value_pair']);
+        update_post_meta($post_id, 'name_value_pair', $name_value_pair_data);
+    }
+}
+add_action('save_post', 'save_name_value_pair_meta_box');
 
 
 
