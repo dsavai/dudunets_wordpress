@@ -30,7 +30,7 @@ $image = get_post_thumbnail($pager->ID);
                         </span>
                         <span class="text-sm font-semibold uppercase"><?php echo $pager->post_title?></span>
                     </div>
-                    <h1 class="text-6xl font-bold mt-4"><?php echo isset($pager->post_excerpt)?$pager->post_excerpt:""?></h1>
+                    <h1 class="text-4xl md:text-6xl font-bold mt-4"><?php echo isset($pager->post_excerpt)?$pager->post_excerpt:""?></h1>
                 </div>
             </div>
         </section>
