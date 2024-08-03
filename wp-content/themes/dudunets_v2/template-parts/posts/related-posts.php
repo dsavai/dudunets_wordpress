@@ -10,10 +10,10 @@ $related_posts = get_related_posts($post_id,2);
 <?php endif;?>
 
 <div>
-    <div class="mt-14 mb-10">
-        <h2 class="text-3xl font-bold">You may also like</h2>
+    <div class="mt-8 mb-5 lg:mt-14 lg:mb-10">
+        <h2 class="text-2xl md:text-3xl font-bold">You may also like</h2>
     </div>
-    <div class="grid grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-6">
         <?php foreach ($related_posts as $related_post):
             $categories = get_the_category($related_post->ID);
             $image = get_post_thumbnail($related_post->ID);

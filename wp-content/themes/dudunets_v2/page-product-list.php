@@ -7,7 +7,7 @@ $image = get_post_thumbnail($page->ID);
 ?>
 
 <main class="main">
-    <section class="module module--banner">
+    <section class="module module--banner mb-12 lg:mb-0">
         <div class="w-full h-[300px] bg-cover bg-no-repeat relative" style="background-image: url(<?php echo $image['image'][0]?>);">
             <div class="bg-black/40 absolute inset-0"></div>
             <div class="flex flex-col justify-center items-center h-full w-full relative z-20 text-white">
@@ -27,7 +27,6 @@ $image = get_post_thumbnail($page->ID);
     <?php get_template_part("template-parts/home-page/module","categories");?>
     <?php get_template_part("template-parts/home-page/module-what-we","do");?>
     <?php get_template_part("template-parts/home-page/module","query");?>
-    <p>&nbsp;</p>
     <?php get_template_part("template-parts/home-page/module","location");?>
 </main>
 

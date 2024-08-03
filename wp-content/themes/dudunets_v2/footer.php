@@ -12,9 +12,9 @@
 ?>
 
 
-<footer class="footer">
+<footer class="footer mt-12 lg:mt-16">
     <div class="container mx-auto">
-        <div class="bg-gray-light rounded-lg px-4 lg:px-0 lg:p-20">
+        <div class="bg-gray-light rounded-lg px-4 lg:px-20 lg:pt-20 lg:pb-2">
             <div class="lg:flex lg:mb-10 pb-6 lg:pb-14">
                 <div class="basis-1/4 py-6 lg:py-0">
                     <a href="#">

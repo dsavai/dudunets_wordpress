@@ -318,7 +318,18 @@ jQuery(document).ready(function (){
 const openMenuModal = document.getElementById("openMobileMenuOverlay");
 const menuMobileOverlay = document.getElementById("menuMobileOverlay");
 const body = document.querySelector("body")
-const menuMobileClose = document.getElementById("menuMobileClose")
+const menuMobileClose = document.getElementById("menuMobileClose");
+const menuHasChildren = document.querySelectorAll(".menu-item-has-children");
+const menuDropDowns = document.querySelectorAll(".m-nav-submenu");
+
+
+// menuHasChildren.forEach((button) => {
+//     button.addEventListener("click", () => {
+//         menuDropDowns.forEach(item => {
+//             item.classList.add("showMenu")
+//         })
+//     })
+// })
 
 openMenuModal.addEventListener("click", () =>{
     body.classList.add("disable-scrolling");
