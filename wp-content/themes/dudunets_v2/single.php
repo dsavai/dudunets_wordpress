@@ -13,8 +13,8 @@ $share_urls = get_share_links($post->ID);
     <section class="module module--blog-single-title">
         <div class="container mx-auto">
             <div class="my-14 flex flex-col justify-center text-center">
-                <h1 class="text-5xl font-medium"><?php echo $post->post_title;?></h1>
-                <div class="mt-5">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-medium"><?php echo $post->post_title;?></h1>
+                <div class="mt-5 hidden md:block">
                     <ul class="flex justify-center items-center gap-2">
                         <li>
                             <a href="<?php echo get_home_url()?>" class="text-sm font-semibold hover:text-primary hover:border-b hover:border-primary">Home</a>
@@ -40,14 +40,14 @@ $share_urls = get_share_links($post->ID);
     </section>
     <section class="module module--blog-single-banner">
         <div class="container mx-auto">
-            <div class="w-full h-[450px] overflow-hidden rounded-xl mb-10">
+            <div class="w-full h-[350px] lg:h-[450px] overflow-hidden md:rounded-xl mb-10">
                 <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
             </div>
         </div>
     </section>
     <section class="module module--blog-single-content">
-        <div class="container mx-auto">
-            <div class="flex gap-16">
+        <div class="container mx-auto px-4 lg:px-0">
+            <div class="lg:flex lg:gap-16">
                 <section class="module module--blog-content basis-8/12 mb-16">
                     <div class="flex gap-5 items-center mb-6">
                         <div>
@@ -66,7 +66,7 @@ $share_urls = get_share_links($post->ID);
                                 </span>
                             <span class="text-md font-medium"><?php echo $date?></span>
                         </div>
-                        <div class="flex items-center gap-3">
+                        <div class="hidden md:flex md:items-center md:gap-3">
                             <span class="w-1 h-1 bg-black/20 rounded-full"></span>
                             <span class="text-black/60 text-md font-medium"><?php echo estimate_reading_time($post->ID); ?></span>
                         </div>

@@ -17,15 +17,15 @@ $image = get_post_thumbnail($page->ID);
                         </span>
                         <span class="text-sm font-semibold uppercase"><?php echo $page->post_title?></span>
                     </div>
-                    <h1 class="text-6xl font-bold mt-4"><?php echo $page->post_excerpt?></h1>
+                    <h1 class="px-4 lg:px-0 text-4xl md:text-6xl font-bold mt-4"><?php echo $page->post_excerpt?></h1>
                 </div>
             </div>
         </section>
         <section class="module module--send-message">
             <div class="container mx-auto">
-                <div class="mx-20">
-                    <div class="grid grid-cols-2 gap-24">
-                        <div class="py-16">
+                <div class="lg:mx-20 lg:mt-10 mb-5 lg:mb-10 px-4 lg:px-0">
+                    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
+                        <div class="py-8 lg:py-16">
                             <div class="mb-10">
                                 <h4 class="text-sm uppercase text-primary font-bold mb-2">WRITE TO US</h4>
                                 <h2 class="text-3xl font-bold">Send us a message</h2>

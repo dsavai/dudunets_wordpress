@@ -123,7 +123,21 @@ $document = get_field('document',$brochure->ID);
                 <div class="flex justify-between">
                     <div class="flex items-center w-full lg:w-auto">
                         <ul class="flex justify-center lg:justify-start gap-4 lg:mr-7 w-full lg:w-auto">
-                            
+                            <?php $socials = get_custom_posts_by_slug('socials','ASC');
+                            ?>
+
+                            <?php
+                            foreach ($socials as $social):
+                            ?>
+                                <li>
+                                    <a href="<?php echo get_field("social_link",$social->ID)?>" class="block text-white">
+                                        <span class="sr-only"><?php echo $social->post_title?></span>
+                                        <svg class="w-5 h-5 fill-current">
+                                            <use xlink:href="<?php echo get_field("icon",$social->ID)?>"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            <?php endforeach;?>
                         </ul>
                         <div class="hidden lg:block">
                             <div class="text-white text-sm font-medium">Mon - Sat: 08.00am - 5.00pm</div>
@@ -184,7 +198,7 @@ $document = get_field('document',$brochure->ID);
         </div>
         <div id="menuMobileOverlay" class="hidden absolute inset-0 z-50 bg-white">
             <div>
-                <div id="menuMobileClose" class="text-white bg-secondary px-4 py-4 flex items-center gap-2 shadow-md cursor-pointer">
+                <div id="menuMobileClose" class="text-white bg-secondary px-4 py-4 flex justify-end items-center gap-2 shadow-md cursor-pointer">
                     <svg class="w-4 h-4">
                         <use xlink:href="#icon-close-button"></use>
                     </svg>

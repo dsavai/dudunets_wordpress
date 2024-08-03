@@ -18,20 +18,20 @@ get_header(); ?>
                     </span>
                     <span class="text-sm font-semibold uppercase">our blog</span>
                 </div>
-                <h1 class="text-6xl font-bold mt-4">Blog & resources</h1>
+                <h1 class="text-4xl md:text-6xl font-bold mt-4">Blog & resources</h1>
             </div>
         </div>
     </section>
 
     <section class="module module--blog">
         <div class="container mx-auto">
-            <div class="mt-10 mb-10">
+            <div class="mt-10 mb-5 lg:mb-10 px-4 lg:px-0">
                 <h4 class="text-sm uppercase text-primary font-bold mb-2">LATEST BLOG</h4>
                 <h2 class="text-3xl font-bold">Our news & articles</h2>
             </div>
-            <div class="flex gap-16">
-                <div class="basis-8/12 mb-16">
-                    <div class="grid grid-cols-2 gap-6">
+            <div class="lg:flex lg:gap-16 px-4 lg:px-0">
+                <div class="lg:basis-8/12 mb-16">
+                    <div class="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-6">
                         <?php
                         $query = new WP_Query(array(
                             'post_type' => 'post',
