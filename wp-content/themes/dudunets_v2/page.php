@@ -29,7 +29,7 @@ $image = get_post_thumbnail($page->ID);
                         </span>
                         <span class="text-sm font-semibold uppercase"><?php echo $page->post_title?></span>
                     </div>
-                    <h1 class="text-6xl font-bold mt-4"><?php echo isset($page->post_excerpt)?$page->post_excerpt:""?></h1>
+                    <h1 class="text-4xl md:text-6xl font-bold mt-4"><?php echo isset($page->post_excerpt)?$page->post_excerpt:""?></h1>
                 </div>
             </div>
         </section>
