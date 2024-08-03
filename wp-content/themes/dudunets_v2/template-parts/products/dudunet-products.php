@@ -10,7 +10,7 @@ $products = get_dudunet_products($term->slug);
 
             <div>
                 <a href="<?php echo get_the_permalink($product->ID)?>" class="block">
-                    <div class="mb-4 rounded-xl overflow-hidden">
+                    <div class="mb-4 rounded-xl overflow-hidden max-h-[230px] h-[230px]">
                         <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
                     </div>
                     <div class="flex flex-col justify-center items-center">
