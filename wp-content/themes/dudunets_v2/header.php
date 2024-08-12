@@ -18,6 +18,7 @@ $document = get_field('document',$brochure->ID);
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
@@ -131,7 +132,7 @@ $document = get_field('document',$brochure->ID);
                             foreach ($socials as $social):
                             ?>
                                 <li>
-                                    <a href="<?php echo get_field("social_link",$social->ID)?>" class="block text-white">
+                                    <a target="_blank" href="<?php echo get_field("social_link",$social->ID)?>" class="block text-white">
                                         <span class="sr-only"><?php echo $social->post_title?></span>
                                         <svg class="w-5 h-5 fill-current">
                                             <use xlink:href="<?php echo get_field("icon",$social->ID)?>"></use>

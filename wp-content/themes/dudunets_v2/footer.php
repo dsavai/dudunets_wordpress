@@ -50,10 +50,13 @@
                                 </svg>
                             </button>
                         </div>
+                        <p>&nbsp;</p>
+                        <div class="g-recaptcha" data-sitekey="6LdTrSMqAAAAACWpRLZSMJUHrDNxaZ0qFYNM75D9"></div>
                         <div class="mt-3 text-sm flex gap-2 items-start">
                             <input id="sign_up_latest_news" type="checkbox" class="relative top-2" />
                             <label for="sign_up_latest_news" class="cursor-pointer">Yes, sign up for the latest news, product announcements, and updates and I understand I can unsubscribe at any time.</label>
                         </div>
+                        
                         <div>
                             <span class="sr-only">reCaptcha</span>
                         </div>

@@ -5,17 +5,17 @@ $image = get_post_thumbnail($the_post->ID);
 $values_data = get_post_meta($the_post->ID, 'name_value_pair', true);
 ?>
 <section class="module module--what-we-do">
-    <div class="py-6 px-4 lg:py-24 lg:px-24">
+    <div class="py-24 px-24">
         <div class="container mx-auto">
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
-                <div class="w-[150px] h-[150px] lg:w-[480px] lg:h-[480px]">
+            <div class="grid grid-cols-2 gap-8">
+                <div class="w-[480px] h-[480px]">
                     <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-fullh-full object-cover" />
                 </div>
                 <div class="mt-10">
                     <h4 class="text-sm uppercase text-primary font-bold mb-3"><?php echo $the_post->post_title?></h4>
                     <h2 class="text-3xl font-bold"><?php echo $the_post->post_excerpt?></h2>
                     <?php if($values_data):?>
-                    <div class="accordion_module mt-7">
+                    <div class="mt-7">
                         <?php
                         $x = 1;
                         foreach ($values_data as $data):?>
@@ -26,10 +26,10 @@ $values_data = get_post_meta($the_post->ID, 'name_value_pair', true);
                                 <a href="#accordion-<?php echo $x?>" class="accordion_title flex justify-between items-center text-md font-bold">
                                     <span><?php echo esc_html($data['field_name']); ?></span>
                                     <span>
-                                        <svg class="w-6 h-6 fill-current">
-                                            <use xlink:href="#icon-arrowdown"></use>
-                                        </svg>
-                                    </span>
+                                            <svg class="w-6 h-6 fill-current">
+                                                <use xlink:href="#icon-arrowdown"></use>
+                                            </svg>
+                                        </span>
                                 </a>
                                 <div id="accordion-<?php echo $x?>" class="accordion_content mt-3 text-sm text-black/60">
                                     <p><?php echo esc_html($data['value']); ?></p>

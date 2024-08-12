@@ -319,27 +319,32 @@ function get_post_by_id($post_id) {
     }
 }
 
-function handle_submit_lead() {
-    if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['email']) ) {
-        $lead_name = sanitize_text_field($_POST['firstName']);
-        $lastName = sanitize_text_field($_POST['lastName']);
-        $email = sanitize_email($_POST['email']);
-        $message = sanitize_textarea_field($_POST['additional_notes']);
-        $selections = sanitize_text_field($_POST['selections']);
+function submit_page_lead() {
 
-        print_r($_POST);
+    if (isset($_POST['full_name'])  && isset($_POST['email']) ) {
+        $lead_name = sanitize_text_field($_POST['full_name']);
+        $email = sanitize_email($_POST['email']);
+        $message = sanitize_textarea_field($_POST['message']);
+        $form = sanitize_text_field($_POST['form']);
+        $mobile = sanitize_text_field($_POST['mobile']);
+
+        $recaptchaResponse = isset($_POST['recaptchaResponse']) ? $_POST['recaptchaResponse'] : "";
+
+        $response = create_feedback_post($form,$lead_name." : ".$mobile." : ".$email,date("Y-M-d H:i:s A"),$message,$recaptchaResponse);
+        print_r($response);
     } else {
         echo 'Missing data';
     }
 
     wp_die(); // This is required to terminate immediately and return a proper response
 }
-add_action('wp_ajax_submit_lead', 'handle_submit_lead'); // If called from admin panel
-add_action('wp_ajax_nopriv_submit_lead', 'handle_submit_lead'); // If called from elsewhere
+add_action('wp_ajax_submit_page_lead', 'submit_page_lead'); // If called from admin panel
+add_action('wp_ajax_nopriv_submit_page_lead', 'submit_page_lead'); // If called from elsewhere
 
 
 //front page form
-function handle_submit_page_lead() {
+function submit_front_page_lead() {
+    $message = " No Message ";
     if (isset($_POST['full_name'])  && isset($_POST['email']) ) {
         $lead_name = sanitize_text_field($_POST['full_name']);
         $email = sanitize_email($_POST['email']);
@@ -349,16 +354,19 @@ function handle_submit_page_lead() {
             $message = sanitize_text_field($_POST['message']);
         }
 
+        $recaptchaResponse = isset($_POST['recaptchaResponse']) ? $_POST['recaptchaResponse'] : "";
 
-        print_r($_POST);
+
+        $response = create_feedback_post("Front Page Lead Form",$lead_name." : ".$mobile." : ".$email,date("Y-M-d H:i:s A"),$message,$recaptchaResponse,false);
+        print_r($response);
     } else {
         echo 'Missing data';
     }
 
     wp_die(); // This is required to terminate immediately and return a proper response
 }
-add_action('wp_ajax_submit_page_lead', 'handle_submit_home_page_lead'); // If called from admin panel
-add_action('wp_ajax_nopriv_submit_page_lead', 'handle_submit_home_page_lead'); // If called from elsewhere
+add_action('wp_ajax_submit_front_page_lead', 'submit_front_page_lead'); // If called from admin panel
+add_action('wp_ajax_nopriv_submit_front_page_lead', 'submit_front_page_lead'); // If called from elsewhere
 
 
 
@@ -956,6 +964,8 @@ add_action('save_post', 'save_values_meta_box');
 function add_name_value_pair_meta_box() {
     $specific_ids = array(
         388 => 'Use this to display the stats',
+        224 => 'Use this to put data for the accordion',
+        391 => 'Use this to provide content for the what we do tabs'
     );
     $custom_post_types = array('custom_post_type1', 'custom_post_type2'); // Replace with your custom post types
 
@@ -1043,6 +1053,123 @@ function save_name_value_pair_meta_box($post_id) {
     }
 }
 add_action('save_post', 'save_name_value_pair_meta_box');
+
+// Create a new post for the custom post type 'feedback'
+function create_feedback_post($form, $source, $date, $responseData,$g_captcha_response = "",$validate_captcha=true) {
+
+    //prepare the response
+    $response = array();
+    
+    if($validate_captcha){
+     
+     $dataRow = validate_recaptcha($g_captcha_response);
+
+     if ($dataRow['success'] != 1) {
+         $response['success'] = 0;
+        $response['message'] = "Error Submitting lead: Captcha Validation Failed";
+     }
+}
+
+    // Prepare the post data
+    $post_data = array(
+        'post_title'    => $source . " Via : ".$form,  // Using form as title or modify as needed
+        'post_content'  => $responseData,             // Use responseData as the content
+        'post_status'   => 'publish',                 // Set to 'publish' to make it public, or use 'draft'
+        'post_type'     => 'formleads',               // Custom post type
+    );
+
+
+     
+
+
+    // Debugging: Print the post data array (remove in production)
+    //error_log(print_r($post_data, true));
+
+    // Insert the post into the database
+    $post_id = wp_insert_post($post_data);
+
+    // Debugging: Log the post ID or error message
+    if (is_wp_error($post_id)) {
+        error_log('Error creating post: ' . $post_id->get_error_message());
+    } else {
+        error_log('Post created with ID: ' . $post_id);
+    }
+
+    // Update the custom fields after the post is created 
+    // if (!is_wp_error($post_id)) {
+    //     update_field('form', $form, $post_id);
+    //     update_field('source', $source, $post_id);
+    //     update_field('date', $date, $post_id);
+    //     update_field('responseData', $responseData, $post_id);
+    // }
+
+    
+    
+    if (is_wp_error($post_id)) {
+        $response['success'] = 0;
+        $response['message'] = "Error Submitting lead: " . $post_id->get_error_message();
+    } else {
+        $response['success'] = 1;
+        $response['message'] = "Response successfully submitted! ID: ";
+    }
+
+    // Return the JSON-encoded response
+    return json_encode($response);
+}
+
+
+function validate_recaptcha($response){
+     $secret = "6LdTrSMqAAAAAHVoOkTD7FAtOzBHFTByUDDqmRhu";
+     $response = $g_captcha_response;
+     $url = "https://www.google.com/recaptcha/api/siteverify?secret=".$secret.'&response='.$response.'&remoteip='.$remote_ip;
+     $remote_ip = $_SERVER['REMOTE_ADDR'];
+     $responseData = file_get_contents($url);
+     $dataRow = json_decode($responseData);
+
+     return $dataRow;
+}
+
+
+
+
+function newsletter_subscription(){
+ $email = $_POST['email'];
+ $recaptchaResponse = isset($_POST['recaptchaResponse']) ? $_POST['recaptchaResponse'] : "";
+ $dataRow = validate_recaptcha($recaptchaResponse);
+
+     if ($dataRow['success'] != 1) {
+         $response['success'] = 0;
+        $response['message'] = "Error Submitting lead: Captcha Validation Failed";
+     }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        print_r(json_encode(array(
+           'success' => 0,
+           'error' => "Invalid Email",
+            'message' => "Invalid Email"
+        )));
+    }else {
+        $wordpress_post = array(
+            'post_title' => $email,
+            'post_content' => $email,
+            'post_status' => 'publish',
+            'post_author' => 1,
+            'post_type' => 'email-subscription'
+        );
+
+        wp_insert_post($wordpress_post);
+        print_r(json_encode(array(
+            'success' => 1,
+            'error' => '',
+            'message' => 'Thanks for subscribing'
+        )));
+    }
+ wp_die();
+}
+
+add_action('wp_ajax_newsletter_subscription', 'newsletter_subscription');
+add_action('wp_ajax_nopriv_newsletter_subscription', 'newsletter_subscription');
+
 
 
 

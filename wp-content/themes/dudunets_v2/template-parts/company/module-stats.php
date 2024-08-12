@@ -6,10 +6,10 @@ $image = get_post_thumbnail($the_page->ID);
 
 <section class="module module--stats">
     <div class="container mx-auto">
-        <div class="mb-24 mt-10">
+        <div class="mb-24 mt-10 px-4 lg:px-0">
             <div class="border border-black/10 rounded-lg overflow-hidden">
-                <div class="flex">
-                    <div class="basis-1/3">
+                <div class="lg:flex">
+                    <div class="lg:basis-1/3">
                         <div class="relative">
                             <div class="absolute inset-0 z-10 bg-cover bg-no-repeat" style="background-image: url(<?php echo $image['image'][0]?>);"></div>
                             <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary p-2 opacity-60 z-20"></div>
@@ -28,7 +28,7 @@ $image = get_post_thumbnail($the_page->ID);
                             </div>
                         </div>
                     </div>
-                    <div class="basis-8/12 grid grid-cols-3">
+                    <div class="lg:basis-8/12 grid grid-cols-1 lg:grid-cols-3">
 
                         <?php if (!empty($stats)): ?>
                             <?php foreach ($stats as $stat):?>
@@ -38,10 +38,11 @@ $image = get_post_thumbnail($the_page->ID);
                                 </div>
                             <?php endforeach;?>
                         <?php endif;?>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+

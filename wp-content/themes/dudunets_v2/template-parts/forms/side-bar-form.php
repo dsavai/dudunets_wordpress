@@ -38,6 +38,7 @@
             </label>
             <textarea name="message" id="form_message" placeholder="Write your message" class="w-full h-[100px] border-[1px] border-secondary/10 py-2 px-5 rounded-lg text-sm"></textarea>
         </div>
+        <div class="g-recaptcha" data-sitekey="6LdTrSMqAAAAACWpRLZSMJUHrDNxaZ0qFYNM75D9"></div>
         <div>
             <button type="submit" class="flex w-full gap-3 justify-center items-center bg-gradient-to-r from-primary to-secondary p-2 text-white px-8 py-3 rounded-full hover:from-secondary hover:to-primary transition-all duration-500 delay-500">Send message</button>
         </div>
