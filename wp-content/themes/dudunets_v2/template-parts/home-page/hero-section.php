@@ -13,11 +13,12 @@ $sliders = get_custom_posts_by_slug("front_page_slider","ASC");
                     $image = get_post_thumbnail($slider->ID);
                     $link = get_field("link",$slider->ID);
                     ?>
-                    
+                    <a href="#">
                     <div class="swiper-slide relative">
                         <div class="bg-black absolute inset-0 bg-opacity-20 z-10"></div>
                         <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image["alt"]?>" class="block w-full h-full object-cover" />
                     </div>
+                    </a>
                     
                     
                 <?php endforeach;?>
