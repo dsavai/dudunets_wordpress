@@ -18,6 +18,34 @@ $document = get_field('document',$brochure->ID);
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
+    <!-- HTML Meta Tags -->
+    <title</title>
+    <meta name="description" content="">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="citizen.digital">
+    <meta property="twitter:url" content="https://magneticdudunets.com/">
+    <meta name="twitter:title" content="Breaking news, Business, Kenya, Politics, Sports, Lifestyle, Entertainment, Opinion, TV, Radio & Podcasts">
+    <meta name="twitter:description" content="Citizen Digital - Get the latest breaking news in Kenya, county news, world news, elections news, Kenya politics, business, sports, entertainment, Exclusive Videos from Kenya. Watch Citizen TV and Listen to all Radio stations and Podcasts on the go.">
+    <meta name="twitter:image" content="">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHYXYKMYKH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-YHYXYKMYKH');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
