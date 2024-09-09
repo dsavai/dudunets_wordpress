@@ -1272,10 +1272,6 @@ video {
   gap: 50px;
 }
 
-.gap-10 {
-  gap: 2.5rem;
-}
-
 .gap-x-1 {
   -moz-column-gap: 0.25rem;
        column-gap: 0.25rem;
@@ -2341,22 +2337,6 @@ video {
 
   .lg\:gap-8 {
     gap: 2rem;
-  }
-
-  .lg\:gap-10 {
-    gap: 2.5rem;
-  }
-
-  .lg\:border-b-0 {
-    border-bottom-width: 0px;
-  }
-
-  .lg\:border-b {
-    border-bottom-width: 1px;
-  }
-
-  .lg\:border-r {
-    border-right-width: 1px;
   }
 
   .lg\:px-0 {
