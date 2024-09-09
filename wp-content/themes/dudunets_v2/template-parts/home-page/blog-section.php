@@ -70,7 +70,7 @@ $posts = get_posts($args);
                     <?php endif;?>
                 </div>
                 <div class="mt-12 flex justify-center">
-                    <a href="#" class="flex gap-3 items-center bg-gradient-to-r from-primary to-secondary p-2 text-white px-16 py-3 rounded-full hover:from-secondary hover:to-primary transition-all duration-500 delay-500">
+                    <a href="<?php echo get_page_url_by_slug('blog')?>" class="flex gap-3 items-center bg-gradient-to-r from-primary to-secondary p-2 text-white px-16 py-3 rounded-full hover:from-secondary hover:to-primary transition-all duration-500 delay-500">
                         <span>View more</span>
                         <span>
                                     <svg class="w-8 h-8 fill-current">

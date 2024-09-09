@@ -26,7 +26,18 @@ $post = get_post_by_id($post_id);
                         </div>
                     </a>
                 </div>
-               <?php echo apply_filters("the_content",$post->post_content);?>
+                <div>
+                    <h5 class="text-primary font-bold"><?php echo $post->post_title?></h5>
+                    <h2 class="mt-1 mb-2 text-3xl font-bold"><?php echo $post->post_excerpt?></h2>
+                    <p class="mb-6 text-black/60 font-medium leading-relaxed"><?php echo $post->post_content?></p>
+                    <a class="inline-flex gap-3 items-center bg-gradient-to-r from-primary to-secondary p-2 text-white px-8 py-3 rounded-full hover:from-secondary hover:to-primary transition-all duration-500 delay-500" href="<?php echo get_page_url_by_slug("product-list")?>">
+                        <span>View products</span>
+                        <span>
+                            <svg class="w-6 h-6 fill-current"><use xlink:href="#icon-right"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

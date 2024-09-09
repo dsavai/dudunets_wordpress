@@ -301,10 +301,8 @@ jQuery(document).ready(function (){
         },
 
         submitHandler: function(form) {
-            var recaptchaResponse = grecaptcha.getResponse();
-             if (recaptchaResponse.length === 0) {
-                  alert('Please complete the reCAPTCHA');
-             }
+           var submitButton = jQuery(form).find('button[type="submit"]');
+            submitButton.attr('disabled', true);
 
             let full_name = jQuery("input[name=full_name]").val();
 
@@ -332,8 +330,8 @@ jQuery(document).ready(function (){
 
                     location:location,
 
-                    form: "Front Page Form",
-                    recaptchaResponse : recaptchaResponse
+                    form: "Front Page Form"
+                    
 
                 },
 
@@ -341,6 +339,7 @@ jQuery(document).ready(function (){
                     var response = JSON.parse(response);
 
                   if (response.success == 1) {
+                    jQuery("#front_page_quote_form")[0].reset();
                         alert("Success: " + response.message);
                     } else {
                         alert("Error: " + response.message);
@@ -353,6 +352,10 @@ jQuery(document).ready(function (){
                     alert("There was an error submitting your response please try again later");
 
                 },
+                complete: function () {
+                    // Re-enable the submit button
+                    submitButton.attr('disabled', false);
+                }
 
             });
 
@@ -461,6 +464,9 @@ jQuery(document).ready(function (){
         },
 
         submitHandler: function(form) {
+
+            var submitButton = jQuery(form).find('button[type="submit"]');
+            submitButton.attr('disabled', true).text('Submitting...');
             var recaptchaResponse = grecaptcha.getResponse();
              if (recaptchaResponse.length === 0) {
                   alert('Please complete the reCAPTCHA');
@@ -506,6 +512,7 @@ jQuery(document).ready(function (){
                var response = JSON.parse(response);
 
                   if (response.success == 1) {
+                    jQuery("#sidebar_form")[0].reset();
                         alert("Success: " + response.message);
                     } else {
                         alert("Error: " + response.message);
@@ -518,6 +525,10 @@ jQuery(document).ready(function (){
                     alert("There was an error submitting your response please try again later");
 
                 },
+                complete: function () {
+                    // Re-enable the submit button
+                    submitButton.attr('disabled', false).text('Submit');
+                }
 
             });
 
@@ -607,6 +618,9 @@ jQuery(document).ready(function (){
 
         submitHandler: function(form) {
 
+            var submitButton = jQuery(form).find('button[type="submit"]');
+            submitButton.attr('disabled', true).text('Submitting...');
+
             var recaptchaResponse = grecaptcha.getResponse();
              if (recaptchaResponse.length === 0) {
                   alert('Please complete the reCAPTCHA');
@@ -653,6 +667,7 @@ jQuery(document).ready(function (){
                     var response = JSON.parse(response);
 
                   if (response.success == 1) {
+                    jQuery("#contact_form")[0].reset();
                         alert("Success: " + response.message);
                     } else {
                         alert("Error: " + response.message);
@@ -665,6 +680,10 @@ jQuery(document).ready(function (){
                     alert("There was an error submitting your response please try again later");
 
                 },
+                complete: function () {
+                    // Re-enable the submit button
+                    submitButton.attr('disabled', false).text('Submit');
+                }
 
             });
 

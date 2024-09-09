@@ -330,6 +330,7 @@ function submit_page_lead() {
 
         $recaptchaResponse = isset($_POST['recaptchaResponse']) ? $_POST['recaptchaResponse'] : "";
 
+
         $response = create_feedback_post($form,$lead_name." : ".$mobile." : ".$email,date("Y-M-d H:i:s A"),$message,$recaptchaResponse);
         print_r($response);
     } else {
@@ -1064,10 +1065,14 @@ function create_feedback_post($form, $source, $date, $responseData,$g_captcha_re
      
      $dataRow = validate_recaptcha($g_captcha_response);
 
-     if ($dataRow['success'] != 1) {
+     if (!$dataRow->success) {
          $response['success'] = 0;
         $response['message'] = "Error Submitting lead: Captcha Validation Failed";
+
+         print_r(json_encode($response));
+         wp_die();
      }
+
 }
 
     // Prepare the post data
@@ -1110,7 +1115,7 @@ function create_feedback_post($form, $source, $date, $responseData,$g_captcha_re
         $response['message'] = "Error Submitting lead: " . $post_id->get_error_message();
     } else {
         $response['success'] = 1;
-        $response['message'] = "Response successfully submitted! ID: ";
+        $response['message'] = "Response successfully submitted! ";
     }
 
     // Return the JSON-encoded response
@@ -1120,7 +1125,6 @@ function create_feedback_post($form, $source, $date, $responseData,$g_captcha_re
 
 function validate_recaptcha($response){
      $secret = "6LdTrSMqAAAAAHVoOkTD7FAtOzBHFTByUDDqmRhu";
-     $response = $g_captcha_response;
      $url = "https://www.google.com/recaptcha/api/siteverify?secret=".$secret.'&response='.$response.'&remoteip='.$remote_ip;
      $remote_ip = $_SERVER['REMOTE_ADDR'];
      $responseData = file_get_contents($url);
@@ -1133,14 +1137,38 @@ function validate_recaptcha($response){
 
 
 function newsletter_subscription(){
+    $response = array();
  $email = $_POST['email'];
+
+ if (empty($email)) {
+     $response['success'] = 0;
+        $response['message'] = "Error Submitting lead: Please provide an email";
+
+         print_r(json_encode($response));
+         wp_die();
+ }
+
  $recaptchaResponse = isset($_POST['recaptchaResponse']) ? $_POST['recaptchaResponse'] : "";
  $dataRow = validate_recaptcha($recaptchaResponse);
 
-     if ($dataRow['success'] != 1) {
+
+ 
+
+     if (!$dataRow->success) {
          $response['success'] = 0;
         $response['message'] = "Error Submitting lead: Captcha Validation Failed";
+
+         print_r(json_encode($response));
+         wp_die();
      }
+
+     
+
+
+
+
+
+
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         print_r(json_encode(array(
@@ -1169,6 +1197,346 @@ function newsletter_subscription(){
 
 add_action('wp_ajax_newsletter_subscription', 'newsletter_subscription');
 add_action('wp_ajax_nopriv_newsletter_subscription', 'newsletter_subscription');
+
+
+// Step 1: Add the Meta Box to Specific Pages and Custom Post Types
+function add_three_value_input_meta_box() {
+    $specific_ids = array(
+        207 => 'Use These For The Highlights'
+    );
+    $custom_post_types = array('custom_post_type1', 'custom_post_type2'); // Replace with your custom post types
+
+    $current_post_type = get_post_type();
+    $current_post_id = isset($_GET['post']) ? $_GET['post'] : (isset($_POST['post_ID']) ? $_POST['post_ID'] : '');
+
+    if (in_array($current_post_type, $custom_post_types) || array_key_exists($current_post_id, $specific_ids)) {
+        add_meta_box(
+            'three_value_input_meta_box',
+            'Three Value Input' . (array_key_exists($current_post_id, $specific_ids) ? ' (' . esc_html($specific_ids[$current_post_id]) . ')' : ''),
+            'display_three_value_input_meta_box',
+            $current_post_type == 'page' ? 'page' : $current_post_type,
+            'normal',
+            'high'
+        );
+    }
+}
+add_action('add_meta_boxes', 'add_three_value_input_meta_box');
+
+// Step 2: Display the Meta Box
+function display_three_value_input_meta_box($post) {
+    $three_value_input_data = get_post_meta($post->ID, 'three_value_input', true);
+    $pages = get_pages(); // Retrieve all WordPress pages
+    wp_nonce_field('three_value_input_nonce', 'three_value_input_nonce_field');
+    ?>
+    <div id="three_value_input-field">
+        <?php if ($three_value_input_data) : ?>
+            <?php foreach ($three_value_input_data as $index => $data) : ?>
+                <div class="three_value_input-row">
+                    <input type="text" name="three_value_input[<?php echo $index; ?>][field_name_1]" value="<?php echo esc_attr($data['field_name_1']); ?>" placeholder="Field Name 1" />
+                    <input type="text" name="three_value_input[<?php echo $index; ?>][field_name_2]" value="<?php echo esc_attr($data['field_name_2']); ?>" placeholder="Field Name 2" />
+                    <textarea name="three_value_input[<?php echo $index; ?>][text_area_1]" placeholder="Text Area 1"><?php echo esc_textarea($data['text_area_1']); ?></textarea>
+                    <select name="three_value_input[<?php echo $index; ?>][link_field]">
+                        <option value="">Select a Page</option>
+                        <?php foreach ($pages as $page) : ?>
+                            <option value="<?php echo get_permalink($page->ID); ?>" <?php selected($data['link_field'], get_permalink($page->ID)); ?>>
+                                <?php echo esc_html($page->post_title); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <a href="#" class="remove-row">Remove</a>
+                </div>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <div class="three_value_input-row">
+                <input type="text" name="three_value_input[0][field_name_1]" value="" placeholder="Field Name 1" />
+                <input type="text" name="three_value_input[0][field_name_2]" value="" placeholder="Field Name 2" />
+                <textarea name="three_value_input[0][text_area_1]" placeholder="Text Area 1"></textarea>
+                <select name="three_value_input[0][link_field]">
+                    <option value="">Select a Page</option>
+                    <?php foreach ($pages as $page) : ?>
+                        <option value="<?php echo get_permalink($page->ID); ?>">
+                            <?php echo esc_html($page->post_title); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <a href="#" class="remove-row">Remove</a>
+            </div>
+        <?php endif; ?>
+        <a href="#" class="add-row">Add Row</a>
+    </div>
+    <script>
+        jQuery(document).ready(function($) {
+            $('#three_value_input-field').on('click', '.add-row', function(e) {
+                e.preventDefault();
+                var row = $('.three_value_input-row:last').clone();
+                var rowCount = $('.three_value_input-row').length;
+                row.find('input, textarea, select').each(function() {
+                    var name = $(this).attr('name');
+                    var nameParts = name.match(/\[(\d+)\]/);
+                    if (nameParts) {
+                        var newName = name.replace(nameParts[1], rowCount);
+                        $(this).attr('name', newName).val('');
+                    }
+                });
+                row.insertAfter('.three_value_input-row:last');
+            });
+
+            $('#three_value_input-field').on('click', '.remove-row', function(e) {
+                e.preventDefault();
+                if ($('.three_value_input-row').length > 1) {
+                    $(this).closest('.three_value_input-row').remove();
+                }
+            });
+        });
+    </script>
+    <?php
+}
+
+// Step 3: Save the Three Value Input Field Data
+function save_three_value_input_meta_box($post_id) {
+    if (!isset($_POST['three_value_input_nonce_field']) || !wp_verify_nonce($_POST['three_value_input_nonce_field'], 'three_value_input_nonce')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    if (isset($_POST['three_value_input'])) {
+        $three_value_input_data = array_values($_POST['three_value_input']);
+        update_post_meta($post_id, 'three_value_input', $three_value_input_data);
+    }
+}
+add_action('save_post', 'save_three_value_input_meta_box');
+
+
+
+
+
+
+// Add a custom meta box to the post and page edit screens
+function add_social_meta_tags_meta_box() {
+    add_meta_box(
+        'social_meta_tags_meta_box',
+        'Social Meta Tags',
+        'display_social_meta_tags_meta_box',
+        array('post', 'page'), // Apply to posts and pages
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'add_social_meta_tags_meta_box');
+
+// Display the meta box in the admin
+function display_social_meta_tags_meta_box($post) {
+    // Retrieve the current meta tag values if they exist
+    $og_url = get_post_meta($post->ID, '_og_url', true);
+    $og_title = get_post_meta($post->ID, '_og_title', true);
+    $og_description = get_post_meta($post->ID, '_og_description', true);
+    $og_image = get_post_meta($post->ID, '_og_image', true);
+    $twitter_title = get_post_meta($post->ID, '_twitter_title', true);
+    $twitter_description = get_post_meta($post->ID, '_twitter_description', true);
+    $twitter_image = get_post_meta($post->ID, '_twitter_image', true);
+
+    // Nonce field for security
+    wp_nonce_field('save_social_meta_tags', 'social_meta_tags_nonce');
+    ?>
+    <p>
+        <label for="og_url">Facebook OG URL:</label><br>
+        <input type="url" id="og_url" name="og_url" value="<?php echo esc_url($og_url); ?>" style="width:100%;" />
+    </p>
+    <p>
+        <label for="og_title">Facebook OG Title:</label><br>
+        <input type="text" id="og_title" name="og_title" value="<?php echo esc_attr($og_title); ?>" style="width:100%;" />
+    </p>
+    <p>
+        <label for="og_description">Facebook OG Description:</label><br>
+        <textarea id="og_description" name="og_description" rows="3" style="width:100%;"><?php echo esc_textarea($og_description); ?></textarea>
+    </p>
+    <p>
+        <label for="og_image">Facebook OG Image URL:</label><br>
+        <input type="url" id="og_image" name="og_image" value="<?php echo esc_url($og_image); ?>" style="width:100%;" />
+    </p>
+    <hr>
+    <p>
+        <label for="twitter_title">Twitter Title:</label><br>
+        <input type="text" id="twitter_title" name="twitter_title" value="<?php echo esc_attr($twitter_title); ?>" style="width:100%;" />
+    </p>
+    <p>
+        <label for="twitter_description">Twitter Description:</label><br>
+        <textarea id="twitter_description" name="twitter_description" rows="3" style="width:100%;"><?php echo esc_textarea($twitter_description); ?></textarea>
+    </p>
+    <p>
+        <label for="twitter_image">Twitter Image URL:</label><br>
+        <input type="url" id="twitter_image" name="twitter_image" value="<?php echo esc_url($twitter_image); ?>" style="width:100%;" />
+    </p>
+    <?php
+}
+
+// Save the meta tag data when the post or page is saved
+function save_social_meta_tags_meta_box($post_id) {
+    // Verify the nonce
+    if (!isset($_POST['social_meta_tags_nonce']) || !wp_verify_nonce($_POST['social_meta_tags_nonce'], 'save_social_meta_tags')) {
+        return;
+    }
+
+    // Prevent autosave
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    // Check user permissions
+    if (isset($_POST['post_type']) && in_array($_POST['post_type'], array('page', 'post'))) {
+        if (!current_user_can('edit_' . $_POST['post_type'], $post_id)) {
+            return;
+        }
+    }
+
+    // Save or update the Facebook OG URL
+    if (isset($_POST['og_url'])) {
+        update_post_meta($post_id, '_og_url', esc_url_raw($_POST['og_url']));
+    }
+
+    // Save or update the Facebook OG Title
+    if (isset($_POST['og_title'])) {
+        update_post_meta($post_id, '_og_title', sanitize_text_field($_POST['og_title']));
+    }
+
+    // Save or update the Facebook OG Description
+    if (isset($_POST['og_description'])) {
+        update_post_meta($post_id, '_og_description', sanitize_text_field($_POST['og_description']));
+    }
+
+    // Save or update the Facebook OG Image
+    if (isset($_POST['og_image'])) {
+        update_post_meta($post_id, '_og_image', esc_url_raw($_POST['og_image']));
+    }
+
+    // Save or update the Twitter Title
+    if (isset($_POST['twitter_title'])) {
+        update_post_meta($post_id, '_twitter_title', sanitize_text_field($_POST['twitter_title']));
+    }
+
+    // Save or update the Twitter Description
+    if (isset($_POST['twitter_description'])) {
+        update_post_meta($post_id, '_twitter_description', sanitize_text_field($_POST['twitter_description']));
+    }
+
+    // Save or update the Twitter Image
+    if (isset($_POST['twitter_image'])) {
+        update_post_meta($post_id, '_twitter_image', esc_url_raw($_POST['twitter_image']));
+    }
+}
+add_action('save_post', 'save_social_meta_tags_meta_box');
+
+
+
+
+function output_social_meta_tags() {
+    if (is_singular(array('post', 'page'))) {
+        global $post;
+        $og_url = get_post_meta($post->ID, '_og_url', true) ?: get_permalink($post->ID);
+        $og_title = get_post_meta($post->ID, '_og_title', true) ?: get_the_title($post->ID);
+        $og_description = get_post_meta($post->ID, '_og_description', true) ?: get_bloginfo('description');
+        $og_image = get_post_meta($post->ID, '_og_image', true);
+        $twitter_title = get_post_meta($post->ID, '_twitter_title', true) ?: get_the_title($post->ID);
+        $twitter_description = get_post_meta($post->ID, '_twitter_description', true) ?: get_bloginfo('description');
+        $twitter_image = get_post_meta($post->ID, '_twitter_image', true);
+
+        // Facebook Open Graph Tags
+        echo '<meta property="og:url" content="' . esc_url($og_url) . '">' . "\n";
+        echo '<meta property="og:type" content="website">' . "\n";
+        echo '<meta property="og:title" content="' . esc_attr($og_title) . '">' . "\n";
+        echo '<meta property="og:description" content="' . esc_attr($og_description) . '">' . "\n";
+        if ($og_image) {
+            echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+        }
+
+        // Twitter Meta Tags
+        echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+        echo '<meta property="twitter:domain" content="' . esc_attr($_SERVER['HTTP_HOST']) . '">' . "\n";
+        echo '<meta property="twitter:url" content="' . esc_url($og_url) . '">' . "\n";
+        echo '<meta name="twitter:title" content="' . esc_attr($twitter_title) . '">' . "\n";
+        echo '<meta name="twitter:description" content="' . esc_attr($twitter_description) . '">' . "\n";
+        if ($twitter_image) {
+            echo '<meta name="twitter:image" content="' . esc_url($twitter_image) . '">' . "\n";
+        }
+    }
+}
+add_action('wp_head', 'output_social_meta_tags');
+
+
+add_filter('document_title_parts', 'my_custom_title');
+function my_custom_title( $title ) {
+  // $title is an array of title parts, including one called `title`
+    global $post;
+
+  $title['title'] = 'Magnetic Dudunets | '.$post->post_title;
+
+  if (is_singular('post')) {
+    $title['title'] = 'Post: ' . $title['title'];
+  }
+
+  return $title;
+}
+
+
+
+function add_meta_description_metabox() {
+    add_meta_box(
+        'meta_description', // Unique ID for the meta box
+        'Meta Description', // Meta box title
+        'meta_description_metabox_callback', // Callback function
+        ['post', 'page'], // Post types where the meta box should appear
+        'normal', // Context (normal, side, etc.)
+        'high' // Priority
+    );
+}
+add_action('add_meta_boxes', 'add_meta_description_metabox');
+
+function meta_description_metabox_callback($post) {
+    // Retrieve current meta description
+    $meta_description = get_post_meta($post->ID, '_meta_description', true);
+
+    // Meta box form
+    echo '<label for="meta_description">Enter Meta Description:</label>';
+    echo '<textarea id="meta_description" name="meta_description" rows="4" style="width:100%;">' . esc_textarea($meta_description) . '</textarea>';
+}
+
+
+
+
+function save_meta_description($post_id) {
+    // Check if the current user has permission to edit the post or page
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    // Check if the meta description field is set
+    if (isset($_POST['meta_description'])) {
+        update_post_meta($post_id, '_meta_description', sanitize_text_field($_POST['meta_description']));
+    }
+}
+add_action('save_post', 'save_meta_description');
+
+
+
+
+
+
+function add_meta_description_to_header() {
+    if (is_singular(['post', 'page'])) {
+        global $post;
+        $meta_description = get_post_meta($post->ID, '_meta_description', true);
+        
+        if ($meta_description) {
+            echo '<meta name="description" content="' . esc_attr($meta_description) . '">';
+        }
+    }
+}
+add_action('wp_head', 'add_meta_description_to_header');
+
 
 
 

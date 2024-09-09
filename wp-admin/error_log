@@ -1,0 +1,304 @@
+[05-Aug-2024 17:40:33 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_submit_home_page_lead" not found or invalid function name in /home/magnetic/public_html/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#3 {main}
+  thrown in /home/magnetic/public_html/wp-includes/class-wp-hook.php on line 324
+[06-Aug-2024 12:14:54 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 550
+[06-Aug-2024 13:16:36 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 550
+[06-Aug-2024 13:17:40 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 550
+[06-Aug-2024 16:04:00 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 550
+[07-Aug-2024 07:07:03 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_submit_home_page_lead" not found or invalid function name in /home/magnetic/public_html/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#3 {main}
+  thrown in /home/magnetic/public_html/wp-includes/class-wp-hook.php on line 324
+[08-Aug-2024 09:46:31 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_submit_home_page_lead" not found or invalid function name in /home/magnetic/public_html/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#3 {main}
+  thrown in /home/magnetic/public_html/wp-includes/class-wp-hook.php on line 324
+[08-Aug-2024 09:46:34 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_submit_home_page_lead" not found or invalid function name in /home/magnetic/public_html/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#3 {main}
+  thrown in /home/magnetic/public_html/wp-includes/class-wp-hook.php on line 324
+[08-Aug-2024 09:46:37 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_submit_home_page_lead" not found or invalid function name in /home/magnetic/public_html/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#3 {main}
+  thrown in /home/magnetic/public_html/wp-includes/class-wp-hook.php on line 324
+[08-Aug-2024 09:46:38 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_submit_home_page_lead" not found or invalid function name in /home/magnetic/public_html/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#3 {main}
+  thrown in /home/magnetic/public_html/wp-includes/class-wp-hook.php on line 324
+[08-Aug-2024 09:46:41 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_submit_home_page_lead" not found or invalid function name in /home/magnetic/public_html/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#3 {main}
+  thrown in /home/magnetic/public_html/wp-includes/class-wp-hook.php on line 324
+[09-Aug-2024 15:08:54 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 550
+[09-Aug-2024 15:09:09 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 550
+[09-Aug-2024 15:46:10 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 550
+[09-Aug-2024 16:49:35 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `wp_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-08-09 16:49:35', '2024-08-09 16:49:35', NULL, '', '0724598726 eevev@ecv.com', '', 'publish', 'leads', 'closed', 'closed', '', '0724598726-eevevecv-com', '', '', '2024-08-09 16:49:35', '2024-08-09 16:49:35', 0, 0, '', '') made by do_action('wp_ajax_submit_front_page_lead'), WP_Hook->do_action, WP_Hook->apply_filters, submit_front_page_lead, create_feedback_post, wp_insert_post
+[09-Aug-2024 16:50:25 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `wp_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-08-09 16:50:25', '2024-08-09 16:50:25', NULL, '', '0724598726 eevev@ecv.com', '', 'publish', 'leads', 'closed', 'closed', '', '0724598726-eevevecv-com', '', '', '2024-08-09 16:50:25', '2024-08-09 16:50:25', 0, 0, '', '') made by do_action('wp_ajax_submit_front_page_lead'), WP_Hook->do_action, WP_Hook->apply_filters, submit_front_page_lead, create_feedback_post, wp_insert_post
+[09-Aug-2024 16:52:01 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `wp_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-08-09 16:52:01', '2024-08-09 16:52:01', NULL, '', 'Front Page Lead Form', '', 'publish', 'leads', 'closed', 'closed', '', 'front-page-lead-form', '', '', '2024-08-09 16:52:01', '2024-08-09 16:52:01', 0, 0, '', '') made by do_action('wp_ajax_submit_front_page_lead'), WP_Hook->do_action, WP_Hook->apply_filters, submit_front_page_lead, create_feedback_post, wp_insert_post
+[09-Aug-2024 16:58:39 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `wp_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-08-09 16:58:39', '2024-08-09 16:58:39', NULL, '', 'Front Page Lead Form', '', 'publish', 'leads', 'closed', 'closed', '', 'front-page-lead-form', '', '', '2024-08-09 16:58:39', '2024-08-09 16:58:39', 0, 0, '', '') made by do_action('wp_ajax_submit_front_page_lead'), WP_Hook->do_action, WP_Hook->apply_filters, submit_front_page_lead, create_feedback_post, wp_insert_post
+[09-Aug-2024 17:00:03 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `wp_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-08-09 17:00:03', '2024-08-09 17:00:03', NULL, '', 'Front Page Lead Form', '', 'publish', 'leads', 'closed', 'closed', '', 'front-page-lead-form', '', '', '2024-08-09 17:00:03', '2024-08-09 17:00:03', 0, 0, '', '') made by do_action('wp_ajax_submit_front_page_lead'), WP_Hook->do_action, WP_Hook->apply_filters, submit_front_page_lead, create_feedback_post, wp_insert_post
+[09-Aug-2024 17:06:17 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `wp_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-08-09 17:06:17', '2024-08-09 17:06:17', NULL, '', 'Front Page Lead Form', '', 'publish', 'leads', 'closed', 'closed', '', 'front-page-lead-form', '', '', '2024-08-09 17:06:17', '2024-08-09 17:06:17', 0, 0, '', '') made by do_action('wp_ajax_submit_front_page_lead'), WP_Hook->do_action, WP_Hook->apply_filters, submit_front_page_lead, create_feedback_post, wp_insert_post
+[09-Aug-2024 17:10:01 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `wp_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-08-09 17:10:01', '2024-08-09 17:10:01', NULL, '', 'Front Page Lead Form', '', 'publish', 'leads', 'closed', 'closed', '', 'front-page-lead-form', '', '', '2024-08-09 17:10:01', '2024-08-09 17:10:01', 0, 0, '', '') made by do_action('wp_ajax_submit_front_page_lead'), WP_Hook->do_action, WP_Hook->apply_filters, submit_front_page_lead, create_feedback_post, wp_insert_post
+[09-Aug-2024 17:15:33 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `wp_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-08-09 17:15:33', '2024-08-09 17:15:33', NULL, '', 'Front Page Lead Form', '', 'publish', 'leads', 'closed', 'closed', '', 'front-page-lead-form', '', '', '2024-08-09 17:15:33', '2024-08-09 17:15:33', 0, 0, '', '') made by do_action('wp_ajax_submit_front_page_lead'), WP_Hook->do_action, WP_Hook->apply_filters, submit_front_page_lead, create_feedback_post, wp_insert_post
+[09-Aug-2024 17:19:29 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `wp_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-08-09 17:19:29', '2024-08-09 17:19:29', NULL, '', 'Front Page Lead Form', '', 'publish', 'formleads', 'closed', 'closed', '', 'front-page-lead-form', '', '', '2024-08-09 17:19:29', '2024-08-09 17:19:29', 0, 0, '', '') made by do_action('wp_ajax_submit_front_page_lead'), WP_Hook->do_action, WP_Hook->apply_filters, submit_front_page_lead, create_feedback_post, wp_insert_post
+[09-Aug-2024 17:26:56 UTC] PHP Warning:  Undefined array key "firstName" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 324
+[09-Aug-2024 17:26:56 UTC] PHP Warning:  Undefined array key "lastName" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 325
+[09-Aug-2024 17:26:56 UTC] PHP Warning:  Undefined array key "additional_notes" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[09-Aug-2024 17:26:56 UTC] PHP Warning:  Undefined array key "selections" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 328
+[09-Aug-2024 17:26:56 UTC] PHP Warning:  Undefined array key "source" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 329
+[09-Aug-2024 17:35:39 UTC] PHP Warning:  Undefined array key "firstName" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 324
+[09-Aug-2024 17:35:39 UTC] PHP Warning:  Undefined array key "lastName" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 325
+[09-Aug-2024 17:35:39 UTC] PHP Warning:  Undefined array key "additional_notes" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[09-Aug-2024 17:35:39 UTC] PHP Warning:  Undefined array key "selections" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 328
+[09-Aug-2024 17:35:39 UTC] PHP Warning:  Undefined array key "source" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 329
+[09-Aug-2024 17:37:27 UTC] PHP Warning:  Undefined array key "firstName" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 324
+[09-Aug-2024 17:37:27 UTC] PHP Warning:  Undefined array key "lastName" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 325
+[09-Aug-2024 17:37:27 UTC] PHP Warning:  Undefined array key "additional_notes" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[09-Aug-2024 17:37:27 UTC] PHP Warning:  Undefined array key "selections" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 328
+[09-Aug-2024 17:37:27 UTC] PHP Warning:  Undefined array key "source" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 329
+[09-Aug-2024 17:41:36 UTC] PHP Warning:  Undefined array key "firstName" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 324
+[09-Aug-2024 17:41:36 UTC] PHP Warning:  Undefined array key "lastName" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 325
+[09-Aug-2024 17:41:36 UTC] PHP Warning:  Undefined array key "additional_notes" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[09-Aug-2024 17:41:36 UTC] PHP Warning:  Undefined array key "selections" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 328
+[09-Aug-2024 17:41:36 UTC] PHP Warning:  Undefined array key "source" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 329
+[09-Aug-2024 17:41:36 UTC] Array
+(
+    [post_title] => 
+    [post_content] => 
+    [post_status] => publish
+    [post_type] => formleads
+)
+
+[09-Aug-2024 17:41:36 UTC] Post created with ID: 0
+[10-Aug-2024 07:59:37 UTC] PHP Warning:  Undefined array key "firstName" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 324
+[10-Aug-2024 07:59:37 UTC] PHP Warning:  Undefined array key "lastName" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 325
+[10-Aug-2024 07:59:37 UTC] PHP Warning:  Undefined array key "additional_notes" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[10-Aug-2024 07:59:37 UTC] PHP Warning:  Undefined array key "selections" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 328
+[10-Aug-2024 07:59:37 UTC] PHP Warning:  Undefined array key "source" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 329
+[10-Aug-2024 08:11:13 UTC] PHP Warning:  Undefined array key "additional_notes" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 326
+[10-Aug-2024 08:11:13 UTC] PHP Warning:  Undefined array key "source" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[10-Aug-2024 08:21:59 UTC] PHP Warning:  Undefined array key "additional_notes" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 326
+[10-Aug-2024 08:21:59 UTC] PHP Warning:  Undefined array key "source" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[10-Aug-2024 08:24:39 UTC] PHP Warning:  Undefined array key "additional_notes" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 326
+[10-Aug-2024 08:24:39 UTC] PHP Warning:  Undefined array key "source" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[10-Aug-2024 08:28:48 UTC] PHP Warning:  Undefined array key "additional_notes" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 326
+[10-Aug-2024 08:30:21 UTC] PHP Warning:  Undefined array key "additional_notes" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 326
+[10-Aug-2024 08:34:00 UTC] Post created with ID: 467
+[10-Aug-2024 08:39:17 UTC] Post created with ID: 468
+[10-Aug-2024 08:40:14 UTC] Post created with ID: 469
+[10-Aug-2024 08:40:35 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `wp_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-08-10 08:40:35', '2024-08-10 08:40:35', NULL, '', 'wdw : 0724599734 : ottawawyclihfu@hsbdf.comVia : Front Page Lead Form', '', 'publish', 'formleads', 'closed', 'closed', '', 'wdw-0724599734-ottawawyclihfuhsbdf-comvia-front-page-lead-form', '', '', '2024-08-10 08:40:35', '2024-08-10 08:40:35', 0, 0, '', '') made by do_action('wp_ajax_submit_front_page_lead'), WP_Hook->do_action, WP_Hook->apply_filters, submit_front_page_lead, create_feedback_post, wp_insert_post
+[10-Aug-2024 08:40:35 UTC] Post created with ID: 0
+[10-Aug-2024 08:42:48 UTC] Post created with ID: 470
+[10-Aug-2024 09:48:10 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1057
+[10-Aug-2024 10:04:38 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1062
+[12-Aug-2024 17:52:37 UTC] Post created with ID: 484
+[12-Aug-2024 18:07:10 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[12-Aug-2024 18:07:10 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[12-Aug-2024 18:07:10 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1140
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(192): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1140
+[12-Aug-2024 18:07:14 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[12-Aug-2024 18:07:14 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[12-Aug-2024 18:07:14 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1140
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(192): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1140
+[12-Aug-2024 18:07:16 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[12-Aug-2024 18:07:16 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[12-Aug-2024 18:07:17 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1140
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(192): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1140
+[12-Aug-2024 18:07:32 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[12-Aug-2024 18:07:32 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[12-Aug-2024 18:07:32 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1140
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(192): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1140
+[14-Aug-2024 16:54:39 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 16:54:39 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[14-Aug-2024 16:54:40 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1140
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1140
+[14-Aug-2024 16:56:03 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 16:56:03 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[14-Aug-2024 16:56:03 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1140
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1140
+[14-Aug-2024 17:00:37 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:00:37 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[14-Aug-2024 17:00:38 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1141
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1141
+[14-Aug-2024 17:01:30 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:01:30 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[14-Aug-2024 17:01:30 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1141
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1141
+[14-Aug-2024 17:02:48 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:02:48 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[14-Aug-2024 17:03:55 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:03:55 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[14-Aug-2024 17:03:55 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "dataRow" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1140
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1140
+[14-Aug-2024 17:05:29 UTC] PHP Warning:  Undefined variable $g_captcha_response in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:05:29 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1124
+[14-Aug-2024 17:07:33 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:07:33 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1143
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1143
+[14-Aug-2024 17:09:13 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:09:13 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1143
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1143
+[14-Aug-2024 17:14:24 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:14:24 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1143
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1143
+[14-Aug-2024 17:15:14 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:16:31 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:16:31 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1144
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1144
+[14-Aug-2024 17:20:18 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:20:19 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1144
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1144
+[14-Aug-2024 17:22:16 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:22:16 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1144
+Stack trace:
+#0 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): newsletter_subscription()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/magnetic/public_html/wp-admin/admin-ajax.php(207): do_action()
+#4 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1144
+[14-Aug-2024 17:23:32 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 17:25:36 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 18:56:15 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1123
+[14-Aug-2024 18:56:15 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php:1067
+Stack trace:
+#0 /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php(333): create_feedback_post()
+#1 /home/magnetic/public_html/wp-includes/class-wp-hook.php(324): submit_page_lead()
+#2 /home/magnetic/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#3 /home/magnetic/public_html/wp-includes/plugin.php(517): WP_Hook->do_action()
+#4 /home/magnetic/public_html/wp-admin/admin-ajax.php(192): do_action()
+#5 {main}
+  thrown in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1067
+[14-Aug-2024 19:05:52 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1128
+[14-Aug-2024 19:05:53 UTC] Post created with ID: 487
+[14-Aug-2024 19:11:13 UTC] PHP Warning:  Undefined array key "message" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[14-Aug-2024 19:11:13 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1128
+[14-Aug-2024 19:11:14 UTC] Post created with ID: 488
+[14-Aug-2024 19:17:17 UTC] PHP Warning:  Undefined array key "message" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[14-Aug-2024 19:17:17 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1128
+[14-Aug-2024 19:17:18 UTC] Post created with ID: 489
+[14-Aug-2024 19:25:16 UTC] PHP Warning:  Undefined array key "message" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[14-Aug-2024 19:25:16 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1128
+[14-Aug-2024 19:25:16 UTC] Post created with ID: 490
+[14-Aug-2024 19:25:54 UTC] PHP Warning:  Undefined array key "message" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[14-Aug-2024 19:25:54 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1128
+[14-Aug-2024 19:26:29 UTC] PHP Warning:  Undefined array key "message" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[14-Aug-2024 19:26:29 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1128
+[14-Aug-2024 19:26:29 UTC] Post created with ID: 491
+[14-Aug-2024 19:39:15 UTC] PHP Warning:  Undefined array key "message" in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 327
+[14-Aug-2024 19:39:15 UTC] PHP Warning:  Undefined variable $remote_ip in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 1128
+[14-Aug-2024 19:39:15 UTC] Post created with ID: 492
+[20-Aug-2024 18:06:21 UTC] PHP Parse error:  Unclosed '(' in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 947
+[20-Aug-2024 18:06:21 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/magnetic/public_html/wp-includes/class-wp-recovery-mode-email-service.php on line 367
+[20-Aug-2024 18:06:21 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/magnetic/public_html/wp-includes/class-wp-recovery-mode-email-service.php on line 368
+[27-Aug-2024 13:49:56 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 559
+[27-Aug-2024 13:51:13 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 559
+[27-Aug-2024 13:59:37 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 559
+[27-Aug-2024 14:00:52 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 559
+[27-Aug-2024 14:01:46 UTC] PHP Warning:  Attempt to read property "term_id" on string in /home/magnetic/public_html/wp-content/themes/dudunets_v2/functions.php on line 559
