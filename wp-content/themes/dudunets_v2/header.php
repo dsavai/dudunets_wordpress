@@ -17,25 +17,8 @@ $document = get_field('document',$brochure->ID);
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
     <?php wp_head(); ?>
-    <!-- HTML Meta Tags -->
-    <title</title>
-    <meta name="description" content="">
-
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:image" content="">
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="citizen.digital">
-    <meta property="twitter:url" content="https://magneticdudunets.com/">
-    <meta name="twitter:title" content="Breaking news, Business, Kenya, Politics, Sports, Lifestyle, Entertainment, Opinion, TV, Radio & Podcasts">
-    <meta name="twitter:description" content="Citizen Digital - Get the latest breaking news in Kenya, county news, world news, elections news, Kenya politics, business, sports, entertainment, Exclusive Videos from Kenya. Watch Citizen TV and Listen to all Radio stations and Podcasts on the go.">
-    <meta name="twitter:image" content="">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHYXYKMYKH"></script>
@@ -46,13 +29,8 @@ $document = get_field('document',$brochure->ID);
 
         gtag('config', 'G-YHYXYKMYKH');
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
 </head>
-<body class="sans text-black">
+<body>
     <div style="display: none;">
         <svg style="display: none;">
             <symbol viewBox="0 0 24 24" id="icon-mobile-menu">
@@ -110,8 +88,8 @@ $document = get_field('document',$brochure->ID);
             <symbol viewBox="0 0 24 24" id="icon-rightup">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9 6.75C8.58579 6.75 8.25 6.41421 8.25 6C8.25 5.58579 8.58579 5.25 9 5.25H18C18.4142 5.25 18.75 5.58579 18.75 6V15C18.75 15.4142 18.4142 15.75 18 15.75C17.5858 15.75 17.25 15.4142 17.25 15V7.81066L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L16.1893 6.75H9Z" fill="currentColor" />
             </symbol>
-            <symbol viewBox="0 0 37 37" id="icon-play">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.1591 4.69365C8.71344 3.36373 5.78125 5.11779 5.78125 7.75931V29.2412C5.78125 31.8827 8.71344 33.6368 11.1591 32.3068L30.9109 21.5659C33.3769 20.2249 33.3769 16.7756 30.9109 15.4347L11.1591 4.69365ZM3.46875 7.75931C3.46875 3.28076 8.35081 0.534214 12.2638 2.6621L32.0156 13.4031C36.092 15.6198 36.092 21.3807 32.0156 23.5975L12.2638 34.3384C8.35081 36.4662 3.46875 33.7198 3.46875 29.2412V7.75931Z" fill="currentColor" />
+            <symbol viewBox="0 0 33 34" id="icon-play">
+                <path d="M29.7397 12.2543C33.3646 14.1775 33.3646 19.1558 29.7397 21.079L7.85256 32.6908C4.32951 34.56 0 32.1272 0 28.2785V5.05483C0 1.20613 4.32951 -1.22663 7.85254 0.642466L29.7397 12.2543Z" fill="currentColor" />
             </symbol>
             <symbol viewBox="0 0 37 37" id="icon-arrowdown">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.93394 13.0569C7.3383 12.5852 8.0485 12.5306 8.52025 12.9349L18.2881 21.3074L28.0559 12.9349C28.5277 12.5306 29.2379 12.5852 29.6423 13.0569C30.0466 13.5287 29.992 14.2389 29.5202 14.6433L19.0202 23.6433C18.5989 24.0044 17.9773 24.0044 17.5559 23.6433L7.05597 14.6433C6.58423 14.2389 6.52959 13.5287 6.93394 13.0569Z"  fill="currentColor" />

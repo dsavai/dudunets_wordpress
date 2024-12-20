@@ -14,7 +14,7 @@ $image = get_post_thumbnail($the_page->ID);
                     <p class="mb-10 text-black/60 w-10/12"><?php echo get_field("our_values",$the_page->ID)?></p>
 
                     <?php if($values_data):?>
-                        <div class="mt-7">
+                        <div class="accordion_module mt-7">
                             <?php
                             $x = 1;
                             foreach ($values_data as $data):?>
@@ -27,7 +27,7 @@ $image = get_post_thumbnail($the_page->ID);
                                             </svg>
                                         </span>
                                     </a>
-                                    <div id="accordion-<?php echo $x?>" class="accordion_content mt-3 text-sm text-black/60">
+                                    <div id="accordion-<?php echo $x?>" class="accordion_content mt-3 text-sm text-black">
                                         <p><?php echo esc_html($data['value']); ?></p>
                                     </div>
                                 </div>

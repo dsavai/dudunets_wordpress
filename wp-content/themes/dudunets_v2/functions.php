@@ -153,7 +153,7 @@ function dudunets_scripts() {
     wp_style_add_data( 'dudunets-style', 'rtl', 'replace' );
     // wp_enqueue_style('dudunets-css',get_template_directory_uri().'/css/dudunets.css',array(),'1.0.0');
     wp_enqueue_style( 'output', get_template_directory_uri() . '/dist/output.css', array() );
-
+wp_enqueue_style( 'plugins', get_template_directory_uri() . '/dist/plugins.css', array() );
 
     wp_enqueue_script( 'jquery-validate', get_template_directory_uri() . '/js/jquery.validate.min.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'additional-methods', get_template_directory_uri() . '/js/additional-methods.min.js', array('jquery'), _S_VERSION, true );
@@ -966,7 +966,8 @@ function add_name_value_pair_meta_box() {
     $specific_ids = array(
         388 => 'Use this to display the stats',
         224 => 'Use this to put data for the accordion',
-        391 => 'Use this to provide content for the what we do tabs'
+        391 => 'Use this to provide content for the what we do tabs',
+        715 => "Use this to detail processes"
     );
     $custom_post_types = array('custom_post_type1', 'custom_post_type2'); // Replace with your custom post types
 
@@ -1462,6 +1463,35 @@ function output_social_meta_tags() {
         if ($twitter_image) {
             echo '<meta name="twitter:image" content="' . esc_url($twitter_image) . '">' . "\n";
         }
+    }elseif (is_home()){
+        $post_id = 520;
+
+        $og_url = get_post_meta($post_id, '_og_url', true) ?: get_permalink($post->ID);
+        $og_title = get_post_meta($post_id, '_og_title', true) ?: get_the_title($post->ID);
+        $og_description = get_post_meta($post_id, '_og_description', true) ?: get_bloginfo('description');
+        $og_image = get_post_meta($post_id, '_og_image', true);
+        $twitter_title = get_post_meta($post_id, '_twitter_title', true) ?: get_the_title($post->ID);
+        $twitter_description = get_post_meta($post_id, '_twitter_description', true) ?: get_bloginfo('description');
+        $twitter_image = get_post_meta($post_id, '_twitter_image', true);
+
+        // Facebook Open Graph Tags
+        echo '<meta property="og:url" content="' . esc_url($og_url) . '">' . "\n";
+        echo '<meta property="og:type" content="website">' . "\n";
+        echo '<meta property="og:title" content="' . esc_attr($og_title) . '">' . "\n";
+        echo '<meta property="og:description" content="' . esc_attr($og_description) . '">' . "\n";
+        if ($og_image) {
+            echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+        }
+
+        // Twitter Meta Tags
+        echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+        echo '<meta property="twitter:domain" content="' . esc_attr($_SERVER['HTTP_HOST']) . '">' . "\n";
+        echo '<meta property="twitter:url" content="' . esc_url($og_url) . '">' . "\n";
+        echo '<meta name="twitter:title" content="' . esc_attr($twitter_title) . '">' . "\n";
+        echo '<meta name="twitter:description" content="' . esc_attr($twitter_description) . '">' . "\n";
+        if ($twitter_image) {
+            echo '<meta name="twitter:image" content="' . esc_url($twitter_image) . '">' . "\n";
+        }
     }
 }
 add_action('wp_head', 'output_social_meta_tags');
@@ -1472,10 +1502,13 @@ function my_custom_title( $title ) {
   // $title is an array of title parts, including one called `title`
     global $post;
 
-  $title['title'] = 'Magnetic Dudunets | '.$post->post_title;
+  $title['title'] = $post->post_title.' | Magnetic Dudunets ';
 
   if (is_singular('post')) {
-    $title['title'] = 'Post: ' . $title['title'];
+    $title['title'] = $title['title'].' | Magnetic Dudunets - Blog';
+  }
+  if (is_404()) {
+  	 $title['title'] = 'Page Not Found | Magnetic Dudunets';
   }
 
   return $title;
@@ -1533,18 +1566,44 @@ function add_meta_description_to_header() {
         if ($meta_description) {
             echo '<meta name="description" content="' . esc_attr($meta_description) . '">';
         }
+    }else{
+    	$post_id = 520;
+    	$meta_description = get_post_meta($post_id, '_meta_description', true);
+    	 if ($meta_description) {
+            echo '<meta name="description" content="' . esc_attr($meta_description) . '">';
+        }
     }
+    if (is_home()) {
+    	echo '<link rel="canonical" href="' . esc_attr(get_site_url()) . '">';
+    }
+    
 }
 add_action('wp_head', 'add_meta_description_to_header');
 
+function numToWords($number) {
+    $units = array('', 'one', 'two', 'three', 'four',
+        'five', 'six', 'seven', 'eight', 'nine');
 
+    $tens = array('', 'ten', 'twenty', 'thirty', 'forty',
+        'fifty', 'sixty', 'seventy', 'eighty',
+        'ninety');
 
+    $special = array('eleven', 'twelve', 'thirteen',
+        'fourteen', 'fifteen', 'sixteen',
+        'seventeen', 'eighteen', 'nineteen');
 
+    $words = '';
+    if ($number < 10) {
+        $words .= $units[$number];
+    } elseif ($number < 20) {
+        $words .= $special[$number - 11];
+    } else {
+        $words .= $tens[(int)($number / 10)] . ' '
+            . $units[$number % 10];
+    }
 
-
-
-
-
+    return $words;
+}
 
 
 
