@@ -2,10 +2,10 @@
 $dudu_net_types = get_net_types("DESC");
 ?>
 <?php if (!empty($dudu_net_types)):?>
-<ul class="text-sm leading-loose text-black/60">
+<ul class="text-sm font-medium leading-8 truncate">
     <?php foreach ($dudu_net_types as $type):?>
     <li>
-        <a href="<?php echo esc_url(get_term_link($type))?>" class="text-black/70 hover:text-primary hover:border-b hover:border-primary"><?php echo $type->description?></a>
+        <a href="<?php echo esc_url(get_term_link($type))?>" class="hover:text-primary hover:border-b hover:border-primary"><?php echo $type->description?></a>
     </li>
 
     <?php endforeach;?>

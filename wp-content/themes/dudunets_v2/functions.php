@@ -8,13 +8,8 @@
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
-<<<<<<< HEAD
     // Replace the version number of the theme on each release.
     define( '_S_VERSION', '1.0.0' );
-=======
-	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 }
 
 require 'includes/walkers/walker.php';
@@ -31,7 +26,6 @@ require 'includes/walkers/sitemap_walker.php';
  * as indicating support for post thumbnails.
  */
 function dudunets_setup() {
-<<<<<<< HEAD
     /*
         * Make theme available for translation.
         * Translations can be filed in the /languages/ directory.
@@ -61,43 +55,11 @@ function dudunets_setup() {
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus(
         array(
-=======
-	/*
-		* Make theme available for translation.
-		* Translations can be filed in the /languages/ directory.
-		* If you're building a theme based on dudunets, use a find and replace
-		* to change 'dudunets' to the name of your theme in all the template files.
-		*/
-	load_theme_textdomain( 'dudunets', get_template_directory() . '/languages' );
-
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
-
-	/*
-		* Let WordPress manage the document title.
-		* By adding theme support, we declare that this theme does not use a
-		* hard-coded <title> tag in the document head, and expect WordPress to
-		* provide it for us.
-		*/
-	add_theme_support( 'title-tag' );
-
-	/*
-		* Enable support for Post Thumbnails on posts and pages.
-		*
-		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		*/
-	add_theme_support( 'post-thumbnails' );
-
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus(
-		array(
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
             'header-menu' => __( 'Header Menu' ),
             'main-menu' => __( 'Main Menu' ),
             'footer-menu-1' => __( 'Footer Menu 1' ),
             'footer-menu-2' => __( 'Footer Menu 2' ),
             'footer-menu-3' => __( 'Footer Menu 3' ),
-<<<<<<< HEAD
         )
     );
 
@@ -147,57 +109,6 @@ function dudunets_setup() {
             'flex-height' => true,
         )
     );
-=======
-		)
-	);
-
-	/*
-		* Switch default core markup for search form, comment form, and comments
-		* to output valid HTML5.
-		*/
-	add_theme_support(
-		'html5',
-		array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		)
-	);
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'dudunets_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
-
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
-
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
-	add_theme_support(
-		'custom-logo',
-		array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		)
-	);
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 }
 add_action( 'after_setup_theme', 'dudunets_setup' );
 
@@ -209,11 +120,7 @@ add_action( 'after_setup_theme', 'dudunets_setup' );
  * @global int $content_width
  */
 function dudunets_content_width() {
-<<<<<<< HEAD
     $GLOBALS['content_width'] = apply_filters( 'dudunets_content_width', 640 );
-=======
-	$GLOBALS['content_width'] = apply_filters( 'dudunets_content_width', 640 );
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 }
 add_action( 'after_setup_theme', 'dudunets_content_width', 0 );
 
@@ -223,7 +130,6 @@ add_action( 'after_setup_theme', 'dudunets_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function dudunets_widgets_init() {
-<<<<<<< HEAD
     register_sidebar(
         array(
             'name'          => esc_html__( 'Sidebar', 'dudunets' ),
@@ -235,19 +141,6 @@ function dudunets_widgets_init() {
             'after_title'   => '</h2>',
         )
     );
-=======
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'dudunets' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'dudunets' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 }
 add_action( 'widgets_init', 'dudunets_widgets_init' );
 
@@ -255,21 +148,12 @@ add_action( 'widgets_init', 'dudunets_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dudunets_scripts() {
-<<<<<<< HEAD
     //wp_enqueue_style( 'dudunets-style', get_stylesheet_uri(), array(), _S_VERSION );
 
     wp_style_add_data( 'dudunets-style', 'rtl', 'replace' );
     // wp_enqueue_style('dudunets-css',get_template_directory_uri().'/css/dudunets.css',array(),'1.0.0');
     wp_enqueue_style( 'output', get_template_directory_uri() . '/dist/output.css', array() );
 wp_enqueue_style( 'plugins', get_template_directory_uri() . '/dist/plugins.css', array() );
-=======
-	//wp_enqueue_style( 'dudunets-style', get_stylesheet_uri(), array(), _S_VERSION );
-
-	wp_style_add_data( 'dudunets-style', 'rtl', 'replace' );
-   // wp_enqueue_style('dudunets-css',get_template_directory_uri().'/css/dudunets.css',array(),'1.0.0');
-    wp_enqueue_style( 'output', get_template_directory_uri() . '/dist/output.css', array() );
-
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 
     wp_enqueue_script( 'jquery-validate', get_template_directory_uri() . '/js/jquery.validate.min.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'additional-methods', get_template_directory_uri() . '/js/additional-methods.min.js', array('jquery'), _S_VERSION, true );
@@ -288,13 +172,8 @@ wp_enqueue_style( 'plugins', get_template_directory_uri() . '/dist/plugins.css',
 
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-<<<<<<< HEAD
         wp_enqueue_script( 'comment-reply' );
     }
-=======
-		wp_enqueue_script( 'comment-reply' );
-	}
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 }
 add_action( 'wp_enqueue_scripts', 'dudunets_scripts' );
 
@@ -322,21 +201,12 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
-<<<<<<< HEAD
     require get_template_directory() . '/inc/jetpack.php';
 }
 
 function dudunets_custom_body_class($classes){
     $classes[] = 'font-nunitosans font-[400] text-gray-dark';
     return $classes;
-=======
-	require get_template_directory() . '/inc/jetpack.php';
-}
-
-function dudunets_custom_body_class($classes){
-$classes[] = 'font-nunitosans font-[400] text-gray-dark';
-return $classes;
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 }
 
 
@@ -449,7 +319,6 @@ function get_post_by_id($post_id) {
     }
 }
 
-<<<<<<< HEAD
 function submit_page_lead() {
 
     if (isset($_POST['full_name'])  && isset($_POST['email']) ) {
@@ -464,24 +333,12 @@ function submit_page_lead() {
 
         $response = create_feedback_post($form,$lead_name." : ".$mobile." : ".$email,date("Y-M-d H:i:s A"),$message,$recaptchaResponse);
         print_r($response);
-=======
-function handle_submit_lead() {
-    if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['email']) ) {
-        $lead_name = sanitize_text_field($_POST['firstName']);
-        $lastName = sanitize_text_field($_POST['lastName']);
-        $email = sanitize_email($_POST['email']);
-        $message = sanitize_textarea_field($_POST['additional_notes']);
-        $selections = sanitize_text_field($_POST['selections']);
-
-        print_r($_POST);
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
     } else {
         echo 'Missing data';
     }
 
     wp_die(); // This is required to terminate immediately and return a proper response
 }
-<<<<<<< HEAD
 add_action('wp_ajax_submit_page_lead', 'submit_page_lead'); // If called from admin panel
 add_action('wp_ajax_nopriv_submit_page_lead', 'submit_page_lead'); // If called from elsewhere
 
@@ -489,14 +346,6 @@ add_action('wp_ajax_nopriv_submit_page_lead', 'submit_page_lead'); // If called 
 //front page form
 function submit_front_page_lead() {
     $message = " No Message ";
-=======
-add_action('wp_ajax_submit_lead', 'handle_submit_lead'); // If called from admin panel
-add_action('wp_ajax_nopriv_submit_lead', 'handle_submit_lead'); // If called from elsewhere
-
-
-//front page form
-function handle_submit_page_lead() {
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
     if (isset($_POST['full_name'])  && isset($_POST['email']) ) {
         $lead_name = sanitize_text_field($_POST['full_name']);
         $email = sanitize_email($_POST['email']);
@@ -506,29 +355,19 @@ function handle_submit_page_lead() {
             $message = sanitize_text_field($_POST['message']);
         }
 
-<<<<<<< HEAD
         $recaptchaResponse = isset($_POST['recaptchaResponse']) ? $_POST['recaptchaResponse'] : "";
 
 
         $response = create_feedback_post("Front Page Lead Form",$lead_name." : ".$mobile." : ".$email,date("Y-M-d H:i:s A"),$message,$recaptchaResponse,false);
         print_r($response);
-=======
-
-        print_r($_POST);
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
     } else {
         echo 'Missing data';
     }
 
     wp_die(); // This is required to terminate immediately and return a proper response
 }
-<<<<<<< HEAD
 add_action('wp_ajax_submit_front_page_lead', 'submit_front_page_lead'); // If called from admin panel
 add_action('wp_ajax_nopriv_submit_front_page_lead', 'submit_front_page_lead'); // If called from elsewhere
-=======
-add_action('wp_ajax_submit_page_lead', 'handle_submit_home_page_lead'); // If called from admin panel
-add_action('wp_ajax_nopriv_submit_page_lead', 'handle_submit_home_page_lead'); // If called from elsewhere
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 
 
 
@@ -611,11 +450,7 @@ function get_category_permalink($term)
 }
 
 function get_post_tags($post_id){
-<<<<<<< HEAD
     return get_the_tags($post_id);
-=======
-   return get_the_tags($post_id);
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 
 }
 
@@ -851,11 +686,7 @@ function get_post_terms_in_net_type($post_id) {
     if ($terms && !is_wp_error($terms)) {
         return $terms;
     } else {
-<<<<<<< HEAD
         return null;
-=======
-       return null;
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
     }
 }
 
@@ -947,7 +778,6 @@ add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
 
 
-<<<<<<< HEAD
 function add_faqs_meta_box() {
     $specific_page_id = 248; // Replace with your specific page ID
     $custom_post_types = array(); // Replace with your custom post types
@@ -1774,20 +1604,6 @@ function numToWords($number) {
 
     return $words;
 }
-=======
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 
 
 

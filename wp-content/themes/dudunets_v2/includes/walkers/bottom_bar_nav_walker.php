@@ -42,7 +42,7 @@ class Bottom_Bar_Walker_Nav_Menu extends Walker_Nav_Menu {
         }
 
         $item_output = $args->before;
-        $item_output .= '<a'. $attributes .' class="text-black/60 text-sm hover:text-primary hover:border-b hover:border-primary">';
+        $item_output .= '<a'. $attributes .' class="text-sm font-medium hover:text-primary hover:border-b hover:border-primary">';
         $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
         $item_output .= '</a>';
         $item_output .= $args->after;

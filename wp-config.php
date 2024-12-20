@@ -30,10 +30,7 @@ define( 'DB_PASSWORD', '' );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
-<<<<<<< HEAD
 define( 'WP_AUTO_UPDATE_CORE', false );
-=======
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -41,12 +38,9 @@ define( 'DB_CHARSET', 'utf8mb4' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
-<<<<<<< HEAD
 define( 'WP_HOME', 'http://localhost/dudunets/' );
 define( 'WP_SITEURL', 'http://localhost/dudunets/' );
 
-=======
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 /**#@+
  * Authentication unique keys and salts.
  *
