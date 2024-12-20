@@ -33,7 +33,7 @@
                         
                         <div class="lg:block flex justify-end">
                             <div class="lg:absolute lg:top-[25px]">
-                                <button type="submit" class="flex justify-center items-center w-[50px] h-[50px] bg-secondary text-white hover:bg-primary hover:text-secondary transition-all duration-100 delay-200">
+                                <button type="submit" class="flex justify-center items-center w-[50px] h-[50px] bg-primary text-bg-secondary hover:bg-secondary hover:text-primary transition-all duration-100 delay-200">
                                     <span class="sr-only">Submit quote form</span>
                                     <svg class="w-8 h-8 fill-current">
                                         <use xlink:href="#icon-right"></use>

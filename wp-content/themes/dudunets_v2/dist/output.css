@@ -658,14 +658,6 @@ video {
   top: 20px;
 }
 
-.top-\[5px\]{
-  top: 5px;
-}
-
-.top-\[3px\]{
-  top: 3px;
-}
-
 .z-10{
   z-index: 10;
 }
@@ -1026,16 +1018,12 @@ video {
   height: 380px;
 }
 
-.h-\[390px\]{
-  height: 390px;
-}
-
 .h-\[400px\]{
   height: 400px;
 }
 
-.h-\[40px\]{
-  height: 40px;
+.h-\[410px\]{
+  height: 410px;
 }
 
 .h-\[450px\]{
@@ -1054,6 +1042,14 @@ video {
   height: 500px;
 }
 
+.h-\[50px\]{
+  height: 50px;
+}
+
+.h-\[52px\]{
+  height: 52px;
+}
+
 .h-\[600px\]{
   height: 600px;
 }
@@ -1064,26 +1060,6 @@ video {
 
 .h-full{
   height: 100%;
-}
-
-.h-\[4100px\]{
-  height: 4100px;
-}
-
-.h-\[410px\]{
-  height: 410px;
-}
-
-.h-\[55px\]{
-  height: 55px;
-}
-
-.h-\[52px\]{
-  height: 52px;
-}
-
-.h-\[50px\]{
-  height: 50px;
 }
 
 .max-h-\[230px\]{
@@ -1462,6 +1438,10 @@ video {
   background-color: rgb(20 20 22 / 0.4);
 }
 
+.bg-black\/5{
+  background-color: rgb(20 20 22 / 0.05);
+}
+
 .bg-fb-900{
   --tw-bg-opacity: 1;
   background-color: rgb(24 119 242 / var(--tw-bg-opacity, 1));
@@ -1503,10 +1483,6 @@ video {
 
 .bg-white\/10{
   background-color: rgb(255 255 255 / 0.1);
-}
-
-.bg-black\/5{
-  background-color: rgb(20 20 22 / 0.05);
 }
 
 .bg-opacity-20{
@@ -1972,10 +1948,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.text-black\/40{
-  color: rgb(20 20 22 / 0.4);
-}
-
 .underline{
   text-decoration-line: underline;
 }
@@ -2086,6 +2058,10 @@ h1,h2,h3,h4{
   }
 }
 
+.menu-item-has-children{
+  padding-left: 1rem;
+}
+
 .showMenu{
   opacity: 1 !important;
   visibility: visible !important;
@@ -2188,22 +2164,6 @@ h1,h2,h3,h4{
 
 .accordion_module div:first-child .accordion_content{
   display: block;
-}
-
-.placeholder\:text-black\/0::-moz-placeholder{
-  color: rgb(20 20 22 / 0);
-}
-
-.placeholder\:text-black\/0::placeholder{
-  color: rgb(20 20 22 / 0);
-}
-
-.placeholder\:text-black\/50::-moz-placeholder{
-  color: rgb(20 20 22 / 0.5);
-}
-
-.placeholder\:text-black\/50::placeholder{
-  color: rgb(20 20 22 / 0.5);
 }
 
 .placeholder\:text-black\/70::-moz-placeholder{
@@ -2354,30 +2314,6 @@ h1,h2,h3,h4{
     position: absolute;
   }
 
-  .lg\:top-\[10px\]{
-    top: 10px;
-  }
-
-  .lg\:top-\[5px\]{
-    top: 5px;
-  }
-
-  .lg\:top-\[13px\]{
-    top: 13px;
-  }
-
-  .lg\:top-\[12px\]{
-    top: 12px;
-  }
-
-  .lg\:top-\[-24px\]{
-    top: -24px;
-  }
-
-  .lg\:top-\[-14px\]{
-    top: -14px;
-  }
-
   .lg\:top-\[25px\]{
     top: 25px;
   }
@@ -2426,10 +2362,6 @@ h1,h2,h3,h4{
 
   .lg\:mt-5{
     margin-top: 1.25rem;
-  }
-
-  .lg\:mt-3{
-    margin-top: 0.75rem;
   }
 
   .lg\:block{
@@ -2600,10 +2532,6 @@ h1,h2,h3,h4{
 
   .lg\:pb-20{
     padding-bottom: 5rem;
-  }
-
-  .lg\:pt-16{
-    padding-top: 4rem;
   }
 
   .lg\:pt-20{

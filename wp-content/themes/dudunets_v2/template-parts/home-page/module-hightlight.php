@@ -19,7 +19,7 @@ $three_value_input_data = get_post_meta($post->ID, 'three_value_input', true);
                                 </svg>
                             </div>
                             <h4 class="font-quicksand text-gray uppercase text-xs font-bold mb-3"><?php echo esc_html($data['field_name_1']); ?></h4>
-                            <h3 class="text-2xl font-bold mb-4"><?php echo esc_html($data['field_name_2']); ?></h3>
+                            <h3 class="text-2xl font-400 mb-4"><?php echo esc_html($data['field_name_2']); ?></h3>
                             <p class="text-black/60 font-medium leading-relaxed"><?php echo nl2br(esc_html($data['text_area_1'])); ?></p>
                         </div>
                     </div>
