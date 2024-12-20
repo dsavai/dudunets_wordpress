@@ -19,7 +19,7 @@ $dudu_net_types = get_net_types("DESC");
                             ?>
                             <div>
                                 <a href="<?php echo esc_url(get_term_link($type))?>" class="block">
-                                    <div class="mb-4 rounded-xl  overflow-hidden max-h-[230px] h-[230px]">
+                                    <div class="mb-4 overflow-hidden max-h-[230px] h-[230px]">
                                         <img src="<?php echo $image?>" alt="<?php echo $type->name?>" class="w-full h-full object-cover ease-in-out duration-700 hover:scale-125" />
                                     </div>
                                     <div class="flex flex-col justify-center items-center">
