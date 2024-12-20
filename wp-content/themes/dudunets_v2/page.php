@@ -11,10 +11,16 @@
  *
  * @package dudunets
  */
+<<<<<<< HEAD
 
 $pager = get_queried_object();
 get_header();
 $image = get_post_thumbnail($pager->ID);
+=======
+$page = get_queried_object();
+get_header();
+$image = get_post_thumbnail($page->ID);
+>>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 ?>
 
     <main class="main">
@@ -28,9 +34,15 @@ $image = get_post_thumbnail($pager->ID);
                                 <use xlink:href="#icon-documentfile"></use>
                             </svg>
                         </span>
+<<<<<<< HEAD
                         <span class="text-sm font-semibold uppercase"><?php echo $pager->post_title?></span>
                     </div>
                     <h1 class="text-4xl md:text-6xl font-bold mt-4"><?php echo isset($pager->post_excerpt)?$pager->post_excerpt:""?></h1>
+=======
+                        <span class="text-sm font-semibold uppercase"><?php echo $page->post_title?></span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-bold mt-4"><?php echo isset($page->post_excerpt)?$page->post_excerpt:""?></h1>
+>>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
                 </div>
             </div>
         </section>
@@ -39,7 +51,11 @@ $image = get_post_thumbnail($pager->ID);
                 <div class="w-9/12 mx-auto mt-10">
                     <section class="module module--blog-content mb-16">
                         <div class="general-content">
+<<<<<<< HEAD
                             <?php echo apply_filters("the_content",$pager->post_content);?>
+=======
+                            <?php echo apply_filters("the_content",$page->post_content);?>
+>>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
                         </div>
                     </section>
                 </div>

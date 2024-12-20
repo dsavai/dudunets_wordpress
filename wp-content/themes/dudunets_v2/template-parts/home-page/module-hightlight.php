@@ -1,6 +1,7 @@
 <?php
 $post_id = 207;
 $post = get_post_by_id($post_id);
+<<<<<<< HEAD
 $three_value_input_data = get_post_meta($post->ID, 'three_value_input', true);
 ?>
 
@@ -27,5 +28,12 @@ $three_value_input_data = get_post_meta($post->ID, 'three_value_input', true);
             </div>
         </div>
     </section>
+=======
+?>
+
+<?php if (!empty($post)):
+    echo apply_filters("the_content",$post->post_content);
+    ?>
+>>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
 
 <?php endif;?>

@@ -21,7 +21,11 @@ logs
 # Local env files
 .env
 .env.*
+<<<<<<< HEAD
 !.env.example
 *.zip
 
 dudunets-site.zip
+=======
+!.env.example
+>>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
