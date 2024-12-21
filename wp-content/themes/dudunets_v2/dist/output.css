@@ -957,6 +957,10 @@ video {
   display: none;
 }
 
+.aspect-square{
+  aspect-ratio: 1 / 1;
+}
+
 .h-1{
   height: 0.25rem;
 }
@@ -1091,6 +1095,14 @@ video {
 
 .h-full{
   height: 100%;
+}
+
+.h-\[490px\]{
+  height: 490px;
+}
+
+.h-screen{
+  height: 100vh;
 }
 
 .max-h-\[230px\]{
@@ -1578,6 +1590,11 @@ video {
 .object-top{
   -o-object-position: top;
      object-position: top;
+}
+
+.object-center{
+  -o-object-position: center;
+     object-position: center;
 }
 
 .p-2{
