@@ -1,6 +1,7 @@
 <?php
 $the_page = get_post_by_id(715);
 $processes = get_post_meta($the_page->ID, 'name_value_pair', true);
+$cta = get_field("cta",$the_page->ID);
 get_header();
 ?>
     <main id="mainMain" class="module">
@@ -20,6 +21,7 @@ get_header();
                 endforeach;?>
                 <?php endif;?>
             </div>
+            <a href="<?php echo $cta['url']?>"><?php echo $cta['title']?></a>
         </section>
         <?php get_template_part("template-parts/home-page/module","query");?>
         <?php get_template_part("template-parts/home-page/module","location");?>

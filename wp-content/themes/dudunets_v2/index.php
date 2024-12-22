@@ -19,6 +19,7 @@ get_header();
         <?php get_template_part("template-parts/home-page/hero","section");?>
         <?php get_template_part("template-parts/home-page/module","quote");?>
         <?php get_template_part("template-parts/home-page/module","about");?>
+        <?php get_template_part("template-parts/home-page/module","our-processes");?>
         <?php get_template_part("template-parts/home-page/module","hightlight");?>
         <?php get_template_part("template-parts/home-page/module","categories");?>
         <?php get_template_part("template-parts/home-page/module","query");?>
