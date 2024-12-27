@@ -35,7 +35,7 @@ $posts = get_posts($args);
                     $avatar = get_user_avatar($post->post_author);
                     ?>
 
-                            <div class="bg-white border border-black/10 overflow-hidden rounded-xl">
+                            <div class="bg-white border border-black/10 overflow-hidden">
                                 <div class="h-[250px] overflow-hidden">
                                     <a href="<?php echo get_the_permalink($post->ID)?>"class="block w-full h-full ease-in-out duration-700 hover:scale-125">
                                         <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />

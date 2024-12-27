@@ -12,17 +12,15 @@ $values_data = get_post_meta($the_post->ID, 'name_value_pair', true);
                     <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-fullh-full object-cover" />
                 </div>
                 <div class="mt-10">
-                    <h4 class="text-sm uppercase text-primary font-bold mb-3"><?php echo $the_post->post_title?></h4>
-                    <h2 class="text-3xl font-bold"><?php echo $the_post->post_excerpt?></h2>
+                    <h4 class="font-quicksand text-gray uppercase text-xs font-bold mb-3"><?php echo $the_post->post_title?></h4>
+                    <h2 class="mt-1 mb-2 text-3xl font-400"><?php echo $the_post->post_excerpt?></h2>
                     <?php if($values_data):?>
                     <div class="accordion_module mt-7">
                         <?php
                         $x = 1;
                         foreach ($values_data as $data):?>
 
-                            <div class="border border-black/10 py-4 px-6 rounded-lg mb-4">
-
-
+                            <div class="border border-black/10 py-4 px-6 mb-4">
                                 <a href="#accordion-<?php echo $x?>" class="accordion_title flex justify-between items-center text-md font-bold">
                                     <span><?php echo esc_html($data['field_name']); ?></span>
                                     <span>
@@ -31,7 +29,7 @@ $values_data = get_post_meta($the_post->ID, 'name_value_pair', true);
                                         </svg>
                                     </span>
                                 </a>
-                                <div id="accordion-<?php echo $x?>" class="accordion_content mt-3 text-sm text-black/60">
+                                <div id="accordion-<?php echo $x?>" class="accordion_content mt-3 font-medium text-[16px] text-black/60">
                                     <p><?php echo esc_html($data['value']); ?></p>
                                 </div>
                             </div>

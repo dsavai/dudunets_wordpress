@@ -16,7 +16,7 @@ $clients = get_custom_posts_by_slug('clients','ASC');
                                     $image = get_post_thumbnail($client->ID);
                                     ?>
                                     <div class="swiper-slide">
-                                        <div class="flex justify-center items-center py-6 h-24 border border-black/10 rounded-xl">
+                                        <div class="flex justify-center items-center py-6 h-24 border border-black/10">
                                             <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-14 h-14 object-cover" />
                                         </div>
                                     </div>
