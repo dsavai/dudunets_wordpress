@@ -8,7 +8,7 @@ $post = get_post_by_id($post_id);
     $video_link = get_field("video",$post->ID);
     $image = get_post_thumbnail($post_id);
     ?>
-    <section class="module module--about px-4 lg:px-0 pt-8 pb-8 lg:pt-8 lg:pb-20">
+    <section class="module module--about px-4 lg:px-0 pt-8 pb-8 lg:pt-8 lg:pb-14">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-14">
                 <div class="relative cursor-default pb-6 lg:pb-0">
