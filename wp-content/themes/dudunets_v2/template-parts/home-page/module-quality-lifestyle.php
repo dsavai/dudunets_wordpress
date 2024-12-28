@@ -1,3 +1,5 @@
 <?php
 ?>
-<h1>Experience Luxury and Quality Lifestyle</h1>
+<div class="module-quality-lifestyle">
+<h3>Experience Luxury and Quality Lifestyle</h3>
+</div>
