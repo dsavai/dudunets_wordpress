@@ -1605,5 +1605,29 @@ function numToWords($number) {
     return $words;
 }
 
+/**
+ * Get the first custom category a post belongs to.
+ *
+ * @param int|null $post_id The ID of the post. Defaults to the current post if not provided.
+ * @param string $taxonomy The taxonomy name. Defaults to 'category'.
+ * @return array|null The name of the first term, or null if none are found.
+ */
+function get_first_custom_category($post_id = null, $taxonomy = 'category') {
+    // Use the current post ID if not provided.
+    $post_id = $post_id ? $post_id : get_the_ID();
+
+    // Get the terms for the specified taxonomy.
+    $terms = get_the_terms($post_id, $taxonomy);
+
+    // Check if terms exist and return the first one.
+    if (!empty($terms) && !is_wp_error($terms)) {
+        $custom_excerpt = get_field("custom_excerpt",$terms[0]->taxonomy . '_' .$terms[0]->term_id);
+        return array('name'=>$terms[0]->name,'description' => $terms[0]->description,'custom_excerpt' => $custom_excerpt);
+    }
+
+    // Return null if no terms are found.
+    return array();
+}
+
 
 

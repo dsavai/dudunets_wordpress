@@ -1,5 +1,8 @@
 <?php
+$installations = get_custom_posts_by_slug('installation');
 ?>
+<?php if (!empty($installations)):?>
+
  <section class="module module--products border-t border-b border-black/10">
     <div class="container mx-auto h-full px-4 lg:px-0">
         <div class="py-14">
@@ -9,60 +12,19 @@
             </div>
             <div class="installation-slider swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="relative">
-                            <div style="background-image: url(https://picsum.photos/200);" class="w-full h-[400px] bg-no-repeat bg-cover"></div>
-                            <div class="absolute inset-x-0 w-full bottom-0 bg-black/60 z-10 text-white text-center py-4">
-                                <h3 class="font-quicksand text-lg font-bold leading-5">Mosquito Net for Window</h3>
-                                <p class="text-sm">Installed in Ngara, Nairobi</p>
+                    <?php foreach ($installations as $installation):
+                        $image = get_post_thumbnail($installation->ID);
+                        ?>
+                        <div class="swiper-slide">
+                            <div class="relative">
+                                <div style="background-image: url(<?php echo $image['image'][0]?>);" class="w-full h-[400px] bg-no-repeat bg-cover"></div>
+                                <div class="absolute inset-x-0 w-full bottom-0 bg-black/60 z-10 text-white text-center py-4">
+                                    <h3 class="font-quicksand text-lg font-bold leading-5"><?php echo get_first_custom_category($installation->ID,"net_type")['custom_excerpt']?></h3>
+                                    <p class="text-sm"><?php echo $installation->post_title ?></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="relative">
-                            <div style="background-image: url(https://picsum.photos/200);" class="w-full h-[400px] bg-no-repeat bg-cover"></div>
-                            <div class="absolute inset-x-0 w-full bottom-0 bg-black/60 z-10 text-white text-center py-4">
-                                <h3 class="font-quicksand text-lg font-bold leading-5">Mosquito Net for Window</h3>
-                                <p class="text-sm">Installed in Ngara, Nairobi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="relative">
-                            <div style="background-image: url(https://picsum.photos/200);" class="w-full h-[400px] bg-no-repeat bg-cover"></div>
-                            <div class="absolute inset-x-0 w-full bottom-0 bg-black/60 z-10 text-white text-center py-4">
-                                <h3 class="font-quicksand text-lg font-bold leading-5">Mosquito Net for Window</h3>
-                                <p class="text-sm">Installed in Ngara, Nairobi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="relative">
-                            <div style="background-image: url(https://picsum.photos/200);" class="w-full h-[400px] bg-no-repeat bg-cover"></div>
-                            <div class="absolute inset-x-0 w-full bottom-0 bg-black/60 z-10 text-white text-center py-4">
-                                <h3 class="font-quicksand text-lg font-bold leading-5">Mosquito Net for Window</h3>
-                                <p class="text-sm">Installed in Ngara, Nairobi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="relative">
-                            <div style="background-image: url(https://picsum.photos/200);" class="w-full h-[400px] bg-no-repeat bg-cover"></div>
-                            <div class="absolute inset-x-0 w-full bottom-0 bg-black/60 z-10 text-white text-center py-4">
-                                <h3 class="font-quicksand text-lg font-bold leading-5">Mosquito Net for Window</h3>
-                                <p class="text-sm">Installed in Ngara, Nairobi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="relative">
-                            <div style="background-image: url(https://picsum.photos/200);" class="w-full h-[400px] bg-no-repeat bg-cover"></div>
-                            <div class="absolute inset-x-0 w-full bottom-0 bg-black/60 z-10 text-white text-center py-4">
-                                <h3 class="font-quicksand text-lg font-bold leading-5">Mosquito Net for Window</h3>
-                                <p class="text-sm">Installed in Ngara, Nairobi</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach;?>
                 </div>
                 <div class="swiper-button-next w-6 h-6 bg-white p-6 after:!text-[24px] after:text-black after:after:font-bold"></div>
                 <div class="swiper-button-prev w-6 h-6 bg-white p-6 after:!text-[24px] after:text-black after:font-bold"></div>
@@ -70,3 +32,4 @@
         </div>
     </div>
 </section>
+<?php endif;?>
