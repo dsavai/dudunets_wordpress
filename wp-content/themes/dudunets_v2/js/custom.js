@@ -323,6 +323,7 @@ const menuHasChildren = document.querySelectorAll(".menu-item-has-children");
 const menuDropDowns = document.querySelectorAll(".m-nav-submenu");
 
 
+
 // menuHasChildren.forEach((button) => {
 //     button.addEventListener("click", () => {
 //         menuDropDowns.forEach(item => {
@@ -354,6 +355,17 @@ const swiper = new Swiper(".home-slider", {
         el: ".swiper-pagination",
         clickable: true,
     },
+});
+
+const swiper2 = new Swiper(".installation-slider", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    freeMode: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    autoplay: false
 });
 
 
