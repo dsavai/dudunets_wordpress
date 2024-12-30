@@ -2,7 +2,11 @@
 /*
 Template Name: Custom Blog Page
 */
-
+$latest_post = get_posts([
+    'numberposts' => 1, // Get only the latest post
+    'post_type'   => 'post', // Ensure it's a blog post
+    'post_status' => 'publish', // Only published posts
+]);
 get_header(); ?>
 
 <main class="main">
@@ -21,19 +25,27 @@ get_header(); ?>
                 <h1 class="text-4xl md:text-6xl font-bold mt-4">Blog & resources</h1>
             </div>
         </div> -->
-        <div class="container mx-auto">
-            <div class="mt-5 mb-10 relative">
-                <div class="absolute bottom-14 inset-x-0 text-center z-[99] text-white">
-                    <div class="uppercase bg-primary font-bold w-[150px] mx-auto text-sm py-2 mb-4 text-secondary">Home comfort </div>
-                    <h1 class="text-6xl font-bold">Retractable door screens</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur. Fermentum feugiat risus ac tristique pharetra at leo vitae.</p>
-                </div>
-                <div class="absolute inset-0 w-full h-full z-10 bg-gradient-to-b from-black to-black-200 rotate-180 opacity-70"></div>
-                <div class="w-full h-[600px]">
-                    <img src="http://localhost/dudunets/wp-content/uploads/2024/08/blog_featured.jpg" alt="" class="w-full h-full object-cover" />
+
+        <?php if ($latest_post):
+            $latest_post = $latest_post[0];
+            $image = get_post_thumbnail($latest_post->ID);
+            ?>
+            <div class="container mx-auto">
+                <div class="mt-5 mb-10 relative">
+                    <div class="absolute bottom-14 inset-x-0 text-center z-[99] text-white">
+                        <div class="uppercase bg-primary font-bold w-[150px] mx-auto text-sm py-2 mb-4 text-secondary"><?php echo get_first_custom_category($latest_post->ID)['name']?> </div>
+                        <h1 class="text-6xl font-bold"><?php echo $latest_post->post_title;?></h1>
+                        <p><?php echo wp_trim_words($latest_post->post_content, 15, ' ...');?></p>
+                    </div>
+                    <div class="absolute inset-0 w-full h-full z-10 bg-gradient-to-b from-black to-black-200 rotate-180 opacity-70"></div>
+                    <div class="w-full h-[600px]">
+                        <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endif;?>
+        <?php wp_reset_postdata();?>
+
     </section>
 
     <section class="module module--blog">

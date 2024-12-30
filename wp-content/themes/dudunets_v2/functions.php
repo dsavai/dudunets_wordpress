@@ -1629,5 +1629,123 @@ function get_first_custom_category($post_id = null, $taxonomy = 'category') {
     return array();
 }
 
+function create_inspiration_types_taxonomy() {
+    // Labels for the custom taxonomy
+    $labels = array(
+        'name'              => _x( 'Inspiration Types', 'taxonomy general name', 'textdomain' ),
+        'singular_name'     => _x( 'Inspiration', 'taxonomy singular name', 'textdomain' ),
+        'search_items'      => __( 'Search Inspiration Types', 'textdomain' ),
+        'all_items'         => __( 'All Inspiration Types', 'textdomain' ),
+        'parent_item'       => __( 'Parent Inspiration Type', 'textdomain' ),
+        'parent_item_colon' => __( 'Parent Inspiration Type:', 'textdomain' ),
+        'edit_item'         => __( 'Edit Inspiration Type', 'textdomain' ),
+        'update_item'       => __( 'Update Inspiration Type', 'textdomain' ),
+        'add_new_item'      => __( 'Add New Inspiration Type', 'textdomain' ),
+        'new_item_name'     => __( 'New Inspiration Type Name', 'textdomain' ),
+        'menu_name'         => __( 'Inspiration Types', 'textdomain' ),
+    );
+
+    // Arguments for the custom taxonomy
+    $args = array(
+        'hierarchical'      => true, // Set to true for categories, false for tags
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'inspiration-type' ),
+    );
+
+    // Register the custom taxonomy
+    register_taxonomy( 'inspiration_type', array( 'inspiration-types' ), $args );
+}
+
+// Hook into the init action and call the function when WordPress initializes
+add_action( 'init', 'create_inspiration_types_taxonomy', 0 );
+
+
+function get_posts_by_taxonomy($post_type,$taxonomy,$type,$count = 10, $offset = 0){
+    return get_posts([
+        'post_type'      => $post_type, // Custom post type
+        'tax_query'      => [
+            [
+                'taxonomy' => $taxonomy, // Custom taxonomy
+                'field'    => 'slug', // Match by slug
+                'terms'    => $type, // Specific category slug
+            ],
+        ],
+        'posts_per_page' => $count, // Retrieve all posts
+        'post_status'    => 'publish', // Only published posts
+    ]);
+}
+
+
+function ajax_load_more_posts_by_taxonomy() {
+    // Verify nonce for security
+    check_ajax_referer('load_more_nonce', 'nonce');
+
+    $post_type = isset($_POST['post_type']) ? sanitize_text_field($_POST['post_type']) : '';
+    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+    $taxonomy = isset($_POST['taxonomy']) ? sanitize_text_field($_POST['taxonomy']) : '';
+    $type = isset($_POST['type']) ? sanitize_text_field($_POST['type']) : '';
+    $posts_per_page = 10;
+
+    $args = [
+        'post_type'      => $post_type,
+        'posts_per_page' => $posts_per_page,
+        'paged'          => $paged,
+        'post_status'    => 'publish',
+    ];
+
+    if ($taxonomy && $type) {
+        $args['tax_query'] = [
+            [
+                'taxonomy' => $taxonomy,
+                'field'    => 'slug',
+                'terms'    => $type,
+            ],
+        ];
+    }
+
+    $posts = get_posts($args);
+
+    if (!empty($posts)) {
+        foreach ($posts as $post) {
+            ?>
+            <div class="post-item">
+                <h3><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></h3>
+                <p><?php echo wp_trim_words($post->post_content, 20, '...'); ?></p>
+            </div>
+            <?php
+        }
+    } else {
+        echo '<p>No more posts to load.</p>';
+    }
+
+    wp_die(); // End AJAX processing
+}
+add_action('wp_ajax_load_more_posts_by_taxonomy', 'ajax_load_more_posts_by_taxonomy');       // For logged-in users
+add_action('wp_ajax_nopriv_ajax_load_more_posts_by_taxonomy', 'ajax_load_more_posts_by_taxonomy'); // For logged-out users
+
+function enqueue_load_more_scripts() {
+    wp_enqueue_script('load-more', get_template_directory_uri() . '/js/load-more.js', ['jquery'], null, true);
+
+    // Localize the script to provide AJAX URL and nonce
+    wp_localize_script('load-more', 'loadMoreParams', [
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+        'nonce'   => wp_create_nonce('load_more_nonce'),
+    ]);
+}
+add_action('wp_enqueue_scripts', 'enqueue_load_more_scripts');
+
+function get_formatted_post_date($post_id = null) {
+    // Use the current post ID if not provided.
+    $post_id = $post_id ? $post_id : get_the_ID();
+
+    // Retrieve the date in the desired format.
+    return get_the_date('F j, Y', $post_id);
+}
+
+
+
 
 
