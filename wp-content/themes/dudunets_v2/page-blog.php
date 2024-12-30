@@ -7,7 +7,7 @@ get_header(); ?>
 
 <main class="main">
     <section class="module module--banner">
-        <div class="w-full h-[300px] bg-cover bg-no-repeat relative" style="background-image: url(<?php echo get_featured_background_image(); ?>);">
+        <!-- <div class="w-full h-[300px] bg-cover bg-no-repeat relative" style="background-image: url(<?php echo get_featured_background_image(); ?>);">
             <div class="bg-black/40 absolute inset-0"></div>
             <div class="flex flex-col justify-center items-center h-full w-full relative z-20 text-white">
                 <div class="flex justify-center gap-2 border border-white bg-white/10 px-5 py-2 rounded-full">
@@ -20,14 +20,27 @@ get_header(); ?>
                 </div>
                 <h1 class="text-4xl md:text-6xl font-bold mt-4">Blog & resources</h1>
             </div>
+        </div> -->
+        <div class="container mx-auto">
+            <div class="mt-5 mb-10 relative">
+                <div class="absolute bottom-14 inset-x-0 text-center z-[99] text-white">
+                    <div class="uppercase bg-primary font-bold w-[150px] mx-auto text-sm py-2 mb-4 text-secondary">Home comfort </div>
+                    <h1 class="text-6xl font-bold">Retractable door screens</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur. Fermentum feugiat risus ac tristique pharetra at leo vitae.</p>
+                </div>
+                <div class="absolute inset-0 w-full h-full z-10 bg-gradient-to-b from-black to-black-200 rotate-180 opacity-70"></div>
+                <div class="w-full h-[600px]">
+                    <img src="http://localhost/dudunets/wp-content/uploads/2024/08/blog_featured.jpg" alt="" class="w-full h-full object-cover" />
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="module module--blog">
         <div class="container mx-auto">
-            <div class="mt-10 mb-5 lg:mb-10 px-4 lg:px-0">
-                <h4 class="text-sm uppercase text-primary font-bold mb-2">LATEST BLOG</h4>
-                <h2 class="text-3xl font-bold">Our news & articles</h2>
+            <div class="mt-5 mb-5 lg:mb-5 px-4 lg:px-0">
+                <h4 class="font-quicksand text-gray uppercase text-xs font-bold mb-1">LATEST BLOG</h4>
+                <h2 class="text-3xl font-400">Our news & articles</h2>
             </div>
             <div class="lg:flex lg:gap-16 px-4 lg:px-0">
                 <div class="lg:basis-8/12 mb-16">
@@ -40,7 +53,7 @@ get_header(); ?>
 
                         if ($query->have_posts()) :
                             while ($query->have_posts()) : $query->the_post(); ?>
-                                <div class="border border-black/10 overflow-hidden rounded-xl">
+                                <div class="bg-white border border-black/10 overflow-hidden">
                                     <div class="h-[250px] overflow-hidden">
                                         <a href="<?php the_permalink(); ?>" class="block w-full h-full ease-in-out duration-700 hover:scale-125">
                                             <?php if (has_post_thumbnail()) {
@@ -55,17 +68,17 @@ get_header(); ?>
                                             <?php the_category(', '); ?>
                                         </div>
                                         <div class="mb-5">
-                                            <h3 class="text-black text-xl font-semibold">
-                                                <a href="<?php the_permalink(); ?>" class="text-black cursor-pointer hover:text-primary hover:border-b"><?php the_title(); ?></a>
+                                            <h3 class="text-black text-xl font-quicksand font-semibold line-clamp-2">
+                                                <a href="<?php the_permalink(); ?>" class="text-black cursor-pointer hover:border-b"><?php the_title(); ?></a>
                                             </h3>
                                         </div>
                                         <hr class="border-black/10" />
                                         <div class="mt-5 flex justify-between items-center">
                                             <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="flex items-center gap-3">
-                                                <div>
+                                                <div class="w-8 h-8 overflow-hidden rounded-full">
                                                     <?php echo get_user_avatar(get_the_author_meta('ID')); ?>
                                                 </div>
-                                                <h5 class="font-medium"><?php the_author(); ?></h5>
+                                                <h5 class="font-bold text-[14px] hover:text-primary"><?php the_author(); ?></h5>
                                             </a>
                                             <div class="flex items-center gap-3">
                                                 <span class="w-1 h-1 bg-black/20 rounded-full"></span>
@@ -80,7 +93,7 @@ get_header(); ?>
                         ?>
                     </div>
                     <div class="mt-12 flex justify-center">
-                        <a id="load-more" href="<?php //echo get_permalink(get_option('page_for_posts')); ?>" class="flex gap-3 items-center bg-gradient-to-r from-primary to-secondary p-2 text-white px-16 py-3 rounded-full hover:from-secondary hover:to-primary transition-all duration-500 delay-500">
+                        <a id="load-more" href="<?php //echo get_permalink(get_option('page_for_posts')); ?>" class="flex gap-3 items-center font-semibold bg-primary p-2 text-secondary px-8 py-3 hover:bg-secondary hover:text-primary transition-all duration-100 delay-200">
                             <span>View more</span>
                             <span>
                                 <svg class="w-8 h-8 fill-current">
@@ -95,7 +108,7 @@ get_header(); ?>
                     <!-- Add sidebar content here -->
 
                     <div class="mb-10 w-10/12">
-                        <h4 class="text-lg font-bold leading-relaxed border-b border-black/10">Explore category</h4>
+                        <h4 class="font-quicksand text-lg font-bold leading-relaxed border-b border-black/10">Explore category</h4>
                         <ul class="mt-5 flex flex-wrap gap-x-1">
                             <?php
                             $categories = get_categories();
@@ -111,7 +124,7 @@ get_header(); ?>
                     </div>
 
                     <div class="mb-10 w-10/12">
-                        <h4 class="text-lg font-bold leading-relaxed border-b border-black/10">Most popular</h4>
+                        <h4 class="font-quicksand text-lg font-bold leading-relaxed border-b border-black/10">Most popular</h4>
                         <div class="mt-5">
                             <?php
                             $popular_query = new WP_Query(array(
@@ -148,7 +161,7 @@ get_header(); ?>
                     </div>
 
                     <div class="mb-16 w-10/12">
-                        <h4 class="text-lg font-bold leading-relaxed border-b border-black/10">Popular tags</h4>
+                        <h4 class="font-quicksand text-lg font-bold leading-relaxed border-b border-black/10">Popular tags</h4>
                         <ul class="mt-5 inline-flex gap-4 flex-wrap">
                             <?php
                             $tags = get_tags();
