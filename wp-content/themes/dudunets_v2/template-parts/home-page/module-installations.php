@@ -1,5 +1,5 @@
 <?php
-$installations = get_custom_posts_by_slug('installation');
+$installations = get_custom_posts_by_slug('installation', "DESC",10);
 ?>
 <?php if (!empty($installations)):?>
 
