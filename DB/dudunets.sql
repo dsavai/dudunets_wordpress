@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 31, 2024 at 06:40 PM
+-- Generation Time: Dec 31, 2024 at 06:51 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.4.9
 
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`),
   KEY `autoload` (`autoload`)
-) ENGINE=MyISAM AUTO_INCREMENT=80267 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=80281 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `wp_options`
@@ -428,8 +428,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (80262, '_site_transient_wp_theme_files_patterns-c7ff07758a78cdb31a65e3923ef33664', 'a:2:{s:7:\"version\";s:5:\"1.0.0\";s:8:\"patterns\";a:0:{}}', 'off'),
 (79306, '_transient_timeout_jetpack_a8c_data', '1736180755', 'off'),
 (79307, '_transient_jetpack_a8c_data', 'a:4:{s:4:\"a12s\";i:1758;s:9:\"countries\";i:90;s:9:\"languages\";s:3:\"117\";s:16:\"featured_plugins\";a:4:{i:0;s:11:\"woocommerce\";i:1;s:14:\"wp-super-cache\";i:2;s:14:\"wp-job-manager\";i:3;s:15:\"co-authors-plus\";}}', 'off'),
-(80265, '_transient_timeout_jetpack_update_remote_package_last_query', '1735670384', 'off'),
-(80266, '_transient_jetpack_update_remote_package_last_query', '1735670324', 'off'),
+(80279, '_transient_timeout_jetpack_update_remote_package_last_query', '1735671111', 'off'),
+(80280, '_transient_jetpack_update_remote_package_last_query', '1735671051', 'off'),
 (79248, '_site_transient_timeout_community-events-d41d8cd98f00b204e9800998ecf8427e', '1735667973', 'off'),
 (78996, '_site_transient_timeout_php_check_e26e33de4a278e301580d402dcb3d659', '1736080938', 'off'),
 (78997, '_site_transient_php_check_e26e33de4a278e301580d402dcb3d659', 'a:5:{s:19:\"recommended_version\";s:3:\"7.4\";s:15:\"minimum_version\";s:6:\"7.2.24\";s:12:\"is_supported\";b:1;s:9:\"is_secure\";b:1;s:13:\"is_acceptable\";b:1;}', 'off'),
@@ -5962,7 +5962,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`(191))
-) ENGINE=MyISAM AUTO_INCREMENT=2495 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2506 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `wp_postmeta`
@@ -7558,7 +7558,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (2469, 476, '_wp_old_date', '2024-12-23'),
 (2470, 263, '_wp_old_date', '2024-12-23'),
 (2472, 747, '_edit_last', '1'),
-(2473, 747, '_edit_lock', '1735591177:1'),
+(2473, 747, '_edit_lock', '1735670911:1'),
 (2474, 747, 'links', ''),
 (2475, 747, '_links', 'field_6664a9c526d97'),
 (2476, 747, 'cta', ''),
@@ -7576,7 +7576,17 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (2488, 750, 'links', ''),
 (2489, 750, '_links', 'field_6664a9c526d97'),
 (2490, 750, 'cta', 'a:3:{s:5:\"title\";s:9:\"Order Now\";s:3:\"url\";s:1:\"#\";s:6:\"target\";s:0:\"\";}'),
-(2491, 750, '_cta', 'field_6761b082a672b');
+(2491, 750, '_cta', 'field_6761b082a672b'),
+(2495, 754, '_edit_last', '1'),
+(2496, 754, '_edit_lock', '1735671092:1'),
+(2498, 754, '_og_url', ''),
+(2499, 754, '_og_title', ''),
+(2500, 754, '_og_description', ''),
+(2501, 754, '_og_image', ''),
+(2502, 754, '_twitter_title', ''),
+(2503, 754, '_twitter_description', ''),
+(2504, 754, '_twitter_image', ''),
+(2505, 754, '_meta_description', '');
 
 -- --------------------------------------------------------
 
@@ -7614,7 +7624,7 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=MyISAM AUTO_INCREMENT=754 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=756 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `wp_posts`
@@ -8171,7 +8181,9 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (750, 1, '2024-12-30 23:50:31', '2024-12-30 20:50:31', '', 'Our retractable window and door screens', 'offer smooth operation, seamless design, and lasting durability—welcoming fresh air while keeping bugs out!', 'publish', 'closed', 'closed', '', 'our-retractable-window-and-door-screens', '', '', '2024-12-30 23:50:48', '2024-12-30 20:50:48', '', 0, 'http://localhost/dudunets/?post_type=front-page-sections&#038;p=750', 0, 'front-page-sections', '', 0),
 (751, 1, '2024-12-30 23:50:20', '2024-12-30 20:50:20', '', 'product_screens_bkg', '', 'inherit', 'open', 'closed', '', 'product_screens_bkg', '', '', '2024-12-30 23:50:20', '2024-12-30 20:50:20', '', 750, 'http://localhost/dudunets/wp-content/uploads/2024/12/product_screens_bkg.jpg', 0, 'attachment', 'image/jpeg', 0),
 (752, 1, '2024-12-31 13:26:19', '2024-12-31 10:26:19', '', 'Categories', 'Lorem ipsum dolor sit amet consectetur. Fermentum feugiat risus ac tristique pharetra at leo vitae.', 'inherit', 'closed', 'closed', '', '727-revision-v1', '', '', '2024-12-31 13:26:19', '2024-12-31 10:26:19', '', 727, 'http://localhost/dudunets/?p=752', 0, 'revision', '', 0),
-(753, 1, '2024-12-31 13:28:31', '2024-12-31 10:28:31', '', 'Tags', 'Lorem ipsum dolor sit amet consectetur. Fermentum feugiat risus ac tristique pharetra at leo vitae.', 'inherit', 'closed', 'closed', '', '725-revision-v1', '', '', '2024-12-31 13:28:31', '2024-12-31 10:28:31', '', 725, 'http://localhost/dudunets/?p=753', 0, 'revision', '', 0);
+(753, 1, '2024-12-31 13:28:31', '2024-12-31 10:28:31', '', 'Tags', 'Lorem ipsum dolor sit amet consectetur. Fermentum feugiat risus ac tristique pharetra at leo vitae.', 'inherit', 'closed', 'closed', '', '725-revision-v1', '', '', '2024-12-31 13:28:31', '2024-12-31 10:28:31', '', 725, 'http://localhost/dudunets/?p=753', 0, 'revision', '', 0),
+(754, 1, '2024-12-31 21:51:32', '2024-12-31 18:51:32', '', 'Faqs', '', 'publish', 'closed', 'closed', '', 'faqs', '', '', '2024-12-31 21:51:32', '2024-12-31 18:51:32', '', 0, 'http://localhost/dudunets/?page_id=754', 0, 'page', '', 0),
+(755, 1, '2024-12-31 21:51:32', '2024-12-31 18:51:32', '', 'Faqs', '', 'inherit', 'closed', 'closed', '', '754-revision-v1', '', '', '2024-12-31 21:51:32', '2024-12-31 18:51:32', '', 754, 'http://localhost/dudunets/?p=755', 0, 'revision', '', 0);
 
 -- --------------------------------------------------------
 
