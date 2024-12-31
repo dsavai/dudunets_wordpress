@@ -1143,6 +1143,10 @@ video {
   height: 100%;
 }
 
+.h-16{
+  height: 4rem;
+}
+
 .max-h-\[230px\]{
   max-height: 230px;
 }
@@ -1557,6 +1561,10 @@ video {
 
 .bg-black\/5{
   background-color: rgb(20 20 22 / 0.05);
+}
+
+.bg-black\/50{
+  background-color: rgb(20 20 22 / 0.5);
 }
 
 .bg-black\/60{
@@ -2277,6 +2285,34 @@ select{
   background-repeat: no-repeat;
 }
 
+.module-our-processes{
+  position: relative;
+}
+
+.module-our-processes::before,
+.module-our-processes::after{
+  content: "";
+  width: 200px;
+  height: 200px;
+  background-image: url("./images/mosquito_sign.png");
+  background-repeat: no-repeat;
+  background-size: 140px;
+  opacity: 0.05;
+}
+
+.module-our-processes::before{
+  position: absolute;
+  top: 20px;
+  left: -20px;
+}
+
+.module-our-processes::after{
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  opacity: 0.04;
+}
+
 .showMenu{
   opacity: 1 !important;
   visibility: visible !important;
@@ -2602,6 +2638,10 @@ select{
     display: none;
   }
 
+  .lg\:h-\[400px\]{
+    height: 400px;
+  }
+
   .lg\:h-\[450px\]{
     height: 450px;
   }
@@ -2725,6 +2765,11 @@ select{
   .lg\:px-0{
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .lg\:px-16{
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   .lg\:px-20{
