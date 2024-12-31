@@ -15,8 +15,8 @@ $post = get_post_by_id($post_id);
                     <a href="<?php echo $video_link;?>" data-fancybox-type="iframe" class="fancy_youtube fancybox iframe relative cursor-default block">
                         <div class="absolute inset-0 bg-black/10 w-full h-[410px] overflow-hidden"></div>
                         <div class="absolute z-10 inset-0 flex justify-center items-center">
-                            <div class="bg-white text-red w-24 h-24 rounded-full flex justify-center items-center shadow-3xl hover:bg-primary hover:text-white cursor-pointer">
-                                <svg class="w-10 h-10 fill-current">
+                            <div class="bg-white text-red w-16 h-16 rounded-full flex justify-center items-center shadow-3xl hover:bg-primary hover:text-white cursor-pointer">
+                                <svg class="w-5 h-5 fill-current">
                                     <use xlink:href="#icon-play"></use>
                                 </svg>
                             </div>

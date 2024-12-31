@@ -5,13 +5,13 @@ $image = get_post_thumbnail($the_post->ID);
 $values_data = get_post_meta($the_post->ID, 'name_value_pair', true);
 ?>
 <section class="module module--what-we-do">
-    <div class="py-6 px-4 lg:py-24 lg:px-24">
+    <div class="py-6 px-4 lg:py-24">
         <div class="container mx-auto">
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
-                <div class="w-[150px] h-[150px] lg:w-[480px] lg:h-[480px]">
-                    <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-fullh-full object-cover" />
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-16">
+                <div class="w-full h-[150px] lg:h-[400px]">
+                    <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
                 </div>
-                <div class="mt-10">
+                <div class="mt-5">
                     <h4 class="font-quicksand text-gray uppercase text-xs font-bold mb-3"><?php echo $the_post->post_title?></h4>
                     <h2 class="mt-1 mb-2 text-3xl font-400"><?php echo $the_post->post_excerpt?></h2>
                     <?php if($values_data):?>
