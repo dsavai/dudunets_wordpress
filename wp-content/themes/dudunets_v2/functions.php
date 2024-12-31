@@ -1681,7 +1681,11 @@ function get_posts_by_taxonomy($post_type,$taxonomy,$type,$count = 10, $offset =
 
 function ajax_load_more_posts_by_taxonomy() {
     // Verify nonce for security
-    check_ajax_referer('load_more_nonce', 'nonce');
+    //check_ajax_referer('load_more_nonce', 'nonce');
+    // Add CORS headers
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type");
 
     $post_type = isset($_POST['post_type']) ? sanitize_text_field($_POST['post_type']) : '';
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
@@ -1711,10 +1715,73 @@ function ajax_load_more_posts_by_taxonomy() {
     if (!empty($posts)) {
         foreach ($posts as $post) {
             ?>
-            <div class="post-item">
-                <h3><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></h3>
-                <p><?php echo wp_trim_words($post->post_content, 20, '...'); ?></p>
-            </div>
+                <?php if ($post_type =="showcases"):?>
+                      <?php if ($type == "photo"):
+                    $photo = $post;
+                    $image = get_post_thumbnail($post->ID);
+                    ?>
+                    <div>
+                        <div class="w-full h-[240px] overflow-hidden relative">
+                            <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="object-cover w-full h-full" />
+                            <div class="absolute left-0 bottom-0 w-16 h-12 bg-white text-red flex justify-center items-center">
+                                <svg class="w-4 h-4 fill-current">
+                                    <use xlink:href="#icon-camera"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="font-quicksand text-lg font-semibold w-10/12 leading-6">Building a better world, together, we can make a difference</h3>
+                            <div class="bg-black/10 h-[1px] w-full my-2"></div>
+                            <div class="text-sm text-gray font-semibold"><?php echo get_formatted_post_date($photo->ID)?></div>
+                        </div>
+                    </div>
+                      <?php elseif ($type = "video"):
+                    $video = $post;
+                    $link = get_field("video_link",$video->ID);
+                    $image = get_post_thumbnail($video->ID);
+                    ?>
+                    <div>
+                        <a href="<?php echo $link;?>" data-fancybox-type="iframe" class="fancy_youtube fancybox iframe relative cursor-pointer block">
+                            <div class="w-full h-[240px] overflow-hidden relative">
+                                <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="object-cover w-full h-full" />
+                                <div class="absolute left-0 bottom-0 w-16 h-12 bg-white text-red flex justify-center items-center">
+                                    <svg class="w-4 h-4 fill-current">
+                                        <use xlink:href="#icon-play"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <h3 class="font-quicksand text-lg font-semibold w-10/12 leading-6">Building a better world, together, we can make a difference</h3>
+                                <div class="bg-black/10 h-[1px] w-full my-2"></div>
+                                <div class="text-sm text-gray font-semibold"><?php echo get_formatted_post_date($video->ID)?></div>
+                            </div>
+                        </a>
+                    </div>
+                      <?php endif;?>
+                <?php elseif ($post_type == "installation"):
+                $i = $post;
+                $image = get_post_thumbnail($i->ID);
+                ?>
+                <div>
+                    <a href="#">
+                        <div class="h-[400px] overflow-hidden">
+                            <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="object-cover w-full h-full" />
+                        </div>
+                        <div class="mt-4">
+                            <div class="flex items-center gap-3 w-10/12">
+                                <span>
+                                    <svg class="w-5 h-5 fill-current">
+                                        <use xlink:href="#icon-location"></use>
+                                    </svg>
+                                </span>
+                                <h3 class="font-quicksand font-bold text-lg truncate"><?php echo $i->post_title?></h3>
+                            </div>
+                            <div class="bg-black/10 h-[1px] w-full my-2"></div>
+                            <p class="text-black/60 font-semibold leading-5 truncate"><?php echo $i->post_excerpt?></p>
+                        </div>
+                    </a>
+                </div>
+                <?php endif;?>
             <?php
         }
     } else {
@@ -1724,7 +1791,7 @@ function ajax_load_more_posts_by_taxonomy() {
     wp_die(); // End AJAX processing
 }
 add_action('wp_ajax_load_more_posts_by_taxonomy', 'ajax_load_more_posts_by_taxonomy');       // For logged-in users
-add_action('wp_ajax_nopriv_ajax_load_more_posts_by_taxonomy', 'ajax_load_more_posts_by_taxonomy'); // For logged-out users
+add_action('wp_ajax_nopriv_load_more_posts_by_taxonomy', 'ajax_load_more_posts_by_taxonomy'); // For logged-out users
 
 function enqueue_load_more_scripts() {
     wp_enqueue_script('load-more', get_template_directory_uri() . '/js/load-more.js', ['jquery'], null, true);
