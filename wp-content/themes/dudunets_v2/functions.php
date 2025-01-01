@@ -967,7 +967,8 @@ function add_name_value_pair_meta_box() {
         388 => 'Use this to display the stats',
         224 => 'Use this to put data for the accordion',
         391 => 'Use this to provide content for the what we do tabs',
-        715 => "Use this to detail processes"
+        715 => "Use this to detail processes",
+        754 => "Use this for FAQs"
     );
     $custom_post_types = array('custom_post_type1', 'custom_post_type2'); // Replace with your custom post types
 
@@ -1681,7 +1682,11 @@ function get_posts_by_taxonomy($post_type,$taxonomy,$type,$count = 10, $offset =
 
 function ajax_load_more_posts_by_taxonomy() {
     // Verify nonce for security
-    check_ajax_referer('load_more_nonce', 'nonce');
+    //check_ajax_referer('load_more_nonce', 'nonce');
+    // Add CORS headers
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type");
 
     $post_type = isset($_POST['post_type']) ? sanitize_text_field($_POST['post_type']) : '';
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
@@ -1711,10 +1716,73 @@ function ajax_load_more_posts_by_taxonomy() {
     if (!empty($posts)) {
         foreach ($posts as $post) {
             ?>
-            <div class="post-item">
-                <h3><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></h3>
-                <p><?php echo wp_trim_words($post->post_content, 20, '...'); ?></p>
-            </div>
+                <?php if ($post_type =="showcases"):?>
+                      <?php if ($type == "photo"):
+                    $photo = $post;
+                    $image = get_post_thumbnail($post->ID);
+                    ?>
+                    <div>
+                        <div class="w-full h-[240px] overflow-hidden relative">
+                            <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="object-cover w-full h-full" />
+                            <div class="absolute left-0 bottom-0 w-16 h-12 bg-white text-red flex justify-center items-center">
+                                <svg class="w-4 h-4 fill-current">
+                                    <use xlink:href="#icon-camera"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <h3 class="font-quicksand text-lg font-semibold w-10/12 leading-6">Building a better world, together, we can make a difference</h3>
+                            <div class="bg-black/10 h-[1px] w-full my-2"></div>
+                            <div class="text-sm text-gray font-semibold"><?php echo get_formatted_post_date($photo->ID)?></div>
+                        </div>
+                    </div>
+                      <?php elseif ($type = "video"):
+                    $video = $post;
+                    $link = get_field("video_link",$video->ID);
+                    $image = get_post_thumbnail($video->ID);
+                    ?>
+                    <div>
+                        <a href="<?php echo $link;?>" data-fancybox-type="iframe" class="fancy_youtube fancybox iframe relative cursor-pointer block">
+                            <div class="w-full h-[240px] overflow-hidden relative">
+                                <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="object-cover w-full h-full" />
+                                <div class="absolute left-0 bottom-0 w-16 h-12 bg-white text-red flex justify-center items-center">
+                                    <svg class="w-4 h-4 fill-current">
+                                        <use xlink:href="#icon-play"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <h3 class="font-quicksand text-lg font-semibold w-10/12 leading-6">Building a better world, together, we can make a difference</h3>
+                                <div class="bg-black/10 h-[1px] w-full my-2"></div>
+                                <div class="text-sm text-gray font-semibold"><?php echo get_formatted_post_date($video->ID)?></div>
+                            </div>
+                        </a>
+                    </div>
+                      <?php endif;?>
+                <?php elseif ($post_type == "installation"):
+                $i = $post;
+                $image = get_post_thumbnail($i->ID);
+                ?>
+                <div>
+                    <a href="#">
+                        <div class="h-[400px] overflow-hidden">
+                            <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="object-cover w-full h-full" />
+                        </div>
+                        <div class="mt-4">
+                            <div class="flex items-center gap-3 w-10/12">
+                                <span>
+                                    <svg class="w-5 h-5 fill-current">
+                                        <use xlink:href="#icon-location"></use>
+                                    </svg>
+                                </span>
+                                <h3 class="font-quicksand font-bold text-lg truncate"><?php echo $i->post_title?></h3>
+                            </div>
+                            <div class="bg-black/10 h-[1px] w-full my-2"></div>
+                            <p class="text-black/60 font-semibold leading-5 truncate"><?php echo $i->post_excerpt?></p>
+                        </div>
+                    </a>
+                </div>
+                <?php endif;?>
             <?php
         }
     } else {
@@ -1724,7 +1792,7 @@ function ajax_load_more_posts_by_taxonomy() {
     wp_die(); // End AJAX processing
 }
 add_action('wp_ajax_load_more_posts_by_taxonomy', 'ajax_load_more_posts_by_taxonomy');       // For logged-in users
-add_action('wp_ajax_nopriv_ajax_load_more_posts_by_taxonomy', 'ajax_load_more_posts_by_taxonomy'); // For logged-out users
+add_action('wp_ajax_nopriv_load_more_posts_by_taxonomy', 'ajax_load_more_posts_by_taxonomy'); // For logged-out users
 
 function enqueue_load_more_scripts() {
     wp_enqueue_script('load-more', get_template_directory_uri() . '/js/load-more.js', ['jquery'], null, true);
@@ -1744,6 +1812,140 @@ function get_formatted_post_date($post_id = null) {
     // Retrieve the date in the desired format.
     return get_the_date('F j, Y', $post_id);
 }
+
+// Register the dudunets_gallery metabox for custom post types: installation and inspiration
+function add_dudunets_gallery_meta_box() {
+    global $post;
+
+    if (!$post) return;
+
+    $post_type = $post->post_type;
+    $metabox_titles = [
+        'installation' => 'Dudunets Gallery for Installation',
+        'showcases' => 'Dudunets Gallery for Inspiration Showcase'
+    ];
+
+    if (array_key_exists($post_type, $metabox_titles)) {
+        add_meta_box(
+            'dudunets_gallery', // ID of the metabox
+            $metabox_titles[$post_type], // Title of the metabox
+            'dudunets_gallery_meta_box_callback', // Callback function
+            $post_type, // Post type to display it on
+            'normal', // Context (where the box is shown)
+            'high' // Priority
+        );
+    }
+}
+add_action('add_meta_boxes', 'add_dudunets_gallery_meta_box');
+
+// Callback function to display fields in the dudunets_gallery metabox
+function dudunets_gallery_meta_box_callback($post) {
+    wp_nonce_field('dudunets_gallery_meta_box_nonce', 'dudunets_gallery_meta_box_nonce');
+    $dudunets_gallery = get_post_meta($post->ID, '_dudunets_gallery', true);
+
+    ?>
+    <div id="dudunets-gallery-fieldset">
+        <?php
+        if ($dudunets_gallery && is_array($dudunets_gallery)) {
+            foreach ($dudunets_gallery as $index => $item) {
+                ?>
+                <div class="gallery-row">
+                    <p><label for="title-<?php echo $index; ?>">Title</label>
+                        <input type="text" name="title[]" value="<?php echo esc_attr($item['title']); ?>" /></p>
+                    <p><label for="image-<?php echo $index; ?>">Image</label>
+                        <input type="text" name="image[]" value="<?php echo esc_url($item['image']); ?>" />
+                        <button class="upload_image_button button">Upload Image</button></p>
+                    <p><label for="summary-<?php echo $index; ?>">Summary</label>
+                        <textarea name="summary[]" style="height: 110px; width:100%;"><?php echo esc_textarea($item['summary']); ?></textarea></p>
+                    <button class="remove-row button">Remove</button>
+                </div>
+                <?php
+            }
+        } else {
+            ?>
+            <div class="gallery-row">
+                <p><label for="title">Title</label>
+                    <input type="text" name="title[]" value="" /></p>
+                <p><label for="image">Image</label>
+                    <input type="text" name="image[]" value="" />
+                    <button class="upload_image_button button">Upload Image</button></p>
+                <p><label for="summary">Summary</label>
+                    <textarea name="summary[]" style="height: 110px; width:100%;"></textarea></p>
+                <button class="remove-row button">Remove</button>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+    <div style="height: 20px;"></div>
+    <button id="add-row" class="button">Add Gallery Item</button>
+
+    <script>
+        jQuery(document).ready(function($){
+            // Add new row
+            $('#add-row').on('click', function(e) {
+                e.preventDefault();
+                var row = $('.gallery-row:first').clone();
+                row.find('input').val('');
+                row.find('textarea').val('');
+                $('#dudunets-gallery-fieldset').append(row);
+            });
+
+            // Remove row
+            $(document).on('click', '.remove-row', function(e){
+                e.preventDefault();
+                $(this).closest('.gallery-row').remove();
+            });
+
+            // Image upload
+            $(document).on('click', '.upload_image_button', function(e) {
+                e.preventDefault();
+                var button = $(this);
+                var custom_uploader = wp.media({
+                    title: 'Select Image',
+                    button: { text: 'Use this image' },
+                    multiple: false
+                }).on('select', function() {
+                    var attachment = custom_uploader.state().get('selection').first().toJSON();
+                    button.prev('input').val(attachment.url);
+                }).open();
+            });
+        });
+    </script>
+    <?php
+}
+
+// Save the dudunets_gallery data
+function save_dudunets_gallery_meta_box_data($post_id) {
+    if (!isset($_POST['dudunets_gallery_meta_box_nonce']) || !wp_verify_nonce($_POST['dudunets_gallery_meta_box_nonce'], 'dudunets_gallery_meta_box_nonce')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    $titles = isset($_POST['title']) ? array_map('sanitize_text_field', $_POST['title']) : [];
+    $images = isset($_POST['image']) ? array_map('esc_url_raw', $_POST['image']) : [];
+    $summaries = isset($_POST['summary']) ? array_map('sanitize_textarea_field', $_POST['summary']) : [];
+
+    $dudunets_gallery = [];
+    for ($i = 0; $i < count($titles); $i++) {
+        if (!empty($titles[$i])) {
+            $dudunets_gallery[] = [
+                'title' => $titles[$i],
+                'image' => $images[$i],
+                'summary' => $summaries[$i]
+            ];
+        }
+    }
+
+    update_post_meta($post_id, '_dudunets_gallery', $dudunets_gallery);
+}
+add_action('save_post', 'save_dudunets_gallery_meta_box_data');
+
 
 
 

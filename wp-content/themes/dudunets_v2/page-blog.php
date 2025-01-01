@@ -123,7 +123,13 @@ get_header(); ?>
                         <h4 class="font-quicksand text-lg font-bold leading-relaxed border-b border-black/10">Explore category</h4>
                         <ul class="mt-5 flex flex-wrap gap-x-1">
                             <?php
-                            $categories = get_categories();
+                            $categories = get_terms(array(
+                                'taxonomy' => 'category', // Fetch terms from the 'category' taxonomy
+                                'number' => 10, // Limit the number of categories to 5
+                                'orderby' => 'count', // Order by post count
+                                'order' => 'DESC', // Order in descending order
+                                'hide_empty' => true, // Hide empty categories
+                            ));
                             foreach ($categories as $category) { ?>
                                 <li class="mr-1">
                                     <a href="<?php echo get_category_link($category->term_id); ?>" class="block text-sm font-semibold text-secondary border border-primary bg-primary/10 mb-2 rounded-lg px-4 py-1"><?php echo $category->name; ?></a>
@@ -131,7 +137,7 @@ get_header(); ?>
                             <?php } ?>
                         </ul>
                         <div class="mt-2">
-                            <a href="#" class="text-sm text-primary border-b border-primary inline-block font-semibold">View all categories</a>
+                            <a href="<?php echo get_page_url_by_slug('categories')?>" class="text-sm text-primary border-b border-primary inline-block font-semibold">View all categories</a>
                         </div>
                     </div>
 
@@ -176,13 +182,22 @@ get_header(); ?>
                         <h4 class="font-quicksand text-lg font-bold leading-relaxed border-b border-black/10">Popular tags</h4>
                         <ul class="mt-5 inline-flex gap-4 flex-wrap">
                             <?php
-                            $tags = get_tags();
+                            $tags = get_terms(array(
+                                'taxonomy' => 'post_tag', // Taxonomy to query
+                                'number' => 10, // Limit the number of tags to 10
+                                'orderby' => 'count', // Order by count
+                                'order' => 'DESC', // Order in descending order
+                                'hide_empty' => true, // Only show tags with at least one post
+                            ));
                             foreach ($tags as $tag) { ?>
                                 <li>
                                     <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block border border-black/10 px-4 py-2 rounded-md text-sm text-black/60 font-semibold hover:bg-primary hover:!text-white hover:border-primary transition-all duration-500 delay-200"><?php echo $tag->name; ?></a>
                                 </li>
                             <?php } ?>
                         </ul>
+                        <div class="mt-2">
+                            <a href="<?php echo get_page_url_by_slug('tags')?>" class="text-sm text-primary border-b border-primary inline-block font-semibold">View all tags</a>
+                        </div>
                     </div>
                 </div>
             </div>

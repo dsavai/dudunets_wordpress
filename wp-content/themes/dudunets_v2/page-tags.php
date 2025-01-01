@@ -2,6 +2,7 @@
 /**
  * Template Name: Tags List
  */
+$the_page = get_queried_object();
 get_header();
 ?>
 
@@ -9,8 +10,8 @@ get_header();
     <div class="px-4 lg:px-0 lg:w-[700px] mx-[auto]">
         <div class="my-8">
             <div class="flex flex-col justify-center items-center text-center">
-                <h2 class="mb-2 text-3xl font-400">Tags</h2>
-                <p class="text-black/60 font-medium leading-relaxed">Lorem ipsum dolor sit amet consectetur. Fermentum feugiat risus ac tristique pharetra at leo vitae.</p>
+                <h2 class="mb-2 text-3xl font-400"><?php echo $the_page->post_title?></h2>
+                <p class="text-black/60 font-medium leading-relaxed"><?php echo $the_page->post_excerpt?></p>
             </div>
         </div>
         <ul class="flex gap-3 flex-wrap justify-center">
