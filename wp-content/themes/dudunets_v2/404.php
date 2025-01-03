@@ -2,8 +2,8 @@
 /*
 Template Name: Custom Blog Page
 */
-$page = get_page_by_slug("page-not-found");
-$image = get_post_thumbnail($page->ID);
+$the_page = get_page_by_slug("page-not-found");
+$image = get_post_thumbnail($the_page->ID);
 get_header(); ?>
 
 <main class="main">
@@ -17,13 +17,36 @@ get_header(); ?>
                             <use xlink:href="#icon-documentfile"></use>
                         </svg>
                     </span>
+                    <span class="text-sm font-semibold uppercase">404</span>
                 </div>
-                <h1 class="text-6xl font-bold mt-4"><?php echo $page->post_title ?></h1>
+                <h1 class="text-6xl font-bold mt-4"><?php echo $the_page->post_title ?></h1>
             </div>
         </div>
     </section>
 
-    <?php echo apply_filters("the_content",$page->post_content)?>
+    <section class="module module--content-content">
+        <div class="container mx-auto">
+            <div class="w-9/12 mx-auto mt-10">
+                <section class="module module--blog-content mb-16">
+                    <div class="general-content">
+                        <p class="text-lg">Sorry, but the page you were trying to view does not exist.  It looks like this was the result of either:</p>
+                        <ul class="mb-10">
+                            <li>A mistyped address</li>
+                            <li>An out-of-date link</li>
+                        </ul>
+                        <a href="<?php echo get_home_url()?>" class="inline-flex gap-3 items-center bg-gradient-to-r from-primary to-secondary p-2 text-white px-8 py-3 rounded-full hover:from-secondary hover:to-primary transition-all duration-500 delay-500">
+                            <span>Return to Home</span>
+                            <span>
+                                    <svg class="w-6 h-6 fill-current">
+                                        <use xlink:href="#icon-right"></use>
+                                    </svg>
+                                </span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
 </main>
 
 <?php get_footer(); ?>
