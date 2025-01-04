@@ -62,6 +62,7 @@ $photos = get_posts_by_taxonomy("showcases","inspiration_type","photo","10");
                         $image = get_post_thumbnail($photo->ID);
                         ?>
                         <div>
+                            <a href="<?php echo get_the_permalink($photo->ID)?>">
                             <div class="w-full h-[240px] overflow-hidden relative">
                                 <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="object-cover w-full h-full" />
                                 <div class="absolute left-0 bottom-0 w-16 h-12 bg-white text-red flex justify-center items-center">
@@ -75,6 +76,7 @@ $photos = get_posts_by_taxonomy("showcases","inspiration_type","photo","10");
                                 <div class="bg-black/10 h-[1px] w-full my-2"></div>
                                 <div class="text-sm text-gray font-semibold"><?php echo get_formatted_post_date($photo->ID)?></div>
                             </div>
+                            </a>
                         </div>
                     <?php endforeach;?>
                 <?php endif;?>
