@@ -15,6 +15,7 @@ $installations = get_custom_posts_by_slug('installation', "DESC",10);
                     <?php foreach ($installations as $installation):
                         $image = get_post_thumbnail($installation->ID);
                         ?>
+                       <a href="<?php echo get_the_permalink($installation->ID)?>">
                         <div class="swiper-slide">
                             <div class="relative">
                                 <div style="background-image: url(<?php echo $image['image'][0]?>);" class="w-full h-[400px] bg-no-repeat bg-cover"></div>
@@ -24,6 +25,7 @@ $installations = get_custom_posts_by_slug('installation', "DESC",10);
                                 </div>
                             </div>
                         </div>
+                       </a>
                     <?php endforeach;?>
                 </div>
                 <div class="swiper-button-next w-6 h-6 bg-white p-6 after:!text-[24px] after:text-black after:after:font-bold"></div>
