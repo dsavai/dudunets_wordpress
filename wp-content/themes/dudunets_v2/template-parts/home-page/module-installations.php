@@ -15,17 +15,17 @@ $installations = get_custom_posts_by_slug('installation', "DESC",10);
                     <?php foreach ($installations as $installation):
                         $image = get_post_thumbnail($installation->ID);
                         ?>
-                       <a href="<?php echo get_the_permalink($installation->ID)?>">
                         <div class="swiper-slide">
                             <div class="relative">
+                                <a href="<?php echo get_the_permalink($installation->ID)?>">
                                 <div style="background-image: url(<?php echo $image['image'][0]?>);" class="w-full h-[400px] bg-no-repeat bg-cover"></div>
                                 <div class="absolute inset-x-0 w-full bottom-0 bg-black/60 z-10 text-white text-center py-4">
                                     <h3 class="font-quicksand text-lg font-bold leading-5"><?php echo get_first_custom_category($installation->ID,"net_type")['custom_excerpt']?></h3>
                                     <p class="text-sm"><?php echo $installation->post_title ?></p>
                                 </div>
+                                </a>
                             </div>
                         </div>
-                       </a>
                     <?php endforeach;?>
                 </div>
                 <div class="swiper-button-next w-6 h-6 bg-white p-6 after:!text-[24px] after:text-black after:after:font-bold"></div>
