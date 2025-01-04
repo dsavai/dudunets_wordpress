@@ -24,7 +24,7 @@
                 </div>
                 <div class="basis-3/4 lg:ml-10">
                     <h3 class="font-bold mb-2 text-lg font-quicksand">Products</h3>
-                    <div class="flex gap-20">
+                    <div class="flex lg:gap-20 flex-col lg:flex-row">
                         <?php get_template_part("template-parts/shared/category","menu");?>
                         <?php
 

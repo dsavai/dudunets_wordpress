@@ -4,8 +4,8 @@ $videos = get_posts_by_taxonomy("showcases","inspiration_type","video","10");
 $photos = get_posts_by_taxonomy("showcases","inspiration_type","photo","10");
 ?>
 <main id="mainMain" class="module">
-    <div class="container mx-auto">
-        <div class="my-8">
+    <div class="container mx-auto px-4 lg:px-0 pt-8 pb-8 lg:pt-8 lg:pb-14">
+        <div class="lg:my-8">
             <h2 class="mb-2 text-3xl font-400">Inspiration showcase</h2>
             <p class="text-black/60 font-medium leading-relaxed">Lorem ipsum dolor sit amet consectetur. Fermentum feugiat risus ac tristique pharetra at leo vitae.</p>
         </div>
@@ -14,7 +14,7 @@ $photos = get_posts_by_taxonomy("showcases","inspiration_type","photo","10");
                 <h3 class="font-quicksand font-bold relative z-10 bg-white pr-8 inline-block">Videos</h3>
                 <div class="bg-black/10 w-full h-[1px] absolute top-[13px]"></div>
             </div>
-            <div class="grid grid-cols-3 gap-x-4 gap-y-10" id="videos_container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 lg:gap-y-10" id="videos_container">
                 <?php if (!empty($videos)):?>
                     <?php foreach ($videos as $video):
                         $link = get_field("video_link",$video->ID);
@@ -56,7 +56,7 @@ $photos = get_posts_by_taxonomy("showcases","inspiration_type","photo","10");
                 <h3 class="font-quicksand font-bold relative z-10 bg-white pr-8 inline-block">Photos</h3>
                 <div class="bg-black/10 w-full h-[1px] absolute top-[13px]"></div>
             </div>
-            <div class="grid grid-cols-3 gap-x-4 gap-y-10" id="photos_container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 lg:gap-y-10" id="photos_container">
                 <?php if (!empty($photos)):?>
                     <?php foreach ($photos as $photo):
                         $image = get_post_thumbnail($photo->ID);

@@ -31,14 +31,14 @@ get_header(); ?>
             $image = get_post_thumbnail($latest_post->ID);
             ?>
             <div class="container mx-auto">
-                <div class="mt-5 mb-10 relative">
+                <div class="lg:mt-5 mb-10 relative">
                     <div class="absolute bottom-14 inset-x-0 text-center z-[99] text-white">
                         <div class="uppercase bg-primary font-bold w-[150px] mx-auto text-sm py-2 mb-4 text-secondary"><?php echo get_first_custom_category($latest_post->ID)['name']?> </div>
-                        <h1 class="text-6xl font-bold"><?php echo $latest_post->post_title;?></h1>
+                        <h1 class="text-3xl lg:text-6xl font-bold"><?php echo $latest_post->post_title;?></h1>
                         <p><?php echo wp_trim_words($latest_post->post_content, 15, ' ...');?></p>
                     </div>
                     <div class="absolute inset-0 w-full h-full z-10 bg-gradient-to-b from-black to-black-200 rotate-180 opacity-70"></div>
-                    <div class="w-full h-[600px]">
+                    <div class="w-full h-[400px] lg:h-[600px]">
                         <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
                     </div>
                 </div>
@@ -92,7 +92,7 @@ get_header(); ?>
                                                 </div>
                                                 <h5 class="font-bold text-[14px] hover:text-primary"><?php the_author(); ?></h5>
                                             </a>
-                                            <div class="flex items-center gap-3">
+                                            <div class="lg:flex items-center gap-3 hidden">
                                                 <span class="w-1 h-1 bg-black/20 rounded-full"></span>
                                                 <span class="text-black/60 text-sm font-medium"><?php echo estimate_reading_time(get_the_ID()); ?></span>
                                             </div>

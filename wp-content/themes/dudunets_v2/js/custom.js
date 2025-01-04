@@ -358,14 +358,33 @@ const swiper = new Swiper(".home-slider", {
 });
 
 const swiper2 = new Swiper(".installation-slider", {
-    slidesPerView: 3,
-    spaceBetween: 30,
+    slidesPerView: 1,
+    spaceBetween: 20,
     freeMode: true,
+    loop: true,
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
-    autoplay: false
+    autoplay: true,
+    breakpoints: {
+        580: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView:3,
+            spaceBetween: 20,
+        },
+    },
 });
 
 
