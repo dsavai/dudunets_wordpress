@@ -7,7 +7,7 @@ $sliders = get_custom_posts_by_slug("front_page_slider","ASC");
 
 <?php if(!empty($sliders)):?>
     <section class="module module--featured">
-        <div class="home-slider swiper w-full h-[200px] sm:h-[350px] md:h-[400px] lg:h-screen">
+        <div class="home-slider swiper w-full h-[400px] sm:h-[350px] md:h-[400px] lg:h-screen">
             <div class="swiper-wrapper">
                 <?php foreach ($sliders as $slider):
                     $image = get_post_thumbnail($slider->ID);

@@ -225,7 +225,7 @@ $document = get_field('document',$brochure->ID);
                 </div>
             </div>
         </div>
-        <div id="menuMobileOverlay" class="hidden absolute inset-0 z-50 bg-white">
+        <div id="menuMobileOverlay" class="hidden absolute inset-0 z-50 bg-white h-screen overflow-y-scroll">
             <div>
                 <div id="menuMobileClose" class="text-white bg-secondary px-4 py-4 flex justify-end items-center gap-2 shadow-md cursor-pointer">
                     <svg class="w-4 h-4">

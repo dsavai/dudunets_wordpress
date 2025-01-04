@@ -5,31 +5,15 @@ $image = get_post_thumbnail($page->ID);
 ?>
 
     <main class="main">
-        <section class="module module--banner">
-            <div class="w-full h-[300px] bg-cover bg-no-repeat relative" style="background-image: url(<?php echo $image['image'][0]?>);">
-                <div class="bg-black/40 absolute inset-0"></div>
-                <div class="flex flex-col justify-center items-center h-full w-full relative z-20 text-white">
-                    <div class="flex justify-center gap-2 border border-white bg-white/10 px-5 py-2 rounded-full">
-                        <span>
-                            <svg class="w-5 h-5 fill-current">
-                                <use xlink:href="#icon-documentfile"></use>
-                            </svg>
-                        </span>
-                        <span class="text-sm font-semibold uppercase"><?php echo $page->post_title?></span>
-                    </div>
-                    <h1 class="px-4 lg:px-0 text-4xl md:text-6xl font-bold mt-4"><?php echo $page->post_excerpt?></h1>
-                </div>
-            </div>
-        </section>
-        <section class="module module--send-message">
-            <div class="container mx-auto">
-                <div class="lg:mx-20 lg:mt-10 mb-5 lg:mb-10 px-4 lg:px-0">
-                    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
+        <section class="module module--send-message px-4 lg:px-0 pb-8 lg:pb-0">
+            <div class="container mx-auto lg:w-[700px]">
+                <div class="lg:pb-8">
+                    <div class="">
                         <div class="py-8 lg:py-16">
                             <div class="mb-10">
-                                <h4 class="text-sm uppercase text-primary font-bold mb-2">WRITE TO US</h4>
-                                <h2 class="text-3xl font-bold">Send us a message</h2>
-                                <p class="text-black/60">Fill the form below and one of our service agent will get back to you</p>
+                                <h4 class="font-quicksand text-gray uppercase text-xs font-bold">WRITE TO US</h4>
+                                <h2 class="mt-1 mb-2 text-3xl font-400">Send us a message</h2>
+                                <p class="text-black/60 font-medium">Fill the form below and one of our service agent will get back to you</p>
                                 <div>
                                     <form class="mt-6" id="contact_form">
                                         <div class="flex flex-col mb-3">
@@ -68,8 +52,14 @@ $image = get_post_thumbnail($page->ID);
                                             <textarea name="message" id="form_message" placeholder="Write your message" class="w-full h-[100px] border-[1px] border-secondary/10 py-2 px-5 rounded-lg text-sm"></textarea>
                                         </div>
                                         <div class="g-recaptcha" data-sitekey="6LdTrSMqAAAAACWpRLZSMJUHrDNxaZ0qFYNM75D9"></div>
-                                        <div class="mt-6">
-                                            <button type="submit" class="flex w-full gap-3 justify-center items-center bg-gradient-to-r from-primary to-secondary p-2 text-white px-8 py-3 rounded-full hover:from-secondary hover:to-primary transition-all duration-500 delay-500">Send message</button>
+                                        <div class="">
+                                            <button type="submit" class="inline-flex gap-3 items-center mt-6 font-semibold bg-primary p-2 text-secondary px-8 py-3 hover:bg-secondary hover:text-primary transition-all duration-100 delay-200">
+                                                <span>Send message</span>
+                                                <span>
+                                                    <svg class="w-6 h-6 fill-current"><use xlink:href="#icon-right"></use>
+                                                    </svg>
+                                                </span>
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
