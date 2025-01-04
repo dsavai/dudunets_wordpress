@@ -1502,9 +1502,9 @@ add_filter('document_title_parts', 'my_custom_title');
 function my_custom_title( $title ) {
   // $title is an array of title parts, including one called `title`
     global $post;
-
-  $title['title'] = $post->post_title.' | Magnetic Dudunets ';
-
+    if (!is_404()) {
+        $title['title'] = $post->post_title . ' | Magnetic Dudunets ';
+    }
   if (is_singular('post')) {
     $title['title'] = $title['title'].' | Magnetic Dudunets - Blog';
   }
