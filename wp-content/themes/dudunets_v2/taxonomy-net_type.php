@@ -34,13 +34,8 @@ $image = get_net_type_image_url($term->term_id);
         <section class="module module--seoblock seoblock-content">
             <div class="container mx-auto">
                 <div class="py-6 px-8 border border-black/10 mb-24 rounded-xl">
-<<<<<<< HEAD
                     <h3 class="text-lg font-semibold mb-1"><?php echo $term->description;?></h3>
                     <p class="text-sm leading-loose"><?php echo get_field("inner-page-description", $term);?></p>
-=======
-                    <h3 class="text-lg font-semibold mb-1">Mosquito net for window</h3>
-                    <p class="text-sm leading-loose">Early mornings or late evenings in good weather is balcony time for any family. The problem we face while sitting in a balcony is unpleasant and harmful bites of mosquitoes and other insects. To solve this, Insect Shield has introduced <a href="#">Pleated Mosquito Net</a>  for Large openings. This innovative product adapts to various problems related to the installation of mosquito net in balconies. More of tensioning cords & deeper bottom track is used to neutralize wind pressure in the balcony. Our zigzag mesh is made of waterproof polyester resistant to atmospheric pollution and salinity. Three-part wide width mosquito net can cover large balconies without compromising on view while the 2 support handles ensure smoother movement. When not needed, pleated mosquito net for balcony retracts into minimal stack space at both ends. The mesh is made of waterproof polyester so it can be cleaned by piped water. Balcony nets have a warranty of 60 months from the date of installation.</p>
->>>>>>> 29db5d720c20595e07a6e5de2f4f673bed4747a4
                 </div>
             </div>
         </section>
