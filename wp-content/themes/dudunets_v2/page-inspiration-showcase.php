@@ -65,10 +65,11 @@ $photos = get_posts_by_taxonomy("showcases","inspiration_type","photo","10");
                             <a href="<?php echo get_the_permalink($photo->ID)?>">
                             <div class="w-full h-[240px] overflow-hidden relative">
                                 <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="object-cover w-full h-full" />
-                                <div class="absolute left-0 bottom-0 w-16 h-12 bg-white text-red flex justify-center items-center">
+                                <div class="absolute left-0 bottom-0 w-32 h-12 bg-white text-red flex justify-center items-center gap-2">
                                     <svg class="w-4 h-4 fill-current">
                                         <use xlink:href="#icon-camera"></use>
                                     </svg>
+                                    <span class="uppercase text-sm font-bold">Gallery</span>
                                 </div>
                             </div>
                             <div class="mt-5">
