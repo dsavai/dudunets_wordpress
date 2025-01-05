@@ -2,8 +2,8 @@
 $id = $args["post_id"];
 $tags = get_post_tags($id);
 ?>
-<div class="mb-5 border-b border-black/10 pb-5">
-    <h4 class="font-semibold mb-3">Tags</h4>
+<div class="mb-5 border-b border-black/10 pb-5 tags">
+    <h4 class="mb-3 font-quicksand text-lg font-bold leading-relaxed">Tags</h4>
     <?php if (!empty($tags)):?>
         <ul class="inline-flex gap-4 flex-wrap">
             <?php foreach ($tags as $tag):?>

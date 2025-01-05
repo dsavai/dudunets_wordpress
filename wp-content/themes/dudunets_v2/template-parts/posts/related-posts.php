@@ -10,8 +10,8 @@ $related_posts = get_related_posts($post_id,2);
 <?php endif;?>
 
 <div>
-    <div class="mt-8 mb-5 lg:mt-14 lg:mb-10">
-        <h2 class="text-2xl md:text-3xl font-bold">You may also like</h2>
+    <div class="mt-8 mb-5 lg:mt-14">
+        <h2 class="mb-2 text-3xl font-400">You may also like</h2>
     </div>
     <div class="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-6">
         <?php foreach ($related_posts as $related_post):
@@ -24,7 +24,7 @@ $related_posts = get_related_posts($post_id,2);
 
 
             ?>
-            <div class="border border-black/10 overflow-hidden rounded-xl">
+            <div class="bg-white border border-black/10 overflow-hidden">
                 <div class="h-[250px] overflow-hidden">
                     <a href="<?php echo get_the_permalink($related_post->ID)?>"class="block w-full h-full ease-in-out duration-700 hover:scale-125">
                         <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
@@ -32,20 +32,20 @@ $related_posts = get_related_posts($post_id,2);
                 </div>
                 <div class="p-8">
                     <div class="mb-2">
-                        <a href="<?php echo get_category_permalink($categories[0]->term_id)?>" class="inline-block uppercase text-sm text-primary font-medium hover:border-b"><?php echo $categories[0]->name ?></a>
+                        <a href="<?php echo get_category_permalink($categories[0]->term_id)?>" class="inline-block uppercase text-[13px] text-gray hover:text-primary font-bold hover:underline underline-offset-4 decoration-2"><?php echo $categories[0]->name ?></a>
                     </div>
                     <div class="mb-5">
-                        <h3 class="text-black text-xl font-semibold">
-                            <a href="<?php echo get_the_permalink($related_post->ID)?>" class="text-black cursor-pointer hover:text-primary hover:border-b"><?php echo $related_post->post_title;?></a>
+                        <h3 class="text-black text-xl font-quicksand font-semibold line-clamp-2">
+                            <a href="<?php echo get_the_permalink($related_post->ID)?>" class="text-black cursor-pointer hover:border-b"><?php echo $related_post->post_title;?></a>
                         </h3>
                     </div>
                     <hr class="border-black/10" />
                     <div class="mt-5 flex justify-between items-center">
                         <a href="#" class="flex items-center gap-3">
-                            <div>
+                            <div class="w-8 h-8 overflow-hidden rounded-full">
                                 <?php echo $avatar?>
                             </div>
-                            <h5 class="font-medium"><?php echo get_author_name_by_post_id($related_post->ID)?></h5>
+                            <h5 class="font-bold text-[14px] hover:text-primary"><?php echo get_author_name_by_post_id($related_post->ID)?></h5>
                         </a>
                         <div class="flex items-center gap-3">
                             <span class="w-1 h-1 bg-black/20 rounded-full"></span>

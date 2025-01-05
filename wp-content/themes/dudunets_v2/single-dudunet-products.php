@@ -41,7 +41,7 @@ $term = $categories[0];
         </section>
         <section class="module module--blog-single-banner">
             <div class="container mx-auto">
-                <div class="w-full h-[450px] overflow-hidden rounded-xl mb-10">
+                <div class="w-full h-[450px] overflow-hidden mb-10">
                     <img src="<?php echo $image['image'][0]?>" alt="" class="w-full h-full object-cover" />
                 </div>
             </div>
