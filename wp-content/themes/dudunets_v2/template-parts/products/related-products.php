@@ -6,8 +6,8 @@ $products = get_related_dudunets($id,$term->slug,$term->taxonomy);
 
 <?php if (!empty($products)):?>
 <div>
-    <div class="mt-14 mb-10">
-        <h2 class="text-3xl font-bold">You may also like</h2>
+    <div class="mt-8 mb-5 lg:mt-14">
+        <h2 class="mb-2 text-3xl font-400">You may also like</h2>
     </div>
     <div class="grid grid-cols-2 gap-6">
         <?php foreach ($products as $product):
@@ -15,35 +15,18 @@ $products = get_related_dudunets($id,$term->slug,$term->taxonomy);
         $categories = get_post_terms_in_net_type($product->ID);
         $term = $categories[0];
         ?>
-          <div class="border border-black/10 overflow-hidden rounded-xl">
-            <div class="h-[250px] overflow-hidden">
-                <a href="<?php echo get_the_permalink($product->ID)?>"class="block w-full h-full ease-in-out duration-700 hover:scale-125">
-                    <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
-                </a>
-            </div>
-            <div class="p-8">
-                <div class="mb-2">
-                    <a href="<?php echo esc_url(get_term_link($term))?>" class="inline-block uppercase text-sm text-primary font-medium hover:border-b"><?php echo $term->name?></a>
+          <div class="border-[1px] border-black/10">
+            <a href="<?php echo get_the_permalink($product->ID)?>"class="block pb-5 w-full h-full hover:[&>div>img]:scale-125">
+                <div class="mb-4 overflow-hidden max-h-[230px] h-[230px]">
+                    <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover ease-in-out duration-700" />
                 </div>
-                <div class="mb-5">
-                    <h3 class="text-black text-xl font-semibold">
-                        <a href="#" class="text-black cursor-pointer hover:text-primary hover:border-b"><?php echo $product->post_title?></a>
+                <div class="flex flex-col justify-center items-start px-6">
+                    <h4 class="font-quicksand text-gray uppercase text-xs font-bold mb-1"><?php echo $term->name?></h4>
+                    <h3 class="font-quicksand text-[17px] font-bold mb-[4px] w-full hover:underline underline-offset-4 decoration-1">
+                        <span class="block truncate"><?php echo $product->post_title?></span>
                     </h3>
                 </div>
-<!--                <hr class="border-black/10" />-->
-<!--                <div class="mt-5 flex justify-between items-center">-->
-<!--                    <a href="#" class="flex items-center gap-3">-->
-<!--                        <div>-->
-<!--                            <img src="images/blog/blogger_profile_photo.png" alt="" />-->
-<!--                        </div>-->
-<!--                        <h5 class="font-medium">Dennis Savai</h5>-->
-<!--                    </a>-->
-<!--                    <div class="flex items-center gap-3">-->
-<!--                        <span class="w-1 h-1 bg-black/20 rounded-full"></span>-->
-<!--                        <span class="text-black/60 text-sm font-medium">4 min read</span>-->
-<!--                    </div>-->
-<!--                </div>-->
-            </div>
+            </a>
         </div>
         <?php endforeach;?>
     </div>
