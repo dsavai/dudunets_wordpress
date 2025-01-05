@@ -32,7 +32,7 @@ get_header();
                         $image = get_post_thumbnail($i->ID);
                         ?>
                         <div class="first_posts">
-                            <a href="#">
+                            <a href="<?php get_the_permalink($i->ID)?>">
                                 <div class="h-[400px] overflow-hidden">
                                     <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="object-cover w-full h-full" />
                                 </div>
