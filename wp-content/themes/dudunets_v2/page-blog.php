@@ -31,6 +31,7 @@ get_header(); ?>
             $image = get_post_thumbnail($latest_post->ID);
             ?>
             <div class="container mx-auto">
+                <a href="<?php echo get_the_permalink($latest_post->ID)?>">
                 <div class="lg:mt-5 mb-10 relative">
                     <div class="absolute bottom-14 inset-x-0 text-center z-[99] text-white">
                         <div class="uppercase bg-primary font-bold w-[150px] mx-auto text-sm py-2 mb-4 text-secondary"><?php echo get_first_custom_category($latest_post->ID)['name']?> </div>
@@ -42,6 +43,7 @@ get_header(); ?>
                         <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
                     </div>
                 </div>
+                </a>
             </div>
         <?php endif;?>
         <?php wp_reset_postdata();?>
