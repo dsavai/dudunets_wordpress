@@ -10,30 +10,30 @@ get_header();
 ?>
 <main id="mainMain" class="module">
     <div class="container mx-auto">
-        <div class="my-8">
+        <div class="my-8 px-4 lg:px-0">
             <h2 class="mb-2 text-3xl font-400">Our installations</h2>
             <p class="text-black/60 font-medium leading-relaxed">Lorem ipsum dolor sit amet consectetur. Fermentum feugiat risus ac tristique pharetra at leo vitae.</p>
         </div>
-        <div class="mb-4">
+        <div class="mb-4 px-4 lg:px-0">
             <form>
             <?php if (!empty($terms)):?>
-            <select class="w-[200px] h-[45px] border-[1px] border-secondary/10 py-2 px-5 rounded-lg text-sm" id="installation_chooser">
-                <?php foreach ($terms as $term):?>
-                    <option value="<?php echo $term->slug?>" data-taxonomy="net_type" data-term="<?php echo $term->slug?>" data-post_type="installation" data-container="#installations_container" data-page="1"><?php echo $term->name?></option>
-                <?php endforeach;?>
-            </select>
+                <select class="w-full md:w-[200px] h-[45px] border-[1px] border-secondary/10 py-2 px-5 rounded-lg text-sm" id="installation_chooser">
+                    <?php foreach ($terms as $term):?>
+                        <option value="<?php echo $term->slug?>" data-taxonomy="net_type" data-term="<?php echo $term->slug?>" data-post_type="installation" data-container="#installations_container" data-page="1"><?php echo $term->name?></option>
+                    <?php endforeach;?>
+                </select>
             <?php endif;?>
             </form>
         </div>
-        <div class="section--installations">
-            <div class="grid grid-cols-2 gap-x-6 gap-y-10" id="installations_container">
+        <div class="section--installations px-4 lg:px-0">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 lg:gap-y-10" id="installations_container">
                 <?php if (!empty($the_posts)):?>
                     <?php foreach ($the_posts as $i):
                         $image = get_post_thumbnail($i->ID);
                         ?>
                         <div class="first_posts">
                             <a href="<?php get_the_permalink($i->ID)?>">
-                                <div class="h-[400px] overflow-hidden">
+                                <div class="h-[200px] lg:h-[400px] overflow-hidden">
                                     <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="object-cover w-full h-full" />
                                 </div>
                                 <div class="mt-4">

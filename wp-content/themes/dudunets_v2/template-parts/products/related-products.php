@@ -9,7 +9,7 @@ $products = get_related_dudunets($id,$term->slug,$term->taxonomy);
     <div class="mt-8 mb-5 lg:mt-14">
         <h2 class="mb-2 text-3xl font-400">You may also like</h2>
     </div>
-    <div class="grid grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
         <?php foreach ($products as $product):
         $image = get_post_thumbnail($product->ID);
         $categories = get_post_terms_in_net_type($product->ID);

@@ -952,6 +952,10 @@ video {
   margin-top: 80px;
 }
 
+.mb-8{
+  margin-bottom: 2rem;
+}
+
 .line-clamp-2{
   overflow: hidden;
   display: -webkit-box;
@@ -2581,6 +2585,10 @@ select{
     height: 400px;
   }
 
+  .md\:w-\[200px\]{
+    width: 200px;
+  }
+
   .md\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2593,6 +2601,10 @@ select{
     gap: 0.75rem;
   }
 
+  .md\:gap-6{
+    gap: 1.5rem;
+  }
+
   .md\:text-4xl{
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -2601,6 +2613,11 @@ select{
   .md\:text-6xl{
     font-size: 3.75rem;
     line-height: 1;
+  }
+
+  .md\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 
@@ -2621,6 +2638,11 @@ select{
   .lg\:my-8{
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  .lg\:my-14{
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
   }
 
   .lg\:mb-0{
@@ -2657,6 +2679,10 @@ select{
 
   .lg\:mt-5{
     margin-top: 1.25rem;
+  }
+
+  .lg\:mb-16{
+    margin-bottom: 4rem;
   }
 
   .lg\:block{
