@@ -48,8 +48,8 @@ $share_urls = get_share_links($post->ID);
     <section class="module module--blog-single-content">
         <div class="container mx-auto px-4 lg:px-0">
             <div class="lg:flex lg:gap-16">
-                <section class="module module--blog-content basis-8/12 mb-16">
-                    <div class="flex gap-5 items-center mb-6">
+                <section class="module module--blog-content basis-8/12 mb-4 lg:mb-16">
+                    <div class="flex flex-col gap-2 md:flex-row md:gap-5 md:items-center mb-6">
                         <div>
                             <a href="#" class="flex items-center gap-3">
                                 <div>

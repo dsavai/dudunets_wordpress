@@ -47,7 +47,7 @@ $related_posts = get_related_posts($post_id,2);
                             </div>
                             <h5 class="font-bold text-[14px] hover:text-primary"><?php echo get_author_name_by_post_id($related_post->ID)?></h5>
                         </a>
-                        <div class="flex items-center gap-3">
+                        <div class="lg:flex items-center gap-3 hidden">
                             <span class="w-1 h-1 bg-black/20 rounded-full"></span>
                             <span class="text-black/60 text-sm font-medium"><?php echo estimate_reading_time($related_post->ID); ?></span>
                         </div>

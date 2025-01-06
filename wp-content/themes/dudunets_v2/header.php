@@ -207,9 +207,12 @@ $document = get_field('document',$brochure->ID);
                         ?>
                     </div>
                     <div id="openMobileMenuOverlay" class="absolute right-4 text-black z-10 cursor-pointer lg:hidden">
-                        <svg class="w-8 h-8 fill-current">
-                            <use xlink:href="#icon-mobile-menu"></use>
-                        </svg>
+                        <div class="flex items-center gap-1 py-[4px] px-[12px] border border-black/10">
+                            <span class="font-bold">Menu</span>
+                            <svg class="w-8 h-8 fill-current">
+                                <use xlink:href="#icon-mobile-menu"></use>
+                            </svg>
+                        </div>
                     </div>
                     <div class="lg:flex items-center hidden">
                         <div class="flex justify-center items-center w-12 h-12 bg-primary rounded-full mr-4 text-secondary">
