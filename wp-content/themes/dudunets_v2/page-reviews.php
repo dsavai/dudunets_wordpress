@@ -27,7 +27,7 @@ $image = get_post_thumbnail($page->ID);
                         ?>
                         <div class="border border-black/10 px-6 py-5 mb-4">
                             <div class="flex gap-4">
-                                <div class="flex justify-center items-center text-lg font-bold bg-secondary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]"><?php echo $reviewer_initial ?></div>
+                                <div class="hidden md:flex justify-center items-center text-lg font-bold bg-secondary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]"><?php echo $reviewer_initial ?></div>
                                 <div>
                                     <div>
                                         <h4 class="font-quicksand capitalize text-lg font-bold"><?php echo $review->post_title?></h4>
