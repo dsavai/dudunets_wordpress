@@ -6,12 +6,12 @@ module.exports = {
   theme: {
     fontFamily: {
       frankRuhlLibre: ["Frank Ruhl Libre", "serif"],
-      quicksand: ["Quicksand", "serif"],
+      geist: ["Geist", "serif"],
     },
     colors: {
       'black': "#141416",
-      'primary': "#2AD0A8",
-      'secondary': "#02115E",
+      'primary': "#02115E",
+      'secondary': "#0CBD92",
       'red': "#D11313",
       'gray': "#72777D",
       'gray-light': "#F8F8F8",

@@ -11,7 +11,9 @@ $dudu_net_types = get_net_types("DESC");
     <section class="module module--products">
         <div class="container mx-auto h-full px-4 lg:px-0">
             <div class="py-14">
-                <?php echo apply_filters("the_content",$the_post->post_content);?>
+                <div class="text-center mx-auto mb-10">
+                    <?php echo apply_filters("the_content",$the_post->post_content);?>
+                </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
                     <?php if (!empty($dudu_net_types)):?>
                         <?php foreach ($dudu_net_types as $type):
@@ -19,20 +21,20 @@ $dudu_net_types = get_net_types("DESC");
                             ?>
                             <div class="border-[1px] border-black/10">
                                 <a title="<?php echo $type->description;?>" href="<?php echo esc_url(get_term_link($type))?>" class="block pb-5 w-full h-full hover:[&>div>img]:scale-125">
-                                    <div class="mb-4 overflow-hidden max-h-[230px] h-[230px]">
+                                    <div class="mb-4 overflow-hidden max-h-[450px] h-[450px]">
                                         <img src="<?php echo $image?>" alt="<?php echo $type->name?>" class="w-full h-full object-cover ease-in-out duration-700" />
                                     </div>
                                     <div class="flex flex-col justify-center items-start px-6">
                                         <h4 class="font-quicksand text-[17px] font-bold mb-[4px] w-full hover:underline underline-offset-4 decoration-1">
                                             <span class="block truncate"><?php echo $type->description;?></span>
                                         </h4>
-                                        <div class="flex items-center text-primary text-[14px] font-bold hover:underline underline-offset-4 decoration-2">
+                                        <div class="flex items-center text-primary text-[14px] font-medium hover:underline underline-offset-4 decoration-2">
                                             <span>Learn more</span>
                                             <span>
-                                            <svg class="w-6 h-4 fill-current rotate-[-90deg]">
-                                                <use xlink:href="#icon-arrowdown"></use>
-                                            </svg>
-                                        </span>
+                                                <svg class="w-6 h-4 fill-current rotate-[-90deg]">
+                                                    <use xlink:href="#icon-arrowdown"></use>
+                                                </svg>
+                                            </span>
                                         </div>
                                     </div>
                                 </a>
