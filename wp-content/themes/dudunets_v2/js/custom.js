@@ -89,7 +89,8 @@ jQuery(document).ready(function (){
                     selections:JSON.stringify(selections)
                 },
                 success: function (response) {
-                    alert("done");
+                    //alert("done");
+                    window.location.replace("thank-you");
                 },
                 error: function (response){
                     console.log(response);
@@ -159,7 +160,8 @@ jQuery(document).ready(function (){
                     location:location,
                 },
                 success: function (response) {
-                    alert("done");
+                    //alert("done");
+                    window.location.replace("thank-you");
                 },
                 error: function (response){
                     console.log(response);
@@ -235,7 +237,8 @@ jQuery(document).ready(function (){
                     message: message
                 },
                 success: function (response) {
-                    alert("done");
+                    //alert("done");
+                    window.location.replace("thank-you");
                 },
                 error: function (response){
                     console.log(response);
@@ -301,7 +304,8 @@ jQuery(document).ready(function (){
                     message: message
                 },
                 success: function (response) {
-                    alert("done");
+                    //alert("done");
+                    window.location.replace("thank-you");
                 },
                 error: function (response){
                     console.log(response);
@@ -343,12 +347,13 @@ menuMobileClose.addEventListener("click", () =>{
 });
 
 const swiper = new Swiper(".home-slider", {
+    effect: "fade",
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
     autoplay: {
-        delay: 2500,
+        delay: 4500,
         disableOnInteraction: false,
     },
     pagination: {

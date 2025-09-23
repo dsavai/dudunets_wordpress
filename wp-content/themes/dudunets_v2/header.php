@@ -15,28 +15,18 @@ $document = get_field('document',$brochure->ID);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KHLJ4K7P');</script>
+<!-- End Google Tag Manager -->
+
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
-    <!-- HTML Meta Tags -->
-    <title</title>
-    <meta name="description" content="">
 
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:image" content="">
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="citizen.digital">
-    <meta property="twitter:url" content="https://magneticdudunets.com/">
-    <meta name="twitter:title" content="Breaking news, Business, Kenya, Politics, Sports, Lifestyle, Entertainment, Opinion, TV, Radio & Podcasts">
-    <meta name="twitter:description" content="Citizen Digital - Get the latest breaking news in Kenya, county news, world news, elections news, Kenya politics, business, sports, entertainment, Exclusive Videos from Kenya. Watch Citizen TV and Listen to all Radio stations and Podcasts on the go.">
-    <meta name="twitter:image" content="">
-    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHYXYKMYKH"></script>
     <script>
@@ -146,7 +136,7 @@ $document = get_field('document',$brochure->ID);
             </symbol>
         </svg>
     </div>
-    <header class="header sticky top-0 z-[99999]">
+    <header class="header relative top-0 z-[99999]">
         <div class="bg-gradient-to-r from-primary to-secondary p-2">
             <div class="container mx-auto px-4 lg:px-0">
                 <div class="flex justify-between">
@@ -159,7 +149,7 @@ $document = get_field('document',$brochure->ID);
                             foreach ($socials as $social):
                             ?>
                                 <li>
-                                    <a href="<?php echo get_field("social_link",$social->ID)?>" class="block text-white">
+                                    <a href="<?php echo get_field("social_link",$social->ID)?>" target="_blank" class="block text-white">
                                         <span class="sr-only"><?php echo $social->post_title?></span>
                                         <svg class="w-5 h-5 fill-current">
                                             <use xlink:href="<?php echo get_field("icon",$social->ID)?>"></use>
@@ -187,7 +177,7 @@ $document = get_field('document',$brochure->ID);
         </div>
         <div class="bg-white drop-shadow-2xl">
             <div class="container mx-auto px-4 lg:px-0">
-                <div class="flex justify-between items-center py-3">
+                <div class="flex justify-between items-center py-2">
                     <div class="w-[50px] lg:w-[60px]">
                         <a href="<?php echo get_home_url()?>">
                             <span class="sr-only">Official Magnetic Dudu Nets Logo</span>
@@ -222,7 +212,7 @@ $document = get_field('document',$brochure->ID);
                         </div>
                         <div class="flex flex-col">
                             <span class="text-[13px] text-gray font-semibold">Quick Contact</span>
-                            <a href="tel:+254768606155" class="text-black text-xl font-bold">+254-768-606-155 </a>
+                            <a href="tel:+254768606155" class="text-black text-xl font-black">0721 108407</a>
                         </div>
                     </div>
                 </div>
@@ -258,7 +248,7 @@ $document = get_field('document',$brochure->ID);
                     </div>
                     <div class="flex flex-col">
                         <span class="text-sm font-semibold">Quick Contact</span>
-                        <a href="tel:+254768606155" class="text-xl font-bold">+254-768-606-155 </a>
+                        <a href="tel:+254768606155" class="text-xl font-bold">0721 108407</a>
                     </div>
                 </div>
                 <div class="pt-5 border-t-[1px] border-secondary/10 mt-6">

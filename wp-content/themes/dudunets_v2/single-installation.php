@@ -10,45 +10,45 @@ $share_urls = get_share_links($post->ID);
 ?>
 
 <main class="main">
-    <section class="module module--blog-single-title">
-        <div class="container mx-auto">
-            <div class="my-14 flex flex-col justify-center text-center">
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-400 px-4 lg:px-4"><?php echo $post->post_title;?></h1>
-                <div class="mt-5 hidden md:block">
-                    <ul class="flex justify-center items-center gap-2">
-                        <li>
-                            <a href="<?php echo get_home_url()?>" class="text-sm font-semibold hover:text-primary hover:border-b hover:border-primary">Home</a>
-                        </li>
-                        <li>
-                            <svg class="w-3 h-3 fill-current">
-                                <use xlink:href="#icon-arrowright-alt"></use>
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="<?php echo get_category_permalink($categories[0]->term_id)?>" class="text-sm font-semibold hover:text-primary hover:border-b hover:border-primary"><?php echo $categories[0]->name ?></a>
-                        </li>
-                        <li>
-                            <svg class="w-3 h-3 fill-current">
-                                <use xlink:href="#icon-arrowright-alt"></use>
-                            </svg>
-                        </li>
-                        <li class="text-black/60 text-sm font-semibold"><?php echo $post->post_title;?></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="module module--blog-single-banner">
-        <div class="container mx-auto">
-            <div class="w-full h-[350px] lg:h-[450px] overflow-hidden mb-4 lg:mb-10">
-                <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
-            </div>
-        </div>
-    </section>
     <section class="module module--blog-single-content">
         <div class="container mx-auto px-4 lg:px-0">
             <div class="lg:flex lg:gap-16">
                 <section class="module module--blog-content basis-8/12 mb-4 lg:mb-16">
+                    <section class="module module--blog-single-title">
+                        <div class="container mx-auto">
+                            <div class="my-14 flex flex-col justify-center">
+                                <h1 class="text-3xl md:text-4xl lg:text-5xl font-400"><?php echo $post->post_title;?></h1>
+                                <div class="mt-5 hidden md:block">
+                                    <ul class="flex items-center gap-2">
+                                        <li>
+                                            <a href="<?php echo get_home_url()?>" class="text-sm font-semibold hover:text-primary hover:border-b hover:border-primary">Home</a>
+                                        </li>
+                                        <li>
+                                            <svg class="w-3 h-3 fill-current">
+                                                <use xlink:href="#icon-arrowright-alt"></use>
+                                            </svg>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo get_category_permalink($categories[0]->term_id)?>" class="text-sm font-semibold hover:text-primary hover:border-b hover:border-primary"><?php echo $categories[0]->name ?></a>
+                                        </li>
+                                        <li>
+                                            <svg class="w-3 h-3 fill-current">
+                                                <use xlink:href="#icon-arrowright-alt"></use>
+                                            </svg>
+                                        </li>
+                                        <li class="text-black/60 text-sm font-semibold"><?php echo $post->post_title;?></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="module module--blog-single-banner">
+                        <div class="container mx-auto">
+                            <div class="w-full h-[350px] lg:h-[450px] overflow-hidden mb-4 lg:mb-10">
+                                <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    </section>
                     <div class="flex flex-col gap-2 md:flex-row md:gap-5 md:items-center mb-6">
                         <div>
                             <a href="#" class="flex items-center gap-3">
@@ -59,11 +59,11 @@ $share_urls = get_share_links($post->ID);
                             </a>
                         </div>
                         <div class="flex items-center gap-2">
-                                <span>
-                                    <svg class="w-5 h-5 fill-current">
-                                        <use xlink:href="#icon-calendar"></use>
-                                    </svg>
-                                </span>
+                            <span>
+                                <svg class="w-5 h-5 fill-current">
+                                    <use xlink:href="#icon-calendar"></use>
+                                </svg>
+                            </span>
                             <span class="text-black/60 text-sm font-medium"><?php echo $date?></span>
                         </div>
                         <div class="hidden md:flex md:items-center md:gap-3">

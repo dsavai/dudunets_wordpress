@@ -11,20 +11,6 @@ get_header(); ?>
 
 <main class="main">
     <section class="module module--banner">
-        <!-- <div class="w-full h-[300px] bg-cover bg-no-repeat relative" style="background-image: url(<?php echo get_featured_background_image(); ?>);">
-            <div class="bg-black/40 absolute inset-0"></div>
-            <div class="flex flex-col justify-center items-center h-full w-full relative z-20 text-white">
-                <div class="flex justify-center gap-2 border border-white bg-white/10 px-5 py-2 rounded-full">
-                    <span>
-                        <svg class="w-5 h-5 fill-current">
-                            <use xlink:href="#icon-documentfile"></use>
-                        </svg>
-                    </span>
-                    <span class="text-sm font-semibold uppercase">our blog</span>
-                </div>
-                <h1 class="text-4xl md:text-6xl font-bold mt-4">Blog & resources</h1>
-            </div>
-        </div> -->
 
         <?php if ($latest_post):
             $latest_post = $latest_post[0];

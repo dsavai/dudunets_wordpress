@@ -734,7 +734,7 @@ function load_more_posts() {
 
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post(); ?>
-            <div class="border border-black/10 overflow-hidden rounded-xl">
+            <div class="bg-white border border-black/10 overflow-hidden">
                 <div class="h-[250px] overflow-hidden">
                     <a href="<?php the_permalink(); ?>" class="block w-full h-full ease-in-out duration-700 hover:scale-125">
                         <?php if (has_post_thumbnail()) {
@@ -749,21 +749,21 @@ function load_more_posts() {
                         <?php the_category(', '); ?>
                     </div>
                     <div class="mb-5">
-                        <h3 class="text-black text-xl font-semibold">
-                            <a href="<?php the_permalink(); ?>" class="text-black cursor-pointer hover:text-primary hover:border-b"><?php the_title(); ?></a>
+                        <h3 class="text-black text-xl font-quicksand font-semibold line-clamp-2">
+                            <a href="<?php the_permalink(); ?>" class="text-black cursor-pointer hover:border-b"><?php the_title(); ?></a>
                         </h3>
                     </div>
                     <hr class="border-black/10" />
                     <div class="mt-5 flex justify-between items-center">
                         <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="flex items-center gap-3">
-                            <div>
+                            <div class="w-8 h-8 overflow-hidden rounded-full">
                                 <?php echo get_avatar(get_the_author_meta('ID')); ?>
                             </div>
-                            <h5 class="font-medium"><?php the_author(); ?></h5>
+                            <h5 class="font-bold text-[14px] hover:text-primary"><?php the_author(); ?></h5>
                         </a>
-                        <div class="flex items-center gap-3">
+                        <div class="lg:flex items-center gap-3 hidden">
                             <span class="w-1 h-1 bg-black/20 rounded-full"></span>
-                            <span class="text-black/60 text-sm font-medium"><?php echo estimate_reading_time(get_the_ID()); ?> min read</span>
+                            <span class="text-black/60 text-sm font-medium w-6/12 truncate"><?php echo estimate_reading_time(get_the_ID()); ?> min read</span>
                         </div>
                     </div>
                 </div>
