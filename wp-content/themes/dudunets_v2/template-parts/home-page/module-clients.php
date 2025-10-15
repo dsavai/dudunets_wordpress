@@ -4,10 +4,10 @@ $clients = get_custom_posts_by_slug('clients','ASC');
 
 <?php if (!empty($clients)):?>
     <section class="module module--clients">
-        <div class="my-10 lg:my-20">
+        <div class="py-12 border-t border-b  border-[rgba(0,0,0,0.05)]">
             <div class="container mx-auto px-4 lg:px-0">
                 <div class="text-center">
-                    <h5 class="text-md font-bold">We have the trust of 10.000+ companies.</h5>
+                    <h5 class="text-md font-bold">We have the trust of 100+ companies.</h5>
                     <div class="mt-8">
                         <div class="swiper clientLogos">
                             <div class="swiper-wrapper">

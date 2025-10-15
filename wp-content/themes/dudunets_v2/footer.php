@@ -12,7 +12,7 @@
 ?>
 
 
-<footer class="footer mt-12 lg:mt-16">
+<footer class="footer mt-12 lg:mt-16 bg-gray-light ">
     <div class="container mx-auto">
         <!--- whatsApp -->
         <div class="fixed bottom-5 right-3 z-50">
@@ -27,7 +27,7 @@
                 </a>
             </div>
         </div>
-        <div class="bg-gray-light rounded-lg px-4 lg:px-20 lg:pt-20 lg:pb-2">
+        <div class="rounded-lg px-4 lg:px-20 lg:pt-20 lg:pb-2">
             <div class="lg:flex lg:mb-10 pb-6 lg:pb-14">
                 <div class="basis-1/4 py-6 lg:py-0">
                     <a href="#">
@@ -46,7 +46,7 @@
                             'container' => false,
                             'theme_location' => 'footer-menu-2',
                             'walker' => new Footer_Walker_Nav_Menu(),
-                            'menu_class'     => 'text-sm font-medium leading-8',
+                            'menu_class'     => 'text-sm font-normal leading-8',
                         ) );
                         ?>
                     </div>
@@ -56,7 +56,7 @@
                     <form>
                         <div class="relative">
                             <input id="email-subscribe" type="text" placeholder="enter your email" class="w-[300px] h-[45px] bg-white border-[1px] border-secondary/10 py-2 px-5 text-sm" required />
-                            <button value="Subscribe" id="subscribe-btn" class="absolute top-0 right-0 w-14 h-full bg-primary text-secondary flex justify-center items-center hover:bg-secondary hover:text-primary transition-all duration-500">
+                            <button value="Subscribe" id="subscribe-btn" class="absolute top-0 right-0 w-14 h-full bg-secondary text-white flex justify-center items-center hover:bg-secondary hover:text-primary transition-all duration-500">
                                 <span class="sr-only">Submit keep intouch form</span>
                                 <svg class="w-8 h-8 fill-current">
                                     <use xlink:href="#icon-right"></use>
@@ -86,7 +86,7 @@
                     ) );
                     ?>
                 </div>
-                <div class="text-sm font-medium">&copy; <?php echo date("Y")?> Magnetic Dudu Nets Limited</div>
+                <div class="text-sm font-normal">&copy; <?php echo date("Y")?> Magnetic Dudu Nets Limited</div>
             </div>
         </div>
     </div>

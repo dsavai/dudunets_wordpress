@@ -4,28 +4,33 @@ $post = get_post_by_id($post_id);
 $three_value_input_data = get_post_meta($post->ID, 'three_value_input', true);
 ?>
 
-<?php if (!empty($post)):?>
-
-    <section class="module module--hightlight">
-        <div class="border-t lg:border-b border-black/10">
-            <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-10">
-
-                <?php foreach ($three_value_input_data as $data):?>
-                    <div class="px-16 py-16 border-b lg:border-b-0 lg:border-r border-black/10 ">
-                        <div class="relative">
-                            <div class="absolute top-0 right-0">
-                                <svg class="w-6 h-6 fill-current">
-                                    <use xlink:href="#icon-rightup"></use>
-                                </svg>
-                            </div>
-                            <h4 class="font-quicksand text-gray uppercase text-xs font-bold mb-3"><?php echo esc_html($data['field_name_1']); ?></h4>
-                            <h3 class="text-2xl font-400 mb-4"><?php echo esc_html($data['field_name_2']); ?></h3>
-                            <p class="text-black/60 font-medium leading-relaxed"><?php echo nl2br(esc_html($data['text_area_1'])); ?></p>
-                        </div>
+<div class="module-our-processes">
+    <div class="container mx-auto px-4 lg:px-0 pb-8 lg:pt-[110px] lg:pb-14">
+        <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-14">
+            <div class="lg:w-11/12 mt-6 reveal slide-left reveal-transition">
+                <h5 class="font-medium text-secondary">Only Manufacturer in Kenya</h5>
+                <h1 class="mt-1 mb-2 text-3xl font-bold">Trackless Pleated Mesh Door</h1>
+                <div class="text-black/60 font-normal leading-relaxed">
+                    <p class="mb-4">Trackless Pleated Mesh Doors are the modern solution for mosquito and insect protection without the inconvenience of a bottom track. Ideal for homes, offices, and balconies, these doors offer a sleek, seamless look while maintaining high functionality.</p>
+                    <p class="mb-4">Trackless Pleated Mesh Doors are the modern solution for mosquito and insect protection without the inconvenience of a bottom track. Ideal for homes, offices, and balconies, these doors offer a sleek, seamless look while maintaining high functionality.</p>
+                    <p class="mb-4">Trackless Pleated Mesh Doors are the modern solution for mosquito and insect protection without the inconvenience of a bottom track. Ideal for homes, offices, and balconies, these doors offer a sleek, seamless look while maintaining high functionality.</p>
+                </div>
+                <a class="inline-flex gap-1 items-center font-semibold" href="<?php echo $cta['url']?>">
+                    <span>Learn more</span>
+                    <span>
+                        <svg class="w-[20px] h-[20px] fill-current rotate-[-90deg]">
+                            <use xlink:href="#icon-arrowdown"></use>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+             <div class="relative pb-6 lg:pb-0 reveal slide-right reveal-transition">
+                <div class="relative block">
+                    <div class="w-full lg:h-[570px] overflow-hidden">
+                        <img src="http://localhost/dudunets/wp-content/uploads/2024/07/feature_product_03.jpg" class="w-full h-full" />
                     </div>
-                <?php endforeach;?>
+                </div>
             </div>
         </div>
-    </section>
-
-<?php endif;?>
+    </div>
+</div>

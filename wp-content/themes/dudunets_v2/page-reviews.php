@@ -46,8 +46,6 @@ $image = get_post_thumbnail($page->ID);
                 </div>
             </div>
         </section>
-        <?php get_template_part("template-parts/home-page/module","clients");?>
-        <?php get_template_part("template-parts/home-page/module","query");?>
         <?php get_template_part("template-parts/home-page/module","location");?>
     </main>
 <?php

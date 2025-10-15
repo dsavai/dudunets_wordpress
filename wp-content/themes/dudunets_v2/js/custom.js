@@ -421,6 +421,7 @@ const clientsLogo = new Swiper(".clientLogos", {
     },
 });
 
+
 jQuery(document).ready(function() {
     jQuery(".fancy_youtube").fancybox({
         maxWidth    : 800,

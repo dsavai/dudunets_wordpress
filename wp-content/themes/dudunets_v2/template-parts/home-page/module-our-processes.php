@@ -5,20 +5,27 @@ $cta = get_field("cta",$post->ID);
 ?>
 <?php if ($post):?>
 <div class="module-our-processes">
-    <div class="bg-gray-feather flex flex-col justify-center items-center border-t border-black/10">
-        <div class="py-6 px-4 lg:py-24 lg:px-24">
-            <div class="mx-auto px-4 lg:px-0 lg:w-[800px] text-center">
-                <h2 class="mb-2 text-3xl font-400"><?php echo $post->post_title?></h2>
-                <p class="text-black/60 font-medium leading-relaxed"><?php echo $post->post_content?></p>
-                <div class="mt-5">
-                    <a href="<?php echo $cta['url']?>" class="inline-flex gap-3 items-center font-semibold bg-primary p-2 text-secondary px-8 py-3 hover:bg-secondary hover:text-primary transition-all duration-100 delay-200">
-                        <span><?php echo $cta['title']?></span>
-                        <span>
-                            <svg class="w-6 h-6 fill-current"><use xlink:href="#icon-right"></use>
-                            </svg>
-                        </span>
-                    </a>
+    <div class="container mx-auto px-4 lg:px-0 pb-8 lg:pt-[110px] lg:pb-14">
+        <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-14">
+            <div class="relative pb-6 lg:pb-0 reveal slide-left reveal-transition">
+                <div class="relative block">
+                    <div class="w-full lg:h-[570px] overflow-hidden">
+                        <img src="http://localhost/dudunets/wp-content/uploads/2024/07/feature_product_02.jpg" class="w-full h-full" />
+                    </div>
                 </div>
+            </div>
+            <div class="lg:w-11/12 mt-6 reveal slide-right reveal-transition">
+                <h5 class="font-medium text-secondary">Largest Manufacturer in Kenya</h5>
+                <h1 class="mt-1 mb-2 text-3xl font-bold"><?php echo $post->post_title?></h1>
+                <div class="text-black/60 font-normal leading-relaxed"><?php echo $post->post_content?></div>
+                <a class="inline-flex gap-1 items-center font-semibold" href="<?php echo $cta['url']?>">
+                    <span>Learn more</span>
+                    <span>
+                        <svg class="w-[20px] h-[20px] fill-current rotate-[-90deg]">
+                            <use xlink:href="#icon-arrowdown"></use>
+                        </svg>
+                    </span>
+                </a>
             </div>
         </div>
     </div>

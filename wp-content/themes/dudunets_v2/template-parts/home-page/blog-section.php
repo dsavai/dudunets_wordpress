@@ -1,85 +1,98 @@
-<?php
-$post_id = 67;
-$post = get_post($post_id);
-$exclude_category_id = 4;
-
-$args = array(
-    'numberposts' => 3, // Number of posts to retrieve
-    'post_type'   => 'post', // Post type to retrieve
-    'orderby'     => 'date', // Order by date
-    'order'       => 'DESC', // Order in descending order
-    //'category__not_in' => array($exclude_category_id),
-);
-
-// Retrieve the posts
-$posts = get_posts($args);
-
-?>
-
-<section class="module module--blog">
-    <div class="bg-gray-light px-4 lg:px-0">
-        <div class="container mx-auto">
-            <div class="py-16">
+<div class="module module--reviews bg-black/5">
+    <div class="container mx-auto h-full px-4 lg:px-0">
+        <div class="py-14 reveal fade-up reveal-transition">
+            <div class="text-center mx-auto mb-10">
                 <div class="mb-10">
-                    <h4 class="font-quicksand text-gray uppercase text-xs font-bold mb-3">LATEST BLOG</h4>
-                    <h2 class="text-3xl font-400">Our news & articles</h2>
+                    <h2 class="text-3xl font-bold mb-3">Trusted by Families Across Kenya</h2>
+                    <p class="text-black/60">Delivering Quality, Safety, and Peace of Mind</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <?php if(!empty($posts)):?>
-                    <?php foreach ($posts as $post):
-                    $categories = get_the_category($post->ID);
-                   // $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
-                        $image = get_post_thumbnail($post->ID);
-                    $timestamp = strtotime($post->post_date); // Convert a date string to a timestamp
-                    $date = date('F d, Y', $timestamp);
-                    $avatar = get_user_avatar($post->post_author);
-                    ?>
-
-                            <div class="bg-white border border-black/10 overflow-hidden">
-                                <div class="h-[250px] overflow-hidden">
-                                    <a href="<?php echo get_the_permalink($post->ID)?>"class="block w-full h-full ease-in-out duration-700 hover:scale-125">
-                                        <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
-                                    </a>
-                                </div>
-                                <div class="p-8">
-                                    <div class="mb-2">
-                                        <a href="<?php echo get_category_permalink($categories[0]->term_id)?>" class="inline-block uppercase text-[13px] text-gray hover:text-primary font-bold hover:underline underline-offset-4 decoration-2"><?php echo $categories[0]->name ?></a>
-                                    </div>
-                                    <div class="mb-5">
-                                        <h3 class="text-black text-xl font-quicksand font-semibold line-clamp-2">
-                                            <a href="<?php echo get_the_permalink($post->ID)?>" class="text-black cursor-pointer hover:border-b"><?php echo $post->post_title;?></a>
-                                        </h3>
-                                    </div>
-                                    <hr class="border-black/10" />
-                                    <div class="mt-5 flex justify-between items-center">
-                                        <a href="#" class="flex items-center gap-3">
-                                            <div class="w-8 h-8 overflow-hidden rounded-full">
-                                                <?php echo $avatar?>
+            </div>
+            <div class="flex justify-between items-center bg-white py-4 px-5 shadow-lg max-w-4xl mx-auto">
+                <div class="flex items-center">
+                    <div class="w-20 h-5 rounded-full overflow-hidden mr-5 flex-shrink-0">
+                        <img src="<?php echo get_template_directory_uri()?>/dist/images/google_logo.svg" alt="Google Logo" class="w-full h-full object-contain" />
+                    </div>
+                    <div class="font-medium">Excellent</div>
+                    <div class="w-32 h-5 mx-3">
+                        <img src="<?php echo get_template_directory_uri()?>/dist/images/stars.svg" alt="stars" class="w-full h-full object-contain" />
+                    </div>
+                    <div>4.9</div>
+                    <div class="bg-black/10 h-[15px] w-[1px] mx-3"></div>
+                    <div class="font-medium mx-1">100</div>
+                    <div class="font-medium mr-1">reviews</div>
+                </div>
+                <div>
+                    <a href="https://g.page/r/CfEJ5K7bX1dGEAI/review" target="_blank" class="py-2 px-3 ml-auto bg-secondary text-sm font-semibold text-white hover:text-primary transition-all duration-500 flex items-center">
+                        <span>Write review</span>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-10">
+                <div class="swiper clientReviews">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="border border-black/10 px-6 py-5 mb-4">
+                                <div class="flex gap-4">
+                                    <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]">E</div>
+                                    <div>
+                                        <div>
+                                            <h4 class="font-quicksand capitalize text-lg font-bold">Elton wemali</h4>
+                                            <div class="flex items-center gap-2">
+                                                <small class="text-gray text-sm font-medium">Google review</small>
+                                                <div class="bg-secondary /20 px-2 rounded-md font-bold text-sm">4.9</div>
                                             </div>
-                                            <h5 class="font-bold text-[14px] hover:text-primary"><?php echo get_author_name_by_post_id($post->ID)?></h5>
-                                        </a>
-                                        <div class="lg:flex items-center gap-3 hidden">
-                                            <span class="w-1 h-1 bg-black/20 rounded-full"></span>
-                                            <span class="text-black/60 text-sm font-medium"><?php echo estimate_reading_time($post->ID); ?></span>
+                                        </div>
+                                        <div class="mt-2">
+                                            <p>I absolutely appreciated the professionalism of your workmanship quality of your products. Am enjoying my mosquito-free home. Thank you Magnetic Dudu Nets</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                    <?php endforeach;?>
-                    <?php endif;?>
-                </div>
-                <div class="mt-12 flex justify-center">
-                    <a href="<?php echo get_page_url_by_slug('blog')?>" class="flex gap-3 items-center font-semibold bg-primary p-2 text-secondary px-8 py-3 hover:bg-secondary hover:text-primary transition-all duration-100 delay-200">
-                        <span>View more</span>
-                        <span>
-                            <svg class="w-8 h-8 fill-current">
-                                <use xlink:href="#icon-menudots"></use>
-                            </svg>
-                        </span>
-                    </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="border border-black/10 px-6 py-5 mb-4">
+                                <div class="flex gap-4">
+                                    <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]">E</div>
+                                    <div>
+                                        <div>
+                                            <h4 class="font-quicksand capitalize text-lg font-bold">Elton wemali</h4>
+                                            <div class="flex items-center gap-2">
+                                                <small class="text-gray text-sm font-medium">Google review</small>
+                                                <div class="bg-secondary /20 px-2 rounded-md font-bold text-sm">4.9</div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <p>I absolutely appreciated the professionalism of your workmanship quality of your products. Am enjoying my mosquito-free home. Thank you Magnetic Dudu Nets</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="border border-black/10 px-6 py-5 mb-4">
+                                <div class="flex gap-4">
+                                    <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]">E</div>
+                                    <div>
+                                        <div>
+                                            <h4 class="font-quicksand capitalize text-lg font-bold">Elton wemali</h4>
+                                            <div class="flex items-center gap-2">
+                                                <small class="text-gray text-sm font-medium">Google review</small>
+                                                <div class="bg-secondary /20 px-2 rounded-md font-bold text-sm">4.9</div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <p>I absolutely appreciated the professionalism of your workmanship quality of your products. Am enjoying my mosquito-free home. Thank you Magnetic Dudu Nets</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next w-6 h-6 bg-white rounded-full p-6 after:!text-[18px] after:text-primary after:after:font-bold"></div>
+                    <div class="swiper-button-prev w-6 h-6 bg-white rounded-full p-6 after:!text-[18px] after:text-primary after:font-bold"></div>
+                    <div class="swiper-pagination z-20"></div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>

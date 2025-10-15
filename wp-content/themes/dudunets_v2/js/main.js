@@ -67,3 +67,80 @@
 //         }
 //     });
 // });
+
+
+const clientsReviews = new Swiper(".clientReviews", {
+    watchSlidesProgress: true,
+    slidesPerView: 2,
+    spaceBetween: 20,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        580: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+        },
+        1024: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+        },
+    },
+});
+
+
+const productSingleSlider = new Swiper(".productSingleSlider", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    centeredSlidesBounds: true,
+    autoplay: {
+        enabled: false,
+    },
+    pagination: {
+        el: ".productSingleSlider .swiper-pagination",
+        clickable: true,
+    },
+});
+
+jQuery(function($) {
+    $('.masonry-grid').masonry({
+        itemSelector: '.masonry-grid-item',
+        columnWidth: '.masonry-grid-item',
+        percentPosition: true,
+        gutter: 20
+    });
+});
+
+
+ const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      } else {
+        entry.target.classList.remove("active");
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  reveals.forEach(el => observer.observe(el));
