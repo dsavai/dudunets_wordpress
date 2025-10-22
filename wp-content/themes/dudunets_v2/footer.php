@@ -91,6 +91,13 @@
         </div>
     </div>
 </footer>
-<?php wp_footer(); ?>
+    <?php wp_footer(); ?>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.12.0/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run('#showcase_gallery', {
+            captions: true,
+            buttons: 'auto',
+        });
+    </script>
 </body>
 </html>
