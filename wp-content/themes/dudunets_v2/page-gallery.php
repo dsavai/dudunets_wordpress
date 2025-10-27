@@ -22,75 +22,15 @@ $photos = get_posts_by_taxonomy("showcases","inspiration_type","photo","10");
                     ?>
                 <div>
                     <a href="<?php echo $image['image'][0]?>" data-caption="Magnetic Mosquito Nets For Windows">
-                        <div class="w-full h-[400px] overflow-hidden">
+                        <div class="w-full h-[250px] overflow-hidden">
                             <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover">
                         </div>
                         <div class="w-full truncate mt-2">
-                            <p class="text-black font-medium leading-relaxed"><?php echo $photo->post_title?></p>
+                            <p class="text-black/60 font-medium leading-relaxed"><?php echo $photo->post_title?></p>
                         </div>
                     </a>
                 </div>
                 <?php endforeach;?>
-               <!-- <div>
-                    <a href="https://magneticdudunets.com/wp-content/uploads/2024/07/IMG_2123-scaled.jpg" data-caption="Magnetic Mosquito Nets For Windows">
-                        <div class="w-full h-[400px] overflow-hidden">
-                            <img src="https://magneticdudunets.com/wp-content/uploads/2024/07/IMG_2123-scaled.jpg" alt="Magnetic Mosquito Nets For Windowss" class="w-full h-full object-cover">
-                        </div>
-                        <div class="w-full truncate mt-2">
-                            <p class="text-black font-medium leading-relaxed">Magnetic Mosquito Nets For Windows</p>
-                        </div>
-                    </a>
-                </div>
-               <div>
-                    <a href="https://magneticdudunets.com/wp-content/uploads/2024/07/IMG-20250516-WA0143.jpg" data-caption="Magnetic Mosquito Nets For Windows">
-                        <div class="w-full h-[400px] overflow-hidden">
-                            <img src="https://magneticdudunets.com/wp-content/uploads/2024/07/IMG-20250516-WA0143.jpg" alt="Magnetic Mosquito Nets For Windows" class="w-full h-full object-cover">
-                        </div>
-                        <div class="w-full truncate mt-2">
-                            <p class="text-black font-medium leading-relaxed">Magnetic Mosquito Nets For Windows</p>
-                        </div>
-                    </a>
-                </div>
-                <div>
-                    <a href="https://magneticdudunets.com/wp-content/uploads/2025/07/Untitled-design-8.jpg" data-caption="Magnetic Mosquito Nets For Windows">
-                        <div class="w-full h-[400px] overflow-hidden">
-                            <img src="https://magneticdudunets.com/wp-content/uploads/2025/07/Untitled-design-8.jpg" alt="Magnetic Mosquito Nets For Windows" class="w-full h-full object-cover">
-                        </div>
-                        <div class="w-full truncate mt-2">
-                            <p class="text-black font-medium leading-relaxed">Magnetic Mosquito Nets For Windows</p>
-                        </div>
-                    </a>
-                </div>
-                <div>
-                    <a href="https://magneticdudunets.com/wp-content/uploads/2024/07/door_screen.jpg" data-caption="Magnetic Mosquito Nets For Windows">
-                        <div class="w-full h-[400px] overflow-hidden">
-                            <img src="https://magneticdudunets.com/wp-content/uploads/2024/07/door_screen.jpg" alt="Magnetic Mosquito Nets For Windows" class="w-full h-full object-cover">
-                        </div>
-                        <div class="w-full truncate mt-2">
-                            <p class="text-black font-medium leading-relaxed">Magnetic Mosquito Nets For Windows</p>
-                        </div>
-                    </a>
-                </div>
-                <div>
-                    <a href="https://magneticdudunets.com/wp-content/uploads/2025/07/20250708_170555-min-scaled-e1752227826141.jpg" data-caption="Magnetic Mosquito Nets For Windows">
-                        <div class="w-full h-[400px] overflow-hidden">
-                            <img src="https://magneticdudunets.com/wp-content/uploads/2025/07/20250708_170555-min-scaled-e1752227826141.jpg" alt="Magnetic Mosquito Nets For Windows" class="w-full h-full object-cover">
-                        </div>
-                        <div class="w-full truncate mt-2">
-                            <p class="text-black font-medium leading-relaxed">Magnetic Mosquito Nets For Windows</p>
-                        </div>
-                    </a>
-                </div>
-                <div>
-                    <a href="https://magneticdudunets.com/wp-content/uploads/2025/07/272210998_145075624581233_326708659839289387_n-211.jpg" data-caption="Magnetic Mosquito Nets For Windows">
-                        <div class="w-full h-[400px] overflow-hidden">
-                            <img src="https://magneticdudunets.com/wp-content/uploads/2025/07/272210998_145075624581233_326708659839289387_n-211.jpg" alt="Magnetic Mosquito Nets For Windows" class="w-full h-full object-cover">
-                        </div>
-                        <div class="w-full truncate mt-2">
-                            <p class="text-black font-medium leading-relaxed">Magnetic Mosquito Nets For Windows</p>
-                        </div>
-                    </a>
-                </div>-->
             </div>
 
             <div class="mt-12 flex justify-center">
