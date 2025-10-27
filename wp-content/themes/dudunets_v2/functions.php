@@ -352,6 +352,8 @@ function submit_front_page_lead() {
         $email = sanitize_email($_POST['email']);
         $location = sanitize_text_field($_POST['location']);
         $mobile = sanitize_text_field($_POST['mobile']);
+        $service = sanitize_text_field($_POST['service']);
+        $area = sanitize_text_field($_POST['area']);
         if (isset($_POST['message'])){
             $message = sanitize_text_field($_POST['message']);
         }
@@ -369,6 +371,8 @@ function submit_front_page_lead() {
 }
 add_action('wp_ajax_submit_front_page_lead', 'submit_front_page_lead'); // If called from admin panel
 add_action('wp_ajax_nopriv_submit_front_page_lead', 'submit_front_page_lead'); // If called from elsewhere
+
+
 
 
 
@@ -969,7 +973,9 @@ function add_name_value_pair_meta_box() {
         224 => 'Use this to put data for the accordion',
         391 => 'Use this to provide content for the what we do tabs',
         715 => "Use this to detail processes",
-        754 => "Use this for FAQs"
+        754 => "Use this for FAQs",
+        1029 => "Use This for the about us page Mission and vision boxes",
+        1035 => "Use This for the about us page Why Chose Us boxes",
     );
     $custom_post_types = array('custom_post_type1', 'custom_post_type2'); // Replace with your custom post types
 

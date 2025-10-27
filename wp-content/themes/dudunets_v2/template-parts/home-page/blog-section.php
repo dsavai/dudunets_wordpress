@@ -1,3 +1,6 @@
+<?php
+$reviews = get_custom_posts_by_slug('customer_reviews');
+?>
 <div class="module module--reviews bg-black/5">
     <div class="container mx-auto h-full px-4 lg:px-0">
         <div class="py-14 reveal fade-up reveal-transition">
@@ -30,6 +33,34 @@
             <div class="mt-10">
                 <div class="swiper clientReviews">
                     <div class="swiper-wrapper">
+
+                        <?php foreach($reviews as $review):?>
+
+                            <?php 
+                                $string = $review->post_title;
+                                $reviewer_initial = substr($string, 0, 1); 
+                                //var_dump($reviewer_initial);
+                            ?>
+                            <div class="swiper-slide">
+                                <div class="border border-black/10 px-6 py-5 mb-4">
+                                    <div class="flex gap-4">
+                                        <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]"><?php echo $reviewer_initial;?></div>
+                                        <div>
+                                            <div>
+                                                <h4 class="font-quicksand capitalize text-lg font-bold"><?php echo $string; ?></h4>
+                                                <div class="flex items-center gap-2">
+                                                    <small class="text-gray text-sm font-medium">Google review</small>
+                                                    <div class="bg-secondary /20 px-2 rounded-md font-bold text-sm"><?php echo get_field('score',$review->ID);?></div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-2">
+                                                <p><?php echo apply_filters("the_content",$review->post_content);?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        <?php endforeach;?>
                         <div class="swiper-slide">
                             <div class="border border-black/10 px-6 py-5 mb-4">
                                 <div class="flex gap-4">

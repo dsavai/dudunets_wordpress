@@ -149,6 +149,7 @@ jQuery(document).ready(function (){
             let mobile = jQuery("input[name=mobile]").val();
             let email = jQuery("input[name=email]").val();
             let location = jQuery("input[name=location]").val();
+            let area = jQuery("input[name=area]").val();
             jQuery.ajax({
                 type: "POST",
                 url: script.ajaxurl,
@@ -158,6 +159,7 @@ jQuery(document).ready(function (){
                     mobile:mobile,
                     email:email,
                     location:location,
+                    area:area
                 },
                 success: function (response) {
                     //alert("done");

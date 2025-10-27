@@ -74,7 +74,7 @@ $photos = get_posts_by_taxonomy("showcases","inspiration_type","photo","10");
             </div>
 
             <div class="mt-12 flex justify-center">
-                <a href="#"  data-taxonomy="inspiration_type" data-term="video" data-post_type="showcases" data-container="#videos_container" class="load-more-btn flex gap-3 items-center font-semibold bg-primary p-2 text-secondary px-8 py-3 hover:bg-secondary hover:text-primary transition-all duration-100 delay-200">
+                <a href="#"  data-taxonomy="inspiration_type" data-term="video" data-post_type="showcases" data-container="#showcase_gallery" class="load-more-btn flex gap-3 items-center font-semibold bg-primary p-2 text-secondary px-8 py-3 hover:bg-secondary hover:text-primary transition-all duration-100 delay-200">
                     <span>Load more</span>
                     <span>
                         <svg class="w-8 h-8 fill-current">
