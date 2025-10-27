@@ -288,67 +288,73 @@ select{
   }/*End of Zoom out Keyframes */
 
 
-  /* Reveal sections */
-.reveal-transition{
-    transition-delay: 0.2s;
-}
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-  will-change: transform, opacity;
+@media (min-width: 1024px) {
+    /* Reveal sections */
+    .reveal-transition{
+        transition-delay: 0.2s;
+    }
+    .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+    will-change: transform, opacity;
+    }
+
+    /* When in view */
+    .reveal.active {
+    opacity: 1;
+    transform: none;
+    }
+
+    /* Specific Animations */
+    .fade-in {
+    transform: translateY(40px);
+    }
+
+    .slide-left {
+    transform: translateX(-60px);
+    }
+
+    .zoom-in {
+    transform: scale(0.8);
+    }
+
+    .flip-up {
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    }
+
+    .slide-right {
+    transform: translateX(60px);
+    }
+
+    .flip-down {
+    transform: rotateX(-90deg);
+    transform-origin: top;
+    }
+
+    .fade-up {
+    transform: translateY(40px);
+    opacity: 0;
+    }
+
+    /* Activated states (reuse .active for all) */
+    .reveal.slide-right.active,
+    .reveal.flip-down.active,
+    .reveal.fade-up.active {
+    transform: none;
+    opacity: 1;
+    }
+
+    /* Activated states */
+    .reveal.fade-in.active,
+    .reveal.slide-left.active,
+    .reveal.zoom-in.active,
+    .reveal.flip-up.active {
+    transform: none;
+    }
 }
 
-/* When in view */
-.reveal.active {
-  opacity: 1;
-  transform: none;
-}
-
-/* Specific Animations */
-.fade-in {
-  transform: translateY(40px);
-}
-
-.slide-left {
-  transform: translateX(-60px);
-}
-
-.zoom-in {
-  transform: scale(0.8);
-}
-
-.flip-up {
-  transform: rotateX(90deg);
-  transform-origin: bottom;
-}
-
-.slide-right {
-  transform: translateX(60px);
-}
-
-.flip-down {
-  transform: rotateX(-90deg);
-  transform-origin: top;
-}
-
-.fade-up {
-  transform: translateY(40px);
-  opacity: 0;
-}
-
-/* Activated states (reuse .active for all) */
-.reveal.slide-right.active,
-.reveal.flip-down.active,
-.reveal.fade-up.active {
-  transform: none;
-  opacity: 1;
-}
-
-/* Activated states */
-.reveal.fade-in.active,
-.reveal.slide-left.active,
-.reveal.zoom-in.active,
-.reveal.flip-up.active {
-  transform: none;
+.reviews-contact-container module-contact > div{
+    @apply lg:pt-[0px]; 
 }
