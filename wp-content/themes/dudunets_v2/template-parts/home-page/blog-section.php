@@ -10,26 +10,6 @@ $reviews = get_custom_posts_by_slug('customer_reviews');
                     <p class="text-black/60">Delivering Quality, Safety, and Peace of Mind</p>
                 </div>
             </div>
-            <div class="flex justify-between items-center bg-white py-4 px-5 shadow-lg max-w-4xl mx-auto">
-                <div class="flex items-center">
-                    <div class="w-20 h-5 rounded-full overflow-hidden mr-5 flex-shrink-0">
-                        <img src="<?php echo get_template_directory_uri()?>/dist/images/google_logo.svg" alt="Google Logo" class="w-full h-full object-contain" />
-                    </div>
-                    <div class="font-medium">Excellent</div>
-                    <div class="w-32 h-5 mx-3">
-                        <img src="<?php echo get_template_directory_uri()?>/dist/images/stars.svg" alt="stars" class="w-full h-full object-contain" />
-                    </div>
-                    <div>4.9</div>
-                    <div class="bg-black/10 h-[15px] w-[1px] mx-3"></div>
-                    <div class="font-medium mx-1">100</div>
-                    <div class="font-medium mr-1">reviews</div>
-                </div>
-                <div>
-                    <a href="https://g.page/r/CfEJ5K7bX1dGEAI/review" target="_blank" class="py-2 px-3 ml-auto bg-secondary text-sm font-semibold text-white hover:text-primary transition-all duration-500 flex items-center">
-                        <span>Write review</span>
-                    </a>
-                </div>
-            </div>
             <div class="mt-10">
                 <div class="swiper clientReviews">
                     <div class="swiper-wrapper">
