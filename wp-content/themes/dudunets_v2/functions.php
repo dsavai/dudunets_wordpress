@@ -1958,3 +1958,398 @@ add_action('save_post', 'save_dudunets_gallery_meta_box_data');
 
 
 
+/**
+ * Simplified repeatable Gallery metabox for taxonomy 'net_type'
+ * Fields: Image + Title
+ */
+
+// -----------------------------
+// 1. Add metabox
+// -----------------------------
+add_action('net_type_add_form_fields', 'add_net_type_metabox');
+add_action('net_type_edit_form_fields', 'edit_net_type_metabox');
+
+function add_net_type_metabox() {
+    ?>
+    <div class="form-field term-group">
+        <label for="net_type_gallery">Gallery</label>
+        <div id="net_type_gallery_wrapper"></div>
+        <button type="button" class="button add-gallery-item">+ Add Image</button>
+    </div>
+    <?php
+    add_net_type_metabox_scripts();
+}
+
+function edit_net_type_metabox($term) {
+    $gallery = get_term_meta($term->term_id, 'net_type_gallery', true);
+    ?>
+    <tr class="form-field term-group-wrap">
+        <th scope="row"><label for="net_type_gallery">Gallery</label></th>
+        <td>
+            <div id="net_type_gallery_wrapper">
+                <?php
+                if (!empty($gallery) && is_array($gallery)) {
+                    foreach ($gallery as $index => $item) { ?>
+                        <div class="gallery-item" style="margin-bottom:15px;border:1px solid #ccc;padding:10px;">
+                            <input type="hidden" name="net_type_gallery[<?php echo $index; ?>][image]" value="<?php echo esc_attr($item['image']); ?>" class="gallery-image-field" />
+                            <img src="<?php echo esc_url($item['image']); ?>" class="gallery-preview" style="max-width:150px;display:block;margin-bottom:10px;">
+                            <button type="button" class="button upload-gallery-image">Upload Image</button>
+
+                            <p><input type="text" name="net_type_gallery[<?php echo $index; ?>][title]" value="<?php echo esc_attr($item['title']); ?>" placeholder="Image Title" style="width:100%;"></p>
+
+                            <button type="button" class="button remove-gallery-item" style="background:#f55;color:#fff;">Remove</button>
+                        </div>
+                    <?php }
+                } ?>
+            </div>
+            <button type="button" class="button add-gallery-item">+ Add Image</button>
+        </td>
+    </tr>
+    <?php
+    add_net_type_metabox_scripts();
+}
+
+// -----------------------------
+// 2. Save meta data
+// -----------------------------
+add_action('created_net_type', 'save_net_type_metabox');
+add_action('edited_net_type', 'save_net_type_metabox');
+
+function save_net_type_metabox($term_id) {
+    if (isset($_POST['net_type_gallery'])) {
+        update_term_meta($term_id, 'net_type_gallery', $_POST['net_type_gallery']);
+    } else {
+        delete_term_meta($term_id, 'net_type_gallery');
+    }
+}
+
+// -----------------------------
+// 3. Scripts for repeater + uploader
+// -----------------------------
+function add_net_type_metabox_scripts() {
+    ?>
+    <script>
+    jQuery(document).ready(function($){
+        // Upload image
+        $('body').on('click', '.upload-gallery-image', function(e){
+            e.preventDefault();
+            let button = $(this);
+            let custom_uploader = wp.media({
+                title: 'Select Image',
+                button: { text: 'Use this image' },
+                multiple: false
+            }).on('select', function(){
+                let attachment = custom_uploader.state().get('selection').first().toJSON();
+                button.prev('.gallery-preview').attr('src', attachment.url);
+                button.siblings('.gallery-image-field').val(attachment.url);
+            }).open();
+        });
+
+        // Add new item
+        $('body').on('click', '.add-gallery-item', function(e){
+            e.preventDefault();
+            let index = $('#net_type_gallery_wrapper .gallery-item').length;
+            let newItem = `
+                <div class="gallery-item" style="margin-bottom:15px;border:1px solid #ccc;padding:10px;">
+                    <input type="hidden" name="net_type_gallery[${index}][image]" class="gallery-image-field" />
+                    <img src="" class="gallery-preview" style="max-width:150px;display:block;margin-bottom:10px;">
+                    <button type="button" class="button upload-gallery-image">Upload Image</button>
+                    <p><input type="text" name="net_type_gallery[${index}][title]" placeholder="Image Title" style="width:100%;"></p>
+                    <button type="button" class="button remove-gallery-item" style="background:#f55;color:#fff;">Remove</button>
+                </div>
+            `;
+            $('#net_type_gallery_wrapper').append(newItem);
+        });
+
+        // Remove item
+        $('body').on('click', '.remove-gallery-item', function(e){
+            e.preventDefault();
+            $(this).closest('.gallery-item').remove();
+        });
+    });
+    </script>
+    <?php
+}
+
+
+
+
+
+/**
+ * Clonable 'Swipers' metabox for taxonomy 'net_type'
+ */
+
+// --------------------------------------
+// 1. Add fields to the taxonomy add/edit forms
+// --------------------------------------
+add_action('net_type_add_form_fields', 'add_net_type_swipers_metabox');
+add_action('net_type_edit_form_fields', 'edit_net_type_swipers_metabox');
+
+function add_net_type_swipers_metabox() {
+    ?>
+    <div class="form-field term-group">
+        <label for="net_type_swipers">Swipers</label>
+        <div id="net_type_swipers_wrapper"></div>
+        <button type="button" class="button add-swiper-item">+ Add Swiper</button>
+    </div>
+    <?php
+    add_net_type_swipers_scripts();
+}
+
+function edit_net_type_swipers_metabox($term) {
+    $swipers = get_term_meta($term->term_id, 'net_type_swipers', true);
+    ?>
+    <tr class="form-field term-group-wrap">
+        <th scope="row"><label for="net_type_swipers">Swipers</label></th>
+        <td>
+            <div id="net_type_swipers_wrapper">
+                <?php
+                if (!empty($swipers) && is_array($swipers)) {
+                    foreach ($swipers as $index => $swiper) { ?>
+                        <div class="swiper-item" style="margin-bottom:15px;border:1px solid #ccc;padding:10px;">
+                            <p><input type="text" name="net_type_swipers[<?php echo $index; ?>][text]" value="<?php echo esc_attr($swiper['text']); ?>" placeholder="Swiper Text" style="width:100%;"></p>
+                            
+                            <input type="hidden" name="net_type_swipers[<?php echo $index; ?>][image]" value="<?php echo esc_attr($swiper['image']); ?>" class="swiper-image-field" />
+                            <img src="<?php echo esc_url($swiper['image']); ?>" class="swiper-preview" style="max-width:150px;display:block;margin-bottom:10px;">
+                            <button type="button" class="button upload-swiper-image">Upload Image</button>
+
+                            <button type="button" class="button remove-swiper-item" style="background:#f55;color:#fff;">Remove</button>
+                        </div>
+                    <?php }
+                } ?>
+            </div>
+            <button type="button" class="button add-swiper-item">+ Add Swiper</button>
+        </td>
+    </tr>
+    <?php
+    add_net_type_swipers_scripts();
+}
+
+// --------------------------------------
+// 2. Save the Swipers meta
+// --------------------------------------
+add_action('created_net_type', 'save_net_type_swipers_metabox');
+add_action('edited_net_type', 'save_net_type_swipers_metabox');
+
+function save_net_type_swipers_metabox($term_id) {
+    if (isset($_POST['net_type_swipers'])) {
+        update_term_meta($term_id, 'net_type_swipers', $_POST['net_type_swipers']);
+    } else {
+        delete_term_meta($term_id, 'net_type_swipers');
+    }
+}
+
+// --------------------------------------
+// 3. JS for repeater + media uploader
+// --------------------------------------
+function add_net_type_swipers_scripts() {
+    ?>
+    <script>
+    jQuery(document).ready(function($){
+        // Upload image
+        $('body').on('click', '.upload-swiper-image', function(e){
+            e.preventDefault();
+            let button = $(this);
+            let custom_uploader = wp.media({
+                title: 'Select Swiper Image',
+                button: { text: 'Use this image' },
+                multiple: false
+            }).on('select', function(){
+                let attachment = custom_uploader.state().get('selection').first().toJSON();
+                button.prev('.swiper-preview').attr('src', attachment.url);
+                button.siblings('.swiper-image-field').val(attachment.url);
+            }).open();
+        });
+
+        // Add new swiper
+        $('body').on('click', '.add-swiper-item', function(e){
+            e.preventDefault();
+            let index = $('#net_type_swipers_wrapper .swiper-item').length;
+            let newItem = `
+                <div class="swiper-item" style="margin-bottom:15px;border:1px solid #ccc;padding:10px;">
+                    <p><input type="text" name="net_type_swipers[${index}][text]" placeholder="Swiper Text" style="width:100%;"></p>
+                    <input type="hidden" name="net_type_swipers[${index}][image]" class="swiper-image-field" />
+                    <img src="" class="swiper-preview" style="max-width:150px;display:block;margin-bottom:10px;">
+                    <button type="button" class="button upload-swiper-image">Upload Image</button>
+                    <button type="button" class="button remove-swiper-item" style="background:#f55;color:#fff;">Remove</button>
+                </div>
+            `;
+            $('#net_type_swipers_wrapper').append(newItem);
+        });
+
+        // Remove swiper
+        $('body').on('click', '.remove-swiper-item', function(e){
+            e.preventDefault();
+            $(this).closest('.swiper-item').remove();
+        });
+    });
+    </script>
+    <?php
+}
+
+
+function get_installations_by_net_type($term_slug, $limit = -1) {
+    $args = [
+        'post_type'      => 'installation',
+        'post_status'    => 'publish',
+        'posts_per_page' => $limit,
+        'tax_query'      => [
+            [
+                'taxonomy' => 'net_type',
+                'field'    => 'slug',
+                'terms'    => $term_slug,
+            ],
+        ],
+    ];
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        return $query->posts; // Return array of WP_Post objects
+    }
+
+    return false;
+}
+
+
+
+// Hook to add the metabox
+add_action('net_type_add_form_fields', 'add_net_type_media_gallery_metabox', 10, 2);
+add_action('net_type_edit_form_fields', 'edit_net_type_media_gallery_metabox', 10, 2);
+
+// Save data
+add_action('edited_net_type', 'save_net_type_media_gallery_metabox', 10, 2);
+add_action('create_net_type', 'save_net_type_media_gallery_metabox', 10, 2);
+
+function add_net_type_media_gallery_metabox() {
+    ?>
+    <div class="form-field term-group">
+        <label for="net_type_media_gallery"><strong>Media Gallery</strong></label>
+        <div id="media-gallery-wrapper">
+            <div class="media-gallery-item">
+                <input type="text" name="net_type_media_gallery[0][video_url]" placeholder="Enter video URL" style="width:100%; margin-bottom:6px;">
+                <input type="hidden" name="net_type_media_gallery[0][image]" class="media-gallery-image-field">
+                <button type="button" class="button upload-media-gallery-image">Upload Image</button>
+                <div class="media-gallery-preview" style="margin-top:6px;"></div>
+            </div>
+        </div>
+        <button type="button" class="button add-media-gallery-item" style="margin-top:8px;">Add Another</button>
+    </div>
+
+    <script>
+    jQuery(document).ready(function($){
+        // Add new clone
+        $('.add-media-gallery-item').on('click', function(){
+            let count = $('#media-gallery-wrapper .media-gallery-item').length;
+            let clone = `
+                <div class="media-gallery-item" style="margin-top:12px;">
+                    <input type="text" name="net_type_media_gallery[`+count+`][video_url]" placeholder="Enter video URL" style="width:100%; margin-bottom:6px;">
+                    <input type="hidden" name="net_type_media_gallery[`+count+`][image]" class="media-gallery-image-field">
+                    <button type="button" class="button upload-media-gallery-image">Upload Image</button>
+                    <div class="media-gallery-preview" style="margin-top:6px;"></div>
+                </div>`;
+            $('#media-gallery-wrapper').append(clone);
+        });
+
+        // Image upload
+        $(document).on('click', '.upload-media-gallery-image', function(e){
+            e.preventDefault();
+            let button = $(this);
+            let frame = wp.media({
+                title: 'Select or Upload Image',
+                button: { text: 'Use this image' },
+                multiple: false
+            });
+            frame.on('select', function(){
+                let attachment = frame.state().get('selection').first().toJSON();
+                button.prev('.media-gallery-image-field').val(attachment.url);
+                button.next('.media-gallery-preview').html('<img src="'+attachment.url+'" style="max-width:100px; height:auto;">');
+            });
+            frame.open();
+        });
+    });
+    </script>
+    <?php
+}
+
+function edit_net_type_media_gallery_metabox($term) {
+    $media_gallery = get_term_meta($term->term_id, 'net_type_media_gallery', true);
+    ?>
+    <tr class="form-field term-group-wrap">
+        <th scope="row"><label><strong>Media Gallery</strong></label></th>
+        <td>
+            <div id="media-gallery-wrapper">
+                <?php if (!empty($media_gallery)) : ?>
+                    <?php foreach ($media_gallery as $index => $item) : ?>
+                        <div class="media-gallery-item" style="margin-bottom:10px;">
+                            <input type="text" name="net_type_media_gallery[<?php echo esc_attr($index); ?>][video_url]" value="<?php echo esc_attr($item['video_url']); ?>" placeholder="Enter video URL" style="width:100%; margin-bottom:6px;">
+                            <input type="hidden" name="net_type_media_gallery[<?php echo esc_attr($index); ?>][image]" value="<?php echo esc_attr($item['image']); ?>" class="media-gallery-image-field">
+                            <button type="button" class="button upload-media-gallery-image">Upload Image</button>
+                            <div class="media-gallery-preview" style="margin-top:6px;">
+                                <?php if (!empty($item['image'])) : ?>
+                                    <img src="<?php echo esc_url($item['image']); ?>" style="max-width:100px; height:auto;">
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <div class="media-gallery-item">
+                        <input type="text" name="net_type_media_gallery[0][video_url]" placeholder="Enter video URL" style="width:100%; margin-bottom:6px;">
+                        <input type="hidden" name="net_type_media_gallery[0][image]" class="media-gallery-image-field">
+                        <button type="button" class="button upload-media-gallery-image">Upload Image</button>
+                        <div class="media-gallery-preview" style="margin-top:6px;"></div>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <button type="button" class="button add-media-gallery-item" style="margin-top:8px;">Add Another</button>
+        </td>
+    </tr>
+
+    <script>
+    jQuery(document).ready(function($){
+        $('.add-media-gallery-item').on('click', function(){
+            let count = $('#media-gallery-wrapper .media-gallery-item').length;
+            let clone = `
+                <div class="media-gallery-item" style="margin-top:12px;">
+                    <input type="text" name="net_type_media_gallery[`+count+`][video_url]" placeholder="Enter video URL" style="width:100%; margin-bottom:6px;">
+                    <input type="hidden" name="net_type_media_gallery[`+count+`][image]" class="media-gallery-image-field">
+                    <button type="button" class="button upload-media-gallery-image">Upload Image</button>
+                    <div class="media-gallery-preview" style="margin-top:6px;"></div>
+                </div>`;
+            $('#media-gallery-wrapper').append(clone);
+        });
+
+        $(document).on('click', '.upload-media-gallery-image', function(e){
+            e.preventDefault();
+            let button = $(this);
+            let frame = wp.media({
+                title: 'Select or Upload Image',
+                button: { text: 'Use this image' },
+                multiple: false
+            });
+            frame.on('select', function(){
+                let attachment = frame.state().get('selection').first().toJSON();
+                button.prev('.media-gallery-image-field').val(attachment.url);
+                button.next('.media-gallery-preview').html('<img src="'+attachment.url+'" style="max-width:100px; height:auto;">');
+            });
+            frame.open();
+        });
+    });
+    </script>
+    <?php
+}
+
+function save_net_type_media_gallery_metabox($term_id) {
+    if (isset($_POST['net_type_media_gallery'])) {
+        update_term_meta($term_id, 'net_type_media_gallery', array_values($_POST['net_type_media_gallery']));
+    }
+}
+
+
+
+
+
+
+
+
+
