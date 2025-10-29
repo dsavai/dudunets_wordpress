@@ -358,3 +358,7 @@ select{
 .reviews-contact-container module-contact > div{
     @apply lg:pt-[0px]; 
 }
+
+.about-content-container p{
+    @apply leading-relaxed mb-3;
+}
