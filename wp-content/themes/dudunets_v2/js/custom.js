@@ -400,6 +400,7 @@ const clientsLogo = new Swiper(".clientLogos", {
     slidesPerView: 1,
     spaceBetween: 20,
     autoplay: {
+        loop: true,
         delay: 2000,
         disableOnInteraction: false,
     },

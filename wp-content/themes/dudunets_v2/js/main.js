@@ -71,7 +71,7 @@
 
 const clientsReviews = new Swiper(".clientReviews", {
     watchSlidesProgress: true,
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 20,
     navigation: {
         nextEl: ".swiper-button-next",
@@ -91,7 +91,7 @@ const clientsReviews = new Swiper(".clientReviews", {
             spaceBetween: 20,
         },
         640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 15,
         },
         768: {
@@ -110,8 +110,9 @@ const productSingleSlider = new Swiper(".productSingleSlider", {
     slidesPerView: 3,
     spaceBetween: 30,
     centeredSlidesBounds: true,
+    loop: true,
     autoplay: {
-        enabled: false,
+        enabled: true,
     },
     pagination: {
         el: ".productSingleSlider .swiper-pagination",

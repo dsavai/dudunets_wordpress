@@ -193,8 +193,8 @@ select{
 }
 
 .container-product{
-    @apply mx-auto;
-    width: 75vw;
+    @apply mx-auto w-full lg:w-[75vw];
+    /* width: 75vw; */
 }
 
 .productSingleSlider .swiper-slide{
