@@ -2,6 +2,7 @@
 $post_id = 713;
 $post = get_post_by_id($post_id);
 $cta = get_field("cta",$post->ID);
+$image = get_post_thumbnail($post_id);
 ?>
 <?php if ($post):?>
 <div class="module-our-processes">
@@ -10,7 +11,7 @@ $cta = get_field("cta",$post->ID);
             <div class="relative pb-6 lg:pb-0 reveal slide-left reveal-transition">
                 <div class="relative block">
                     <div class="w-full lg:h-[570px] overflow-hidden">
-                        <img src="http://localhost/dudunets/wp-content/uploads/2024/07/feature_product_02.jpg" class="w-full h-full" />
+                        <img src="<?php echo $image['image'][0];?>" class="w-full h-full" />
                     </div>
                 </div>
             </div>
