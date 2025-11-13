@@ -18,7 +18,7 @@ $contact_page = get_page_by_slug('contact');
                        <?php foreach($swipers as $swiper): ?>
                             <div class="swiper-slide">
                                 <!-- <img src="<?php //echo $swiper['image']?>" alt="<?php //echo $swiper['text']?>"/> -->
-                                  <img src="<?php echo $swiper['image']?>" alt="<?php echo $swiper['text']?>"/>
+                                  <img src="<?php echo $swiper['image']?>" alt="<?php echo $swiper['text']?>" class="w-full h-full object-cover" />
                             </div>
                         <?php endforeach;?>
                     <?php endif;?>
@@ -29,7 +29,7 @@ $contact_page = get_page_by_slug('contact');
                 </div>
             </div>
             <div class="container m-auto">
-                <div class="container-product mt-10">
+                <div class="container-product mt-10 px-4 lg:px-0">
                     <div class="section-about mb-10 border-b pb-5 border-black/10">
                         <div>
                             <h2 class="text-2xl font-bold"><?php echo $term->description?></h2>
@@ -80,7 +80,7 @@ $contact_page = get_page_by_slug('contact');
                                     ?>
 
                                     <div class="swiper-slide">
-                                        <div class="border border-black/10 px-6 py-5 mb-4">
+                                        <div class="flesx items-stretch border border-black/10 px-6 py-5 mb-4">
                                             <div class="flex gap-4">
                                                 <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]"><?php echo $reviewer_initial ?></div>
                                                 <div>

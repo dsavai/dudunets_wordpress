@@ -11,7 +11,7 @@ $dudu_net_types = get_net_types("DESC");
     <section class="module module--products bg-black/5">
         <div class="container mx-auto h-full px-4 lg:px-0">
             <div class="py-14">
-                <div class="text-center mx-auto mb-10">
+                <div class="text-center mx-auto mb-10 text-center">
                     <?php echo apply_filters("the_content",$the_post->post_content);?>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">

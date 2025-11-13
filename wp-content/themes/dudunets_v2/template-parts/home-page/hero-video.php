@@ -23,7 +23,7 @@ $video_link = get_field("video_url",$video->ID);
                         </div>
                     </a>
                 </div>
-        
+            </div>
             <div class="absolute bottom-[-25px] left-0 right-0 w-full z-20">
                 <div class="mx-auto max-w-max bg-gradient-to-r z-9 from-[#0CBD92] to-[#1967C3] p-3 cursor-pointer text-white py-4 px-6 lg:px-10 flex justify-between items-center text-sm lg:text-base">
                     <div class="mr-4">
