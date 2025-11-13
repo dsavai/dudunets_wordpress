@@ -1,4 +1,4 @@
-<div class="module-contact">
+<div id="getQuote" class="module-contact">
     <div class="container mx-auto px-4 lg:px-0 pb-8 lg:pt-[110px] lg:pb-14">
         <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-10">
             <div class="relative pb-6 lg:pb-0 h-full flex items-center justify-center reveal slide-left reveal-transition">

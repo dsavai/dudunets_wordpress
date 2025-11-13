@@ -41,63 +41,6 @@ $reviews = get_custom_posts_by_slug('customer_reviews');
                                 </div>
                             </div> 
                         <?php endforeach;?>
-                        <div class="swiper-slide">
-                            <div class="border border-black/10 px-6 py-5 mb-4">
-                                <div class="flex gap-4">
-                                    <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]">E</div>
-                                    <div>
-                                        <div>
-                                            <h4 class="font-quicksand capitalize text-lg font-bold">Elton wemali</h4>
-                                            <div class="flex items-center gap-2">
-                                                <small class="text-gray text-sm font-medium">Google review</small>
-                                                <div class="bg-secondary /20 px-2 rounded-md font-bold text-sm">4.9</div>
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">
-                                            <p>I absolutely appreciated the professionalism of your workmanship quality of your products. Am enjoying my mosquito-free home. Thank you Magnetic Dudu Nets</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="border border-black/10 px-6 py-5 mb-4">
-                                <div class="flex gap-4">
-                                    <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]">E</div>
-                                    <div>
-                                        <div>
-                                            <h4 class="font-quicksand capitalize text-lg font-bold">Elton wemali</h4>
-                                            <div class="flex items-center gap-2">
-                                                <small class="text-gray text-sm font-medium">Google review</small>
-                                                <div class="bg-secondary /20 px-2 rounded-md font-bold text-sm">4.9</div>
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">
-                                            <p>I absolutely appreciated the professionalism of your workmanship quality of your products. Am enjoying my mosquito-free home. Thank you Magnetic Dudu Nets</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="border border-black/10 px-6 py-5 mb-4">
-                                <div class="flex gap-4">
-                                    <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]">E</div>
-                                    <div>
-                                        <div>
-                                            <h4 class="font-quicksand capitalize text-lg font-bold">Elton wemali</h4>
-                                            <div class="flex items-center gap-2">
-                                                <small class="text-gray text-sm font-medium">Google review</small>
-                                                <div class="bg-secondary /20 px-2 rounded-md font-bold text-sm">4.9</div>
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">
-                                            <p>I absolutely appreciated the professionalism of your workmanship quality of your products. Am enjoying my mosquito-free home. Thank you Magnetic Dudu Nets</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="swiper-button-next w-6 h-6 bg-white rounded-full p-6 after:!text-[18px] after:text-primary after:after:font-bold"></div>
                     <div class="swiper-button-prev w-6 h-6 bg-white rounded-full p-6 after:!text-[18px] after:text-primary after:font-bold"></div>
