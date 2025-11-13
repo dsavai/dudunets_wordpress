@@ -8,6 +8,8 @@ $installations = get_installations_by_net_type($term->slug);
 $galleries =  get_term_meta(get_queried_object_id(), 'net_type_gallery', true);
 $media_gallery = get_term_meta($term->term_id, 'net_type_media_gallery', true);
 $contact_page = get_page_by_slug('contact');
+$term_id = get_queried_object_id();
+$ids_string = get_term_meta($term_id, 'best_pics_gallery', true);
 ?>
     <main class="main">
         <section class="module product-single-module">
@@ -114,10 +116,24 @@ $contact_page = get_page_by_slug('contact');
 
                                 <?php foreach($installations as $installation):
                                     $image = get_post_thumbnail($installation->ID);
+                                    $galleryIds =  get_post_meta($installation->ID, '_installation_gallery', true);
+                                
                                     ?>
                                 <div class="border border-black/10">
-                                    <div class="h-[365px]">
-                                        <img src="<?php echo $image['image'][0]?>" class="w-full h-full" />
+                                    <div class="h-[365px]" id="showcase_gallery">
+                                        <a href="<?php echo $image['image'][0]?>">
+                                         <img src="<?php echo $image['image'][0]?>" class="w-full h-full" />
+                                        </a>
+                                        <?php if(is_array($galleryIds)):?>
+                                            <?php foreach($galleryIds as $galleryId):
+                                                $img = wp_get_attachment_image_src($galleryId, 'medium');
+                                                ?>
+                                                <a href="<?php echo esc_url($img[0]);?>">
+                                                            <img src="<?php echo esc_url($img[0]);?>" alt="">
+                                                </a>
+                                            <?php endforeach;?>
+                                        <?php endif;?>
+                                       
                                     </div>
                                     <div class="py-3 px-4 font-medium"><?php echo get_field('location',$installation->ID)?></div>
                                 </div>
@@ -126,6 +142,8 @@ $contact_page = get_page_by_slug('contact');
                             </div>
                         </div>
                     </div>
+
+                    
                      <div class="section-photos mt-5 mb-6">
                         <h3 class="text-lg font-semibold">Photos</h3>
                         <div class="mt-3">

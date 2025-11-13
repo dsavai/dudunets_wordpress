@@ -2352,4 +2352,111 @@ function save_net_type_media_gallery_metabox($term_id) {
 
 
 
+/**
+ * Add Gallery Metabox to Installation Post Type
+ */
+function installation_gallery_metabox() {
+    add_meta_box(
+        'installation_gallery',
+        'Installation Gallery',
+        'render_installation_gallery_metabox',
+        'installation',
+        'normal',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'installation_gallery_metabox');
+
+/**
+ * Render the gallery metabox
+ */
+function render_installation_gallery_metabox($post) {
+    wp_nonce_field('save_installation_gallery', 'installation_gallery_nonce');
+
+    $gallery_ids = get_post_meta($post->ID, '_installation_gallery', true);
+    $gallery_ids = is_array($gallery_ids) ? $gallery_ids : [];
+    ?>
+
+    <div id="installation-gallery-wrapper">
+        <button type="button" class="button add-installation-images">Add Images</button>
+        <ul class="installation-gallery-list" style="margin-top:15px; display:flex; flex-wrap:wrap; gap:10px;">
+            <?php foreach ($gallery_ids as $image_id): 
+                $thumb = wp_get_attachment_image_src($image_id, 'thumbnail'); ?>
+                <li style="position:relative;">
+                    <input type="hidden" name="installation_gallery[]" value="<?php echo esc_attr($image_id); ?>">
+                    <img src="<?php echo esc_url($thumb[0]); ?>" style="width:100px;height:100px;object-fit:cover;border:1px solid #ccc;">
+                    <button type="button" class="remove-installation-image" style="position:absolute;top:2px;right:2px;">✕</button>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
+    <script>
+    jQuery(document).ready(function($){
+        var frame;
+
+        $('.add-installation-images').on('click', function(e){
+            e.preventDefault();
+
+            if (frame) { frame.close(); }
+
+            frame = wp.media({
+                title: 'Select or Upload Images',
+                button: { text: 'Use these images' },
+                multiple: true
+            });
+
+            frame.on('select', function(){
+                var selection = frame.state().get('selection');
+                selection.each(function(attachment){
+                    var id = attachment.id;
+                    var url = attachment.attributes.sizes.thumbnail.url;
+                    var li = `
+                        <li style="position:relative;">
+                            <input type="hidden" name="installation_gallery[]" value="${id}">
+                            <img src="${url}" style="width:100px;height:100px;object-fit:cover;border:1px solid #ccc;">
+                            <button type="button" class="remove-installation-image" style="position:absolute;top:2px;right:2px;">✕</button>
+                        </li>`;
+                    $('.installation-gallery-list').append(li);
+                });
+            });
+
+            frame.open();
+        });
+
+        $(document).on('click', '.remove-installation-image', function(){
+            $(this).closest('li').remove();
+        });
+    });
+    </script>
+
+    <?php
+}
+
+/**
+ * Save gallery meta
+ */
+function save_installation_gallery($post_id) {
+    if (!isset($_POST['installation_gallery_nonce']) ||
+        !wp_verify_nonce($_POST['installation_gallery_nonce'], 'save_installation_gallery')) {
+        return;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+    if (!current_user_can('edit_post', $post_id)) return;
+
+    $gallery = isset($_POST['installation_gallery']) ? array_map('intval', $_POST['installation_gallery']) : [];
+    update_post_meta($post_id, '_installation_gallery', $gallery);
+}
+add_action('save_post_installation', 'save_installation_gallery');
+
+
+
+
+
+
+
+
+
 
