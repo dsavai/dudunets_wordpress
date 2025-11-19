@@ -874,6 +874,10 @@ video {
   margin-bottom: 60px;
 }
 
+.mb-\[70px\]{
+  margin-bottom: 70px;
+}
+
 .mb-\[80px\]{
   margin-bottom: 80px;
 }
@@ -1000,10 +1004,6 @@ video {
 
 .mt-\[80px\]{
   margin-top: 80px;
-}
-
-.mb-\[70px\]{
-  margin-bottom: 70px;
 }
 
 .line-clamp-2{
@@ -2633,13 +2633,18 @@ select{
   display: block;
 }
 
-.productSingleSlider .swiper-slide-active{
-  width: 10vw !important;
+.productSingleSlider .swiper-slide img{
+  -o-object-position: center;
+     object-position: center;
+}
+
+/* .productSingleSlider .swiper-slide-active{
+    width: 10vw !important;
 }
 
 .productSingleSlider .swiper-slide-next{
-  width: 75vw !important;
-}
+    width: 75vw !important;
+} */
 
 .container-product{
   margin-left: auto;
@@ -2658,8 +2663,56 @@ select{
 }
 
 .productSingleSlider .swiper-slide{
-  height: 400px;
+  height: 500px;
   background: rgb(15, 15, 17, 0.2)
+}
+
+.productSingleSlider .swiper-button-next, 
+.productSingleSlider .swiper-button-prev{
+  display: block !important;
+  height: 50px;
+  width: 50px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding: 0.75rem;
+  --tw-text-opacity: 1 !important;
+  color: rgb(12 189 146 / var(--tw-text-opacity)) !important;
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.productSingleSlider .swiper-button-next:hover, 
+.productSingleSlider .swiper-button-prev:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(12 189 146 / var(--tw-bg-opacity)) !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+}
+
+.productSingleSlider .swiper-button-prev{
+  left: 30px;
+}
+
+.productSingleSlider .swiper-button-next{
+  right: 30px;
+}
+
+.productSingleSlider .swiper-button-prev:after, 
+.productSingleSlider .swiper-button-next:after{
+  position: relative;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.productSingleSlider .swiper-button-next:after{
+  top: 4px;
+  left: 9px;
+}
+
+.productSingleSlider .swiper-button-prev:after{
+  top: 4px;
+  left: 6px;
 }
 
 .section-reviews .swiper-pagination{
@@ -2980,10 +3033,6 @@ select{
 }
 
 @media (min-width: 640px){
-  .sm\:mb-\[70px\]{
-    margin-bottom: 70px;
-  }
-
   .sm\:h-\[285px\]{
     height: 285px;
   }

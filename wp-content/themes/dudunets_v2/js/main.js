@@ -107,15 +107,16 @@ const clientsReviews = new Swiper(".clientReviews", {
 
 
 const productSingleSlider = new Swiper(".productSingleSlider", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    centeredSlidesBounds: true,
+    //slidesPerView: 1,
     loop: true,
-    autoplay: {
-        enabled: true,
+
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
+
     pagination: {
-        el: ".productSingleSlider .swiper-pagination",
+        el: '.swiper-pagination',
         clickable: true,
     },
 });

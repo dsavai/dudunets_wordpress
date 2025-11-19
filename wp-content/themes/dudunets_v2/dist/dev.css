@@ -184,13 +184,17 @@ select{
 }
 
 
-.productSingleSlider .swiper-slide-active{
+.productSingleSlider .swiper-slide img{
+    @apply object-center;
+}
+
+/* .productSingleSlider .swiper-slide-active{
     width: 10vw !important;
 }
 
 .productSingleSlider .swiper-slide-next{
     width: 75vw !important;
-}
+} */
 
 .container-product{
     @apply mx-auto w-full lg:w-[75vw];
@@ -198,8 +202,32 @@ select{
 }
 
 .productSingleSlider .swiper-slide{
-    height: 400px;
+    height: 500px;
     background: rgb(15, 15, 17, 0.2)
+}
+
+.productSingleSlider .swiper-button-next, 
+.productSingleSlider .swiper-button-prev{
+    @apply !block bg-white w-[50px] h-[50px] p-3 shadow-xl
+       !text-secondary hover:!bg-secondary hover:!text-white;
+}
+.productSingleSlider .swiper-button-prev{
+    @apply left-[30px];
+}
+.productSingleSlider .swiper-button-next{
+    @apply right-[30px];
+}
+.productSingleSlider .swiper-button-prev:after, 
+.productSingleSlider .swiper-button-next:after{
+    @apply text-[18px] font-bold relative;
+}
+.productSingleSlider .swiper-button-next:after{
+    top: 4px;
+    left: 9px;
+}
+.productSingleSlider .swiper-button-prev:after{
+    top: 4px;
+    left: 6px;
 }
 
 .section-reviews .swiper-pagination{
