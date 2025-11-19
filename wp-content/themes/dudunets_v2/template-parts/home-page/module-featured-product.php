@@ -11,6 +11,9 @@ $cta = get_field("cta",$post_id);
     <div class="container mx-auto px-4 lg:px-0 pb-8 lg:pt-[110px] lg:pb-14">
         <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-14">
             <div class="lg:w-11/12 mt-6 reveal slide-left reveal-transition">
+                 <?php if(is_user_logged_in()):?>
+                    <small><a href="<?php echo get_edit_post_link($post_id);?>" target="_blank">Edit Section</a></small>
+                <?php endif;?>
                 <h5 class="font-medium text-secondary"><?php echo get_the_excerpt($post_id);?></h5>
                 <h1 class="mt-1 mb-2 text-3xl font-bold"><?php echo get_the_title($post_id);?></h1>
                 <div class="text-black/60 font-normal leading-relaxed">
@@ -35,3 +38,4 @@ $cta = get_field("cta",$post_id);
         </div>
     </div>
 </div>
+

@@ -6,6 +6,7 @@ $image = get_post_thumbnail($post_id);
 ?>
 <?php if ($post):?>
 <div class="module-our-processes">
+    
     <div class="container mx-auto px-4 lg:px-0 pb-8 lg:pt-[110px] lg:pb-14">
         <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-14">
             <div class="relative pb-6 lg:pb-0 reveal slide-left reveal-transition">
@@ -16,6 +17,9 @@ $image = get_post_thumbnail($post_id);
                 </div>
             </div>
             <div class="lg:w-11/12 mt-6 reveal slide-right reveal-transition">
+                 <?php if(is_user_logged_in()):?>
+                    <small><a href="<?php echo get_edit_post_link($post_id);?>" target="_blank">Edit Section</a></small>
+                <?php endif;?>
                 <h5 class="font-medium text-secondary">Largest Manufacturer in Kenya</h5>
                 <h1 class="mt-1 mb-2 text-3xl font-bold"><?php echo $post->post_title?></h1>
                 <div class="text-black/60 font-normal leading-relaxed"><?php echo $post->post_content?></div>

@@ -7,6 +7,9 @@ $video_link = get_field("video_link",$the_post->ID);
     <div class="container mx-auto h-full px-4 lg:px-0">
         <div class="py-14">
             <div class="mb-10 text-center reveal fade-up reveal-transition">
+                <?php if(is_user_logged_in()):?>
+                            <small><a href="<?php echo get_edit_post_link($the_post->ID);?>" target="_blank">Edit Section</a></small>
+                <?php endif;?>
                 <h2 class="text-3xl font-bold mb-3"><?php echo $the_post->post_title?></h2>
                 <p class="text-black/60"><?php echo $the_post->post_excerpt?></p>
             </div>

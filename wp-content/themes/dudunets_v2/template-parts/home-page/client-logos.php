@@ -1,5 +1,6 @@
 <?php
-$clients = get_custom_posts_by_slug('clients','ASC');
+$post_type = 'clients';
+$clients = get_custom_posts_by_slug($post_type,'ASC');
 ?>
 
 <?php if (!empty($clients)):?>
@@ -7,6 +8,9 @@ $clients = get_custom_posts_by_slug('clients','ASC');
         <div class="py-12 border-t border-b  border-[rgba(0,0,0,0.05)]">
             <div class="container mx-auto px-4 lg:px-0">
                 <div class="text-center">
+                     <?php if(is_user_logged_in()):?>
+                        <small><a href="<?php echo admin_url( 'edit.php?post_type='.$post_type );?> target="_blank">Edit Section</a></small>
+                    <?php endif;?>
                     <h5 class="text-md font-bold">We have the trust of 100+ companies.</h5>
                     <div class="mt-8">
                         <div class="swiper clientLogos">

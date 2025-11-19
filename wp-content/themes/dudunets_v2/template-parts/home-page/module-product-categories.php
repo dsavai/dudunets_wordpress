@@ -2,6 +2,8 @@
 $post_id = 208;
 $the_post = get_post_by_id($post_id);
 
+$the_taxonomy = "net_type";
+
 //$dudu_net_types = get_custom_posts_by_slug("dudunet-types","ASC");
 
 $dudu_net_types = get_net_types("DESC");
@@ -12,10 +14,18 @@ $dudu_net_types = get_net_types("DESC");
         <div class="container mx-auto h-full px-4 lg:px-0">
             <div class="py-14">
                 <div class="text-center mx-auto mb-10 text-center">
+                      <?php if(is_user_logged_in()):?>
+                            <small><a href="<?php echo get_edit_post_link($post_id);?>" target="_blank">Edit Section</a></small>
+                     <?php endif;?>
                     <?php echo apply_filters("the_content",$the_post->post_content);?>
                 </div>
+                <?php if(is_user_logged_in()):?>
+                                <small><a href="<?php echo admin_url( 'edit-tags.php?taxonomy=net_type' );?>" target="_blank">Edit Taxonomy</a></small>
+                    <?php endif;?>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+                    
                     <?php if (!empty($dudu_net_types)):?>
+                          
                         <?php foreach ($dudu_net_types as $type):
                             $image = get_net_type_image_url($type->term_id);
                             ?>

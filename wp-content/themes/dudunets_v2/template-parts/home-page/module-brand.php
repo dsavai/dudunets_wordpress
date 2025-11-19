@@ -12,6 +12,9 @@ $post = get_post_by_id($post_id);
         <div class="container mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-14">
                 <div class="lg:w-11/12 mt-6 reveal slide-left reveal-transition">
+                     <?php if(is_user_logged_in()):?>
+                    <small><a href="<?php echo get_edit_post_link($post_id);?>" target="_blank">Edit Section</a></small>
+                <?php endif;?>
                     <h5 class="font-medium text-secondary"><?php echo $post->post_title?></h5>
                     <h1 class="mt-1 mb-2 text-3xl font-bold"><?php echo $post->post_excerpt?></h1>
                     <div class="text-black/60 font-normal leading-relaxed"><?php echo $post->post_content?></div>

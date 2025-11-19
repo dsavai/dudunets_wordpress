@@ -1,11 +1,15 @@
 <?php
-$reviews = get_custom_posts_by_slug('customer_reviews');
+$post_type = 'customer_reviews';
+$reviews = get_custom_posts_by_slug($post_type);
 ?>
 <div class="module module--reviews bg-black/5">
     <div class="container mx-auto h-full px-4 lg:px-0">
         <div class="py-14 reveal fade-up reveal-transition">
             <div class="text-center mx-auto mb-10">
                 <div class="mb-10">
+                    <?php if(is_user_logged_in()):?>
+                        <small><a href="<?php echo admin_url( 'edit.php?post_type='.$post_type );?>" target="_blank">Edit Section</a></small>
+                    <?php endif;?>
                     <h2 class="text-3xl font-bold mb-3">Trusted by Families Across Kenya</h2>
                     <p class="text-black/60">Delivering Quality, Safety, and Peace of Mind</p>
                 </div>

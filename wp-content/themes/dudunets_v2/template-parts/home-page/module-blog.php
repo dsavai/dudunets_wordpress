@@ -62,6 +62,11 @@ $posts = get_posts($args);
                                             <span class="w-1 h-1 bg-black/20 rounded-full"></span>
                                             <span class="text-black/60 text-sm font-medium"><?php echo estimate_reading_time($post->ID); ?></span>
                                         </div>
+                      <?php if(is_user_logged_in()):?>
+                            <small><a href="<?php echo get_edit_post_link($post_id);?>" target="_blank">Edit Post</a></small>
+                     <?php endif;?>
+
+                                        
                                     </div>
                                 </div>
                             </div>

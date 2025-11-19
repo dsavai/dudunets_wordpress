@@ -4,6 +4,9 @@ $image = get_post_thumbnail($the_post->ID);
 $cta = get_field("cta",$the_post->ID);
 ?>
 <section class="module module--order-now">
+    <?php if(is_user_logged_in()):?>
+                            <small><a href="<?php echo get_edit_post_link($the_post->ID);?>" target="_blank">Edit Section</a></small>
+    <?php endif;?>
     <div>
         <div class="relative bg-parimary w-full h-[500px] bg-no-repeat bg-cover bg-fixed bg-center" style="background-image: url(<?php echo $image['image'][0]?>);">
             <div class="relative h-full">
