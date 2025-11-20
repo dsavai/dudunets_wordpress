@@ -355,7 +355,7 @@ function submit_front_page_lead() {
         $service = sanitize_text_field($_POST['service']);
         $area = sanitize_text_field($_POST['area']);
         if (isset($_POST['message'])){
-            $message = sanitize_text_field($_POST['message']);
+            $message = sanitize_text_field($_POST['message'])."\n\n service selected: ".$service;
         }
 
         $recaptchaResponse = isset($_POST['recaptchaResponse']) ? $_POST['recaptchaResponse'] : "";
