@@ -12,24 +12,6 @@ $term = $categories[0];
 ?>
     <main class="main">
         <section class="module product-single-module">
-            <div class="mt-3">
-                <div class="swiper productSingleSlider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">Slide 1</div>
-                        <div class="swiper-slide">Slide 2</div>
-                        <div class="swiper-slide">Slide 3</div>
-                        <div class="swiper-slide">Slide 4</div>
-                        <div class="swiper-slide">Slide 5</div>
-                        <div class="swiper-slide">Slide 6</div>
-                        <div class="swiper-slide">Slide 7</div>
-                        <div class="swiper-slide">Slide 8</div>
-                        <div class="swiper-slide">Slide 9</div>
-                    </div>
-                    <div class="swiper-pagination z-20"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </div>
             <div class="container m-auto">
                 <div class="container-product mt-10">
                     <div class="section-about mb-10 border-b pb-5 border-black/10">

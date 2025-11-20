@@ -16,14 +16,14 @@ $ids_string = get_term_meta($term_id, 'best_pics_gallery', true);
             <div class="mt-3">
                 <div class="swiper productSingleSlider">
                     <div class="swiper-wrapper">
-                    <?php if(!empty($swipers)):?>
-                       <?php foreach($swipers as $swiper): ?>
-                            <div class="swiper-slide">
-                                <!-- <img src="<?php //echo $swiper['image']?>" alt="<?php //echo $swiper['text']?>"/> -->
-                                  <img src="<?php echo $swiper['image']?>" alt="<?php echo $swiper['text']?>" class="w-full h-full object-cover" />
-                            </div>
-                        <?php endforeach;?>
-                    <?php endif;?>
+                        <?php if(!empty($swipers)):?>
+                            <?php foreach($swipers as $swiper): ?>
+                                <div class="swiper-slide">
+                                    <!-- <img src="<?php //echo $swiper['image']?>" alt="<?php //echo $swiper['text']?>"/> -->
+                                    <img src="<?php echo $swiper['image']?>" alt="<?php echo $swiper['text']?>" class="w-full h-full object-cover" />
+                                </div>
+                            <?php endforeach;?>
+                        <?php endif;?>
                     </div>
                     <div class="swiper-pagination z-20"></div>
                     <div class="swiper-button-prev"></div>
@@ -37,8 +37,6 @@ $ids_string = get_term_meta($term_id, 'best_pics_gallery', true);
                             <h2 class="text-2xl font-bold"><?php echo $term->description?></h2>
                             <p class="text-black/60 font-normal leading-relaxed"><?php echo get_term_meta(get_queried_object_id(),'custom_excerpt',true);?></p>
                         </div>
-
-
                         <div class="mt-3">
                             <h3 class="mb-[5px]"><?php get_field('contact_us_teaser',$contact_page->ID)?></h3>
                             <div class="mb-2 flex items-center">
