@@ -1,3 +1,6 @@
+<?php
+$dudu_net_types = get_net_types("DESC");
+?>
 <div id="getQuote" class="module-contact">
     <div class="container mx-auto px-4 lg:px-0 pb-8 lg:pt-[110px] lg:pb-14">
         <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-10">
@@ -30,9 +33,11 @@
                             <label class="block mb-2 font-medium" for="service">Select Service<span class="text-[#c95050]">*</span></label>
                             <select class="w-full h-[45px] border-[1px] border-black/10 py-2 px-5 text-sm" name="service">
                                 <option>Select Service</option>
-                                <option>Service 1</option>
-                                <option>Service 2</option>
-                                <option>Service 3</option>
+                                <?php if (!empty($dudu_net_types)):?>
+                                    <?php foreach($dudu_net_types as $type):?>
+                                        <option value="<?php echo $type->name?>"><?php echo $type->name?></option>
+                                    <?php endforeach;?>
+                                <?php endif;?>
                             </select>
                         </div>
                     </div>
