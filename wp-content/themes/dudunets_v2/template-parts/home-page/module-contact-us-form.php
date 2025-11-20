@@ -1,9 +1,9 @@
 <div id="getQuote" class="module-contact">
-    <div class="container mx-auto px-4 lg:px-0 pb-8 lg:pt-[110px] lg:pb-14">
+    <div class="container mx-auto px-4 lg:px-0 pb-8 lg:pt-[110px]">
         <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-10">
             <div class="relative pb-6 lg:pb-0 h-full flex items-center justify-center reveal slide-left reveal-transition">
-                <div class="lg:w-[400px] lg:h-[370px] overflow-hidden hidden lg:block">
-                    <img src="<?php echo get_template_directory_uri()?>/dist/images/contact_pattern.svg" class="w-full h-full" />
+                <div class="xl:w-[510px] lg:w-[450px] overflow-hidden hidden lg:block">
+                    <img src="<?php echo get_template_directory_uri()?>/dist/images/mr-dudunets.png" class="w-full h-full" />
                 </div>
             </div>
             <div class="lg:w-11/12 mt-6 reveal slide-right reveal-transition">

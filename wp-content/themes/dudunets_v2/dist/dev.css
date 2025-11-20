@@ -185,16 +185,26 @@ select{
 
 
 .productSingleSlider .swiper-slide img{
-    @apply object-center;
+    object-position: center bottom;
+}
+.clientReviews .swiper-backface-hidden .swiper-slide{
+    transform: none !important;
+    backface-visibility: visible !important;
+}
+.clientReviews {
+    @apply overflow-visible
+}
+.clientReviews .swiper-pagination{
+    @apply bottom-[-15px];
+}
+.clientReviews  .swiper-pagination-bullet{
+    @apply !w-[10px] !h-[10px] !bg-primary/40;
 }
 
-/* .productSingleSlider .swiper-slide-active{
-    width: 10vw !important;
+.clientReviews  .swiper-pagination-bullet-active{
+    @apply !bg-primary;
 }
 
-.productSingleSlider .swiper-slide-next{
-    width: 75vw !important;
-} */
 
 .container-product{
     @apply mx-auto w-full lg:w-[75vw];
@@ -209,7 +219,7 @@ select{
 .productSingleSlider .swiper-button-next, 
 .productSingleSlider .swiper-button-prev{
     @apply !block bg-white w-[50px] h-[50px] p-3 shadow-xl
-       !text-secondary hover:!bg-secondary hover:!text-white;
+       !text-secondary hover:!bg-secondary hover:!text-white rounded-[50px];
 }
 .productSingleSlider .swiper-button-prev{
     @apply left-[30px];
@@ -229,6 +239,20 @@ select{
     top: 4px;
     left: 6px;
 }
+.productSingleSlider.swiper{
+    overflow: visible;
+}
+.productSingleSlider .swiper-pagination{
+    @apply !bottom-[-35px]
+}
+.productSingleSlider .swiper-pagination-bullet{
+    @apply !w-[10px] !h-[10px] !bg-primary/40;
+}
+
+.productSingleSlider .swiper-pagination-bullet-active{
+    @apply !bg-primary;
+}
+
 
 .section-reviews .swiper-pagination{
     @apply bottom-[-6px] !important;

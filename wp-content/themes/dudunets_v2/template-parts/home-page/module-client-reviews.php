@@ -14,10 +14,29 @@ $reviews = get_custom_posts_by_slug($post_type);
                     <p class="text-black/60">Delivering Quality, Safety, and Peace of Mind</p>
                 </div>
             </div>
+            <div class="lg:flex flex-col lg:flex-row justify-between items-center bg-white py-4 px-5 shadow-sm mb-4 lg:mb-10 mx-auto" bis_skin_checked="1">
+                <div class="flex items-center" bis_skin_checked="1">
+                    <div class="w-20 h-5 rounded-full overflow-hidden mr-5 flex-shrink-0" bis_skin_checked="1">
+                        <img src="<?php echo get_template_directory_uri()?>/dist/images/google_logo.svg" alt="Google Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div class="font-medium" bis_skin_checked="1">Excellent</div>
+                    <div class="w-32 h-5 mx-3 hidden lg:block" bis_skin_checked="1">
+                        <img src="<?php echo get_template_directory_uri()?>/dist/images/stars.svg" alt="stars" class="w-full h-full object-contain">
+                    </div>
+                    <div class="hidden lg:block" bis_skin_checked="1">4.9</div>
+                    <div class="bg-black/10 h-[15px] w-[1px] mx-3" bis_skin_checked="1"></div>
+                    <div class="font-medium mx-1" bis_skin_checked="1">100</div>
+                    <div class="font-medium mr-1" bis_skin_checked="1">reviews</div>
+                </div>
+                <div class="mt-4 lg:mt-0" bis_skin_checked="1">
+                    <a href="https://share.google/1HC9lFjZErvGyF3Gw" target="_blank" class="py-2 px-3 ml-auto bg-secondary text-sm font-semibold text-white hover:text-primary transition-all duration-500 flex items-center justify-center">
+                        <span>Write review</span>
+                    </a>
+                </div>
+            </div>
             <div class="mt-10">
                 <div class="swiper clientReviews">
                     <div class="swiper-wrapper">
-
                         <?php foreach($reviews as $review):?>
 
                             <?php 
@@ -26,7 +45,7 @@ $reviews = get_custom_posts_by_slug($post_type);
                                 //var_dump($reviewer_initial);
                             ?>
                             <div class="swiper-slide">
-                                <div class="border border-black/10 px-6 py-5 mb-4">
+                                <div class="border border-black/10 px-6 py-5 mb-4 h-[170px]">
                                     <div class="flex gap-4">
                                         <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]"><?php echo $reviewer_initial;?></div>
                                         <div>

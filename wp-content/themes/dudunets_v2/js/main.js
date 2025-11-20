@@ -81,10 +81,6 @@ const clientsReviews = new Swiper(".clientReviews", {
         el: ".swiper-pagination",
         clickable: true,
     },
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
     breakpoints: {
         580: {
             slidesPerView: 1,
@@ -107,7 +103,8 @@ const clientsReviews = new Swiper(".clientReviews", {
 
 
 const productSingleSlider = new Swiper(".productSingleSlider", {
-    //slidesPerView: 1,
+    slidesPerView: 2,
+    spaceBetween: 15,
     loop: true,
 
     navigation: {

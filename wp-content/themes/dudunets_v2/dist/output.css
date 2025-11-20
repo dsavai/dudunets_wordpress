@@ -1097,6 +1097,10 @@ video {
   height: 15px;
 }
 
+.h-\[170px\]{
+  height: 170px;
+}
+
 .h-\[17px\]{
   height: 17px;
 }
@@ -1532,6 +1536,10 @@ video {
 
 .overflow-hidden{
   overflow: hidden;
+}
+
+.overflow-visible{
+  overflow: visible;
 }
 
 .overflow-y-scroll{
@@ -2634,17 +2642,33 @@ select{
 }
 
 .productSingleSlider .swiper-slide img{
-  -o-object-position: center;
-     object-position: center;
+  -o-object-position: center bottom;
+     object-position: center bottom;
 }
 
-/* .productSingleSlider .swiper-slide-active{
-    width: 10vw !important;
+.clientReviews .swiper-backface-hidden .swiper-slide{
+  transform: none !important;
+  backface-visibility: visible !important;
 }
 
-.productSingleSlider .swiper-slide-next{
-    width: 75vw !important;
-} */
+.clientReviews{
+  overflow: visible;
+}
+
+.clientReviews .swiper-pagination{
+  bottom: -15px;
+}
+
+.clientReviews  .swiper-pagination-bullet{
+  height: 10px !important;
+  width: 10px !important;
+  background-color: rgb(2 17 94 / 0.4) !important;
+}
+
+.clientReviews  .swiper-pagination-bullet-active{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(2 17 94 / var(--tw-bg-opacity)) !important;
+}
 
 .container-product{
   margin-left: auto;
@@ -2672,6 +2696,7 @@ select{
   display: block !important;
   height: 50px;
   width: 50px;
+  border-radius: 50px;
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   padding: 0.75rem;
@@ -2713,6 +2738,25 @@ select{
 .productSingleSlider .swiper-button-prev:after{
   top: 4px;
   left: 6px;
+}
+
+.productSingleSlider.swiper{
+  overflow: visible;
+}
+
+.productSingleSlider .swiper-pagination{
+  bottom: -35px !important;
+}
+
+.productSingleSlider .swiper-pagination-bullet{
+  height: 10px !important;
+  width: 10px !important;
+  background-color: rgb(2 17 94 / 0.4) !important;
+}
+
+.productSingleSlider .swiper-pagination-bullet-active{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(2 17 94 / var(--tw-bg-opacity)) !important;
 }
 
 .section-reviews .swiper-pagination{
@@ -3177,10 +3221,6 @@ select{
     display: none;
   }
 
-  .lg\:h-\[370px\]{
-    height: 370px;
-  }
-
   .lg\:h-\[400px\]{
     height: 400px;
   }
@@ -3267,6 +3307,14 @@ select{
 
   .lg\:w-auto{
     width: auto;
+  }
+
+  .lg\:w-\[510px\]{
+    width: 510px;
+  }
+
+  .lg\:w-\[450px\]{
+    width: 450px;
   }
 
   .lg\:basis-1\/3{
@@ -3437,6 +3485,12 @@ select{
   .lg\:text-base{
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:w-\[510px\]{
+    width: 510px;
   }
 }
 

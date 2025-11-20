@@ -12,7 +12,7 @@
 ?>
 
 
-<footer class="footer mt-12 lg:mt-16 bg-gray-light ">
+<footer class="footer bg-gray-light ">
     <div class="container mx-auto">
         <!--- whatsApp -->
         <div class="fixed bottom-5 right-3 z-50">

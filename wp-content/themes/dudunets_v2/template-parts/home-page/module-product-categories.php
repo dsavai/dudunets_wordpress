@@ -13,7 +13,7 @@ $dudu_net_types = get_net_types("DESC");
     <section class="module module--products bg-black/5">
         <div class="container mx-auto h-full px-4 lg:px-0">
             <div class="py-14">
-                <div class="text-center mx-auto mb-10 text-center">
+                <div class="mx-auto mb-10">
                       <?php if(is_user_logged_in()):?>
                             <small><a href="<?php echo get_edit_post_link($post_id);?>" target="_blank">Edit Section</a></small>
                      <?php endif;?>

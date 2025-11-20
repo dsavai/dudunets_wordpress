@@ -34,7 +34,7 @@ $image = get_post_thumbnail($page->ID);
                                     <div class="font-medium mr-1">reviews</div>
                                 </div>
                                 <div class="mt-4 lg:mt-0">
-                                    <a href="https://g.page/r/CfEJ5K7bX1dGEAI/review" target="_blank" class="py-2 px-3 ml-auto bg-secondary text-sm font-semibold text-white hover:text-primary transition-all duration-500 flex items-center justify-center">
+                                    <a href="https://share.google/1HC9lFjZErvGyF3Gw" target="_blank" class="py-2 px-3 ml-auto bg-secondary text-sm font-semibold text-white hover:text-primary transition-all duration-500 flex items-center justify-center">
                                         <span>Write review</span>
                                     </a>
                                 </div>

@@ -14,7 +14,7 @@ $ids_string = get_term_meta($term_id, 'best_pics_gallery', true);
     <main class="main">
         <section class="module product-single-module">
             <div class="mt-3">
-                <div class="swiper productSingleSlider">
+                <div class="swiper productSingleSlider overflow-visible">
                     <div class="swiper-wrapper">
                         <?php if(!empty($swipers)):?>
                             <?php foreach($swipers as $swiper): ?>
