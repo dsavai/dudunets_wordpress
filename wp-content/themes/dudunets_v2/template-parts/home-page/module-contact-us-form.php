@@ -2,10 +2,10 @@
 $dudu_net_types = get_net_types("DESC");
 ?>
 <div id="getQuote" class="module-contact">
-    <div class="container mx-auto px-4 lg:px-0 pb-8 lg:pt-[110px]">
+    <div class="container mx-auto px-4 lg:px-0 pb-2 lg:pb-4 lg:pt-[20px]">
         <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-10">
             <div class="relative pb-6 lg:pb-0 h-full flex items-center justify-center reveal slide-left reveal-transition">
-                <div class="xl:w-[510px] lg:w-[450px] overflow-hidden hidden lg:block">
+                <div class="xl:w-[470px] lg:w-[370px] overflow-hidden hidden lg:block">
                     <img src="<?php echo get_template_directory_uri()?>/dist/images/mr-dudunets.png" class="w-full h-full" />
                 </div>
             </div>

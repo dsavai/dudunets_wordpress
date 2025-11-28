@@ -5,7 +5,7 @@ $clients = get_custom_posts_by_slug($post_type,'ASC');
 
 <?php if (!empty($clients)):?>
     <section class="module module--clients">
-        <div class="py-12 border-t border-b  border-[rgba(0,0,0,0.05)]">
+        <div class="py-[20px] mb-[20px] lg:mb-0 lg:py-12 border-t border-b  border-[rgba(0,0,0,0.05)]">
             <div class="container mx-auto px-4 lg:px-0">
                 <div class="text-center">
                      <?php if(is_user_logged_in()):?>

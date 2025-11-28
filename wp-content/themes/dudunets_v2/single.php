@@ -17,7 +17,7 @@ $share_urls = get_share_links($post->ID);
                     <section class="module module--blog-single-title">
                         <div class="container mx-auto">
                             <div class="my-14 flex flex-col justify-center">
-                                <h1 class="text-3xl md:text-4xl lg:text-5xl font-400"><?php echo $post->post_title;?></h1>
+                                <h1 class="text-3xl lg:text-[40px] lg:leading-[50px] font-bold"><?php echo $post->post_title;?></h1>
                                 <div class="mt-5 hidden md:block">
                                     <ul class="flex items-center gap-2">
                                         <li>
@@ -69,11 +69,12 @@ $share_urls = get_share_links($post->ID);
                             <span class="text-black/60 text-sm font-medium"><?php echo estimate_reading_time($post->ID); ?></span>
                         </div>
                     </div>
-                    <div class="blog-single-contents">
+                    <div class="module-section-content">
                         <?php echo apply_filters("the_content", $post->post_content)?>
                         <?php get_template_part("template-parts/shared/tags","section",array("post_id" => $post->ID));?>
-                        <?php get_template_part("template-parts/shared/share","section",array("post_id" => $post->ID));?>
-
+                        <div class="share-list">
+                            <?php get_template_part("template-parts/shared/share","section",array("post_id" => $post->ID));?>
+                        </div>
                     </div>
                     <?php get_template_part("template-parts/posts/related","posts", array("post_id" => $post->ID));?>
                 </section>
@@ -81,9 +82,9 @@ $share_urls = get_share_links($post->ID);
             </div>
         </div>
     </section>
-    <?php get_template_part("template-parts/home-page/module","query");?>
-    <p>&nbsp;</p>
-    <?php get_template_part("template-parts/home-page/module","location");?>
+    <section class="border-t border-[rgba(0,0,0,0.05)]">
+        <?php get_template_part("template-parts/home-page/module-contact","us-form");?>
+    </section>
 </main>
 
 

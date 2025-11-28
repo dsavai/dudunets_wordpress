@@ -51,7 +51,7 @@ $image = get_post_thumbnail($page->ID);
                                     $reviewer_initial = substr($string, 0, 1); 
                                     //var_dump($reviewer_initial);
                                     ?>
-                                    <div class="border border-black/10 px-6 py-5 mb-1">
+                                    <div class="bg-white border border-black/10 px-6 py-5 mb-1">
                                         <div class="flex gap-4">
                                             <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]"><?php echo $reviewer_initial ?></div>
                                             <div>
@@ -76,7 +76,7 @@ $image = get_post_thumbnail($page->ID);
             </div>
         </section>
         <section class="reviews-contact-container">
-            <?php get_template_part("template-parts/home-page/module","location");?>
+            <?php get_template_part("template-parts/home-page/module-contact","us-form");?>
         </section>
     </main>
 <?php

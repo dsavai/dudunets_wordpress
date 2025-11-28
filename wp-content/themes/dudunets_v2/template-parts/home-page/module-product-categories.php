@@ -10,7 +10,7 @@ $dudu_net_types = get_net_types("DESC");
 ?>
 
 <?php if (!empty($the_post)):?>
-    <section class="module module--products bg-black/5">
+    <section class="module module--products bg-[#F3F4F7]">
         <div class="container mx-auto h-full px-4 lg:px-0">
             <div class="py-14">
                 <div class="mx-auto mb-10">
@@ -22,7 +22,7 @@ $dudu_net_types = get_net_types("DESC");
                 <?php if(is_user_logged_in()):?>
                                 <small><a href="<?php echo admin_url( 'edit-tags.php?taxonomy=net_type' );?>" target="_blank">Edit Taxonomy</a></small>
                     <?php endif;?>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-3 lg:grid-cols-3 gap-x-6 lg:gap-y-10">
                     
                     <?php if (!empty($dudu_net_types)):?>
                           
@@ -31,11 +31,11 @@ $dudu_net_types = get_net_types("DESC");
                             ?>
                             <div class="border-[1px] border-black/10 reveal fade-in">
                                 <a title="<?php echo $type->description;?>" href="<?php echo esc_url(get_term_link($type))?>" class="block pb-4 w-full h-full hover:[&>div>img]:scale-125">
-                                    <div class="mb-4 overflow-hidden max-h-[450px] h-[450px]">
+                                    <div class="mb-4 overflow-hidden h-[300px] lg:h-[450px]">
                                         <img src="<?php echo $image?>" alt="<?php echo $type->name?>" class="w-full h-full object-cover ease-in-out duration-700" />
                                     </div>
-                                    <div class="flex flex-col justify-center items-start px-6">
-                                        <h4 class="text-[17px] font-semibold w-full hover:underline underline-offset-4 decoration-1">
+                                    <div class="flex flex-col justify-center items-center px-6 text-center">
+                                        <h4 class="text-[14px] lg:text-[17px] font-semibold w-full hover:underline underline-offset-4 decoration-1">
                                             <span class="block truncate"><?php echo $type->description;?></span>
                                         </h4>
                                     </div>

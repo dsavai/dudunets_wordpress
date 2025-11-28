@@ -18,17 +18,17 @@ get_header(); ?>
             ?>
             <div class="container mx-auto">
                 <a href="<?php echo get_the_permalink($latest_post->ID)?>">
-                <div class="lg:mt-5 mb-10 relative">
-                    <div class="absolute bottom-14 inset-x-0 text-center z-[99] text-white">
-                        <div class="uppercase bg-primary font-bold w-[150px] mx-auto text-sm py-2 mb-4 text-secondary"><?php echo get_first_custom_category($latest_post->ID)['name']?> </div>
-                        <h1 class="text-3xl lg:text-6xl font-bold"><?php echo $latest_post->post_title;?></h1>
-                        <p><?php echo wp_trim_words($latest_post->post_content, 15, ' ...');?></p>
+                    <div class="lg:mt-5 mb-10 relative">
+                        <div class="absolute bottom-14 inset-x-0 text-center z-[99] text-white">
+                            <div class="mb-2 inline-block border border-white px-4 py-2 rounded-md text-sm text-white font-medium hover:bg-secondary hover:!text-white hover:border-secondary transition-all duration-500 delay-200"><?php echo get_first_custom_category($latest_post->ID)['name']?> </div>
+                            <h1 class="text-3xl lg:text-[50px] lg:leading-[50px] font-bold"><?php echo $latest_post->post_title;?></h1>
+                            <p><?php echo wp_trim_words($latest_post->post_content, 15, ' ...');?></p>
+                        </div>
+                        <div class="absolute inset-0 w-full h-full z-10 bg-gradient-to-b from-black to-black-200 rotate-180 opacity-70"></div>
+                        <div class="w-full h-[400px] lg:h-[600px]">
+                            <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
+                        </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full z-10 bg-gradient-to-b from-black to-black-200 rotate-180 opacity-70"></div>
-                    <div class="w-full h-[400px] lg:h-[600px]">
-                        <img src="<?php echo $image['image'][0]?>" alt="<?php echo $image['alt']?>" class="w-full h-full object-cover" />
-                    </div>
-                </div>
                 </a>
             </div>
         <?php endif;?>
@@ -38,10 +38,9 @@ get_header(); ?>
 
     <section class="module module--blog">
         <div class="container mx-auto">
-            <div class="mt-5 mb-5 lg:mb-5 px-4 lg:px-0">
-                <h4 class="font-quicksand text-gray uppercase text-xs font-bold mb-1">LATEST BLOG</h4>
-                <h2 class="text-3xl font-400">Our news & articles</h2>
-            </div>
+            <!-- <div class="mt-5 mb-5 lg:mb-5 px-4 lg:px-0">
+                <h2 class="mt-1 mb-3 text-[24px] lg:text-3xl font-semibold lg:font-bold leading-[30px]">Our news & articles</h2>
+            </div> -->
             <div class="lg:flex lg:gap-16 px-4 lg:px-0">
                 <div class="lg:basis-8/12 mb-16">
                     <div class="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-6">
@@ -93,7 +92,7 @@ get_header(); ?>
                         ?>
                     </div>
                     <div class="mt-12 flex justify-center">
-                        <a id="load-more" href="<?php //echo get_permalink(get_option('page_for_posts')); ?>" class="flex gap-3 items-center font-semibold bg-primary p-2 text-secondary px-8 py-3 hover:bg-secondary hover:text-primary transition-all duration-100 delay-200">
+                        <a id="load-more" href="<?php //echo get_permalink(get_option('page_for_posts')); ?>" class="inline-flex gap-3 items-center bg-[#0CBD92] text-white py-3 px-6 font-semibold hover:opacity-80 transition-opacity duration-200">
                             <span>View more</span>
                             <span>
                                 <svg class="w-8 h-8 fill-current">
@@ -108,8 +107,8 @@ get_header(); ?>
                     <!-- Add sidebar content here -->
 
                     <div class="mb-10 w-10/12">
-                        <h4 class="font-quicksand text-lg font-bold leading-relaxed border-b border-black/10">Explore category</h4>
-                        <ul class="mt-5 flex flex-wrap gap-x-1">
+                        <h4 class="text-lg font-bold leading-relaxed border-b border-black/10">Explore category</h4>
+                        <ul class="mt-5 inline-flex gap-2 flex-wrap">
                             <?php
                             $categories = get_terms(array(
                                 'taxonomy' => 'category', // Fetch terms from the 'category' taxonomy
@@ -119,8 +118,8 @@ get_header(); ?>
                                 'hide_empty' => true, // Hide empty categories
                             ));
                             foreach ($categories as $category) { ?>
-                                <li class="mr-1">
-                                    <a href="<?php echo get_category_link($category->term_id); ?>" class="block text-sm font-semibold text-secondary border border-primary bg-primary/10 mb-2 rounded-lg px-4 py-1"><?php echo $category->name; ?></a>
+                                <li>
+                                    <a href="<?php echo get_category_link($category->term_id); ?>" class="inline-block border border-black/10 px-4 py-2 rounded-md text-sm text-black/60 font-medium hover:bg-primary hover:!text-white hover:border-primary transition-all duration-500 delay-200"><?php echo $category->name; ?></a>
                                 </li>
                             <?php } ?>
                         </ul>
@@ -130,7 +129,7 @@ get_header(); ?>
                     </div>
 
                     <div class="mb-10 w-10/12">
-                        <h4 class="font-quicksand text-lg font-bold leading-relaxed border-b border-black/10">Most popular</h4>
+                        <h4 class="text-lg font-bold leading-relaxed border-b border-black/10">Most popular</h4>
                         <div class="mt-5">
                             <?php
                             $popular_query = new WP_Query(array(
@@ -167,8 +166,8 @@ get_header(); ?>
                     </div>
 
                     <div class="mb-16 w-10/12">
-                        <h4 class="font-quicksand text-lg font-bold leading-relaxed border-b border-black/10">Popular tags</h4>
-                        <ul class="mt-5 inline-flex gap-4 flex-wrap">
+                        <h4 class="text-lg font-bold leading-relaxed border-b border-black/10">Popular tags</h4>
+                        <ul class="mt-5 inline-flex gap-2 flex-wrap">
                             <?php
                             $tags = get_terms(array(
                                 'taxonomy' => 'post_tag', // Taxonomy to query
@@ -179,7 +178,7 @@ get_header(); ?>
                             ));
                             foreach ($tags as $tag) { ?>
                                 <li>
-                                    <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block border border-black/10 px-4 py-2 rounded-md text-sm text-black/60 font-semibold hover:bg-primary hover:!text-white hover:border-primary transition-all duration-500 delay-200"><?php echo $tag->name; ?></a>
+                                    <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block border border-black/10 px-4 py-2 rounded-md text-sm text-black/60 font-medium hover:bg-primary hover:!text-white hover:border-primary transition-all duration-500 delay-200"><?php echo $tag->name; ?></a>
                                 </li>
                             <?php } ?>
                         </ul>
@@ -191,10 +190,9 @@ get_header(); ?>
             </div>
         </div>
     </section>
-
-    <?php get_template_part("template-parts/home-page/module","query");?>
-    <p>&nbsp;</p>
-    <?php get_template_part("template-parts/home-page/module","location");?>
+    <section class="border-t border-[rgba(0,0,0,0.05)]">
+        <?php get_template_part("template-parts/home-page/module-contact","us-form");?>
+    </section>
 </main>
 
 <?php get_footer(); ?>

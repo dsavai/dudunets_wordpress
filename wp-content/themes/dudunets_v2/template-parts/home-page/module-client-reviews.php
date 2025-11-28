@@ -2,7 +2,7 @@
 $post_type = 'customer_reviews';
 $reviews = get_custom_posts_by_slug($post_type);
 ?>
-<div class="module module--reviews bg-black/5">
+<div class="module module--reviews bg-[#F3F4F7]">
     <div class="container mx-auto h-full px-4 lg:px-0">
         <div class="py-14 reveal fade-up reveal-transition">
             <div class="text-center mx-auto mb-10">
@@ -10,8 +10,8 @@ $reviews = get_custom_posts_by_slug($post_type);
                     <?php if(is_user_logged_in()):?>
                         <small><a href="<?php echo admin_url( 'edit.php?post_type='.$post_type );?>" target="_blank">Edit Section</a></small>
                     <?php endif;?>
-                    <h2 class="text-3xl font-bold mb-3">Trusted by Families Across Kenya</h2>
-                    <p class="text-black/60">Delivering Quality, Safety, and Peace of Mind</p>
+                    <h2 class="mt-1 mb-3 text-[24px] lg:text-3xl font-semibold lg:font-bold leading-[30px]">Trusted by Families Across Kenya</h2>
+                    <p class="text-black/60 font-normal leading-relaxed">Delivering Quality, Safety, and Peace of Mind</p>
                 </div>
             </div>
             <div class="lg:flex flex-col lg:flex-row justify-between items-center bg-white py-4 px-5 shadow-sm mb-4 lg:mb-10 mx-auto" bis_skin_checked="1">
@@ -45,7 +45,7 @@ $reviews = get_custom_posts_by_slug($post_type);
                                 //var_dump($reviewer_initial);
                             ?>
                             <div class="swiper-slide">
-                                <div class="border border-black/10 px-6 py-5 mb-4 h-[170px]">
+                                <div class="bg-white border border-black/10 px-6 py-5 mb-4 lg:h-[170px]">
                                     <div class="flex gap-4">
                                         <div class="hidden md:flex justify-center items-center text-lg font-bold bg-primary text-white relative top-1 min-w-[40px] h-[40px] rounded-[40px]"><?php echo $reviewer_initial;?></div>
                                         <div>

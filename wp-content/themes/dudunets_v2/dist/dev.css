@@ -192,10 +192,10 @@ select{
     backface-visibility: visible !important;
 }
 .clientReviews {
-    @apply overflow-visible
+    @apply overflow-visible !pb-[20px];
 }
 .clientReviews .swiper-pagination{
-    @apply bottom-[-15px];
+    @apply !bottom-0;
 }
 .clientReviews  .swiper-pagination-bullet{
     @apply !w-[10px] !h-[10px] !bg-primary/40;
@@ -305,6 +305,20 @@ select{
 
 .product-single-module .module-contact > div{
     @apply lg:pt-[20px];
+}
+
+.module-section-content p{
+    @apply mb-4 text-[14px] lg:text-base;
+}
+.module-section-content ul{
+    @apply pl-6;
+}
+.module-section-content ul li{
+    @apply mb-2 list-disc text-[14px] lg:text-base;
+}
+
+.share-list ul li{
+    list-style: none;
 }
 
 .zoom-animate{

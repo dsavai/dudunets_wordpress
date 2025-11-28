@@ -36,7 +36,7 @@ $image = get_post_thumbnail($page->ID);
         <section class="module module--content-content">
             <div class="container mx-auto">
                 <div class="w-9/12 mx-auto mt-10">
-                    <section class="module module--blog-content mb-16">
+                    <section class="module module-section-content mb-16">
                         <div class="general-content">
                             <?php echo apply_filters("the_content",$page->post_content);?>
                         </div>

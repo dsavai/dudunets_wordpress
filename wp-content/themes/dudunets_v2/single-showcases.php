@@ -71,7 +71,7 @@ $share_urls = get_share_links($post->ID);
                             <span class="text-black/60 text-md font-medium"><?php echo estimate_reading_time($post->ID); ?></span>
                         </div>
                     </div>
-                    <div class="blog-single-contents">
+                    <div class="module-section-content">
                         <?php echo apply_filters("the_content", $post->post_content)?>
                         <?php get_template_part("template-parts/shared/tags","section",array("post_id" => $post->ID));?>
                         <?php get_template_part("template-parts/shared/share","section",array("post_id" => $post->ID));?>
@@ -83,9 +83,7 @@ $share_urls = get_share_links($post->ID);
             </div>
         </div>
     </section>
-    <?php get_template_part("template-parts/home-page/module","query");?>
-    <p>&nbsp;</p>
-    <?php get_template_part("template-parts/home-page/module","location");?>
+    <?php get_template_part("template-parts/home-page/module-contact","us-form");?>
 </main>
 
 

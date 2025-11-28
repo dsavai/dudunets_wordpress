@@ -16,15 +16,14 @@ $posts = get_posts($args);
 
 ?>
 
-<section class="module module--blog">
-    <div class="bg-gray-light px-4 lg:px-0">
+<section class="module module--blog border-b border-[rgba(0,0,0,0.05)]">
+    <div class="px-4 lg:px-0">
         <div class="container mx-auto">
-            <div class="py-16">
-                <div class="mb-10">
-                    <h4 class="font-quicksand text-gray uppercase text-xs font-bold mb-3">LATEST BLOG</h4>
-                    <h2 class="text-3xl font-400">Our news & articles</h2>
+            <div class="py-5 lg:py-16">
+                <div class="mb-3 lg:mb-10">
+                    <h2 class="mt-1 mb-3 text-[24px] lg:text-3xl font-semibold lg:font-bold leading-[30px]">Our news & articles</h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
                     <?php if(!empty($posts)):?>
                     <?php foreach ($posts as $post):
                     $categories = get_the_category($post->ID);
@@ -74,8 +73,8 @@ $posts = get_posts($args);
                     <?php endforeach;?>
                     <?php endif;?>
                 </div>
-                <div class="mt-12 flex justify-center">
-                    <a href="<?php echo get_page_url_by_slug('blog')?>" class="flex gap-3 items-center font-semibold bg-primary p-2 text-secondary px-8 py-3 hover:bg-secondary hover:text-primary transition-all duration-100 delay-200">
+                <div class="mt-6 lg:mt-12 flex justify-center">
+                    <a href="<?php echo get_page_url_by_slug('blog')?>" class="inline-flex gap-3 items-center bg-[#0CBD92] text-white py-3 px-6 font-semibold hover:opacity-80 transition-opacity duration-200">
                         <span>View more</span>
                         <span>
                             <svg class="w-8 h-8 fill-current">
