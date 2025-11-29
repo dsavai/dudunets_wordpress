@@ -183,7 +183,9 @@ $ids_string = get_term_meta($term_id, 'best_pics_gallery', true);
                     <?php endif;?>
                 </div>
             </div>
-            <?php get_template_part("template-parts/home-page/module","location");?>
+            <section class="border-t border-[rgba(0,0,0,0.05)]">
+                <?php get_template_part("template-parts/home-page/module-contact","us-form");?>
+            </section>
         </section>
     </main>
 <?php
