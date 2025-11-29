@@ -274,6 +274,10 @@ function get_post_thumbnail($post_id){
     $thumbnail_alt = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
     $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'full' );
 
+    if(!($image)){
+        return array('image' => "https://placehold.co/600x400", 'alt' => "Magentic Dudunets");
+    }
+
     return array('image' => $image, 'alt' => $thumbnail_alt);
 
 }
@@ -2075,117 +2079,212 @@ function add_net_type_metabox_scripts() {
 
 
 
+
 /**
- * Clonable 'Swipers' metabox for taxonomy 'net_type'
+ * FLEXIBLE Clonable "Swipers" Metabox
+ * Works for:
+ *  - Taxonomies
+ *  - Post types
+ *  - Posts/pages by slug
+ *  - Templates
  */
 
-// --------------------------------------
-// 1. Add fields to the taxonomy add/edit forms
-// --------------------------------------
-add_action('net_type_add_form_fields', 'add_net_type_swipers_metabox');
-add_action('net_type_edit_form_fields', 'edit_net_type_swipers_metabox');
+if (!defined('SWIPERS_METABOX_ATTACH')) {
+    define('SWIPERS_METABOX_ATTACH', [
+        'taxonomies' => ['net_type'],          // taxonomy names
+        'post_types' => ['dudunet-products'],      // CPTs to attach to
+        'slugs'      => [],          // specific posts/pages by slug
+        'templates'  => [] // page templates
+    ]);
+}
 
-function add_net_type_swipers_metabox() {
-    ?>
-    <div class="form-field term-group">
-        <label for="net_type_swipers">Swipers</label>
-        <div id="net_type_swipers_wrapper"></div>
-        <button type="button" class="button add-swiper-item">+ Add Swiper</button>
+/* ---------------------------------------------
+   UNIVERSAL RENDERER FOR TAX + POST METABOXES
+----------------------------------------------*/
+function swipers_render_fields($swipers = [], $meta_name = 'swipers_meta') { ?>
+    <div id="swipers-wrapper">
+
+        <?php if (!empty($swipers) && is_array($swipers)) : ?>
+            <?php foreach ($swipers as $index => $item): ?>
+                <div class="swiper-item" style="margin:10px 0;padding:10px;border:1px solid #ccc;">
+                    
+                    <p><input type="text" 
+                              name="<?php echo $meta_name; ?>[<?php echo $index; ?>][text]"
+                              value="<?php echo esc_attr($item['text'] ?? ''); ?>"
+                              placeholder="Swiper Text"
+                              style="width:100%;"></p>
+
+                    <input type="hidden" 
+                           name="<?php echo $meta_name; ?>[<?php echo $index; ?>][image]"
+                           class="swiper-img-field"
+                           value="<?php echo esc_url($item['image'] ?? ''); ?>">
+
+                    <img src="<?php echo esc_url($item['image'] ?? ''); ?>"
+                         class="swiper-preview"
+                         style="max-width:150px;<?php echo empty($item['image']) ? 'display:none;' : ''; ?>margin-bottom:10px;">
+
+                    <button type="button" class="button upload-swiper-image">Upload Image</button>
+                    <button type="button" class="button remove-swiper" style="background:#f33;color:#fff;margin-left:10px;">Remove</button>
+
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
     </div>
-    <?php
-    add_net_type_swipers_scripts();
+
+    <button type="button" class="button add-swiper">+ Add Swiper</button>
+<?php }
+
+/* ---------------------------------------------
+   1. TAXONOMY VERSION — ADD + SAVE
+----------------------------------------------*/
+foreach (SWIPERS_METABOX_ATTACH['taxonomies'] as $tax) {
+
+    // Add screen (create term)
+    add_action("{$tax}_add_form_fields", function() {
+        echo "<h3>Swipers</h3>";
+        swipers_render_fields([], 'swipers_meta');
+        swipers_js();
+    });
+
+    // Edit screen
+    add_action("{$tax}_edit_form_fields", function($term){
+        $swipers = get_term_meta($term->term_id, 'swipers_meta', true);
+        echo '<tr class="form-field"><th>Swipers</th><td>';
+        swipers_render_fields($swipers, 'swipers_meta');
+        echo '</td></tr>';
+        swipers_js();
+    });
+
+    // Save
+    add_action("created_{$tax}", 'swipers_save_tax');
+    add_action("edited_{$tax}", 'swipers_save_tax');
 }
 
-function edit_net_type_swipers_metabox($term) {
-    $swipers = get_term_meta($term->term_id, 'net_type_swipers', true);
-    ?>
-    <tr class="form-field term-group-wrap">
-        <th scope="row"><label for="net_type_swipers">Swipers</label></th>
-        <td>
-            <div id="net_type_swipers_wrapper">
-                <?php
-                if (!empty($swipers) && is_array($swipers)) {
-                    foreach ($swipers as $index => $swiper) { ?>
-                        <div class="swiper-item" style="margin-bottom:15px;border:1px solid #ccc;padding:10px;">
-                            <p><input type="text" name="net_type_swipers[<?php echo $index; ?>][text]" value="<?php echo esc_attr($swiper['text']); ?>" placeholder="Swiper Text" style="width:100%;"></p>
-                            
-                            <input type="hidden" name="net_type_swipers[<?php echo $index; ?>][image]" value="<?php echo esc_attr($swiper['image']); ?>" class="swiper-image-field" />
-                            <img src="<?php echo esc_url($swiper['image']); ?>" class="swiper-preview" style="max-width:150px;display:block;margin-bottom:10px;">
-                            <button type="button" class="button upload-swiper-image">Upload Image</button>
-
-                            <button type="button" class="button remove-swiper-item" style="background:#f55;color:#fff;">Remove</button>
-                        </div>
-                    <?php }
-                } ?>
-            </div>
-            <button type="button" class="button add-swiper-item">+ Add Swiper</button>
-        </td>
-    </tr>
-    <?php
-    add_net_type_swipers_scripts();
-}
-
-// --------------------------------------
-// 2. Save the Swipers meta
-// --------------------------------------
-add_action('created_net_type', 'save_net_type_swipers_metabox');
-add_action('edited_net_type', 'save_net_type_swipers_metabox');
-
-function save_net_type_swipers_metabox($term_id) {
-    if (isset($_POST['net_type_swipers'])) {
-        update_term_meta($term_id, 'net_type_swipers', $_POST['net_type_swipers']);
+function swipers_save_tax($term_id) {
+    if (isset($_POST['swipers_meta'])) {
+        update_term_meta($term_id, 'swipers_meta', $_POST['swipers_meta']);
     } else {
-        delete_term_meta($term_id, 'net_type_swipers');
+        delete_term_meta($term_id, 'swipers_meta');
     }
 }
 
-// --------------------------------------
-// 3. JS for repeater + media uploader
-// --------------------------------------
-function add_net_type_swipers_scripts() {
-    ?>
-    <script>
-    jQuery(document).ready(function($){
-        // Upload image
-        $('body').on('click', '.upload-swiper-image', function(e){
-            e.preventDefault();
-            let button = $(this);
-            let custom_uploader = wp.media({
-                title: 'Select Swiper Image',
-                button: { text: 'Use this image' },
-                multiple: false
-            }).on('select', function(){
-                let attachment = custom_uploader.state().get('selection').first().toJSON();
-                button.prev('.swiper-preview').attr('src', attachment.url);
-                button.siblings('.swiper-image-field').val(attachment.url);
-            }).open();
-        });
+/* ---------------------------------------------
+   2. POST METABOX VERSION — ADD + SAVE
+----------------------------------------------*/
+add_action('add_meta_boxes', function() {
 
-        // Add new swiper
-        $('body').on('click', '.add-swiper-item', function(e){
-            e.preventDefault();
-            let index = $('#net_type_swipers_wrapper .swiper-item').length;
-            let newItem = `
-                <div class="swiper-item" style="margin-bottom:15px;border:1px solid #ccc;padding:10px;">
-                    <p><input type="text" name="net_type_swipers[${index}][text]" placeholder="Swiper Text" style="width:100%;"></p>
-                    <input type="hidden" name="net_type_swipers[${index}][image]" class="swiper-image-field" />
-                    <img src="" class="swiper-preview" style="max-width:150px;display:block;margin-bottom:10px;">
-                    <button type="button" class="button upload-swiper-image">Upload Image</button>
-                    <button type="button" class="button remove-swiper-item" style="background:#f55;color:#fff;">Remove</button>
-                </div>
-            `;
-            $('#net_type_swipers_wrapper').append(newItem);
-        });
+    global $post;
+    if (!$post) return;
 
-        // Remove swiper
-        $('body').on('click', '.remove-swiper-item', function(e){
-            e.preventDefault();
-            $(this).closest('.swiper-item').remove();
-        });
-    });
-    </script>
-    <?php
+    $attach = SWIPERS_METABOX_ATTACH;
+    $should_show = false;
+
+    // Attach by post type
+    if (in_array($post->post_type, $attach['post_types'])) {
+        $should_show = true;
+    }
+
+    // Attach by slug
+    if (in_array($post->post_name, $attach['slugs'])) {
+        $should_show = true;
+    }
+
+    // Attach by template
+    $template = get_page_template_slug($post->ID);
+    if (in_array($template, $attach['templates'])) {
+        $should_show = true;
+    }
+
+    if ($should_show) {
+        add_meta_box(
+            'swipers_metabox',
+            'Swipers',
+            'swipers_render_post_metabox',
+            $post->post_type,
+            'normal',
+            'default'
+        );
+    }
+});
+
+function swipers_render_post_metabox($post) {
+    $swipers = get_post_meta($post->ID, 'swipers_meta', true);
+    swipers_render_fields($swipers, 'swipers_meta');
+    swipers_js();
 }
+
+// Save post meta
+add_action('save_post', function($post_id){
+    if (isset($_POST['swipers_meta'])) {
+        update_post_meta($post_id, 'swipers_meta', $_POST['swipers_meta']);
+    }
+});
+
+/* ---------------------------------------------
+   UNIVERSAL JAVASCRIPT (Repeater + Media Upload)
+----------------------------------------------*/
+function swipers_js() { ?>
+<script>
+jQuery(function($){
+
+    // Upload image
+    $('body').on('click', '.upload-swiper-image', function(e){
+        e.preventDefault();
+        let btn = $(this);
+        let frame = wp.media({
+            title: 'Select Swiper Image',
+            button: { text: 'Use this image' },
+            multiple: false
+        });
+
+        frame.on('select', function(){
+            let att = frame.state().get('selection').first().toJSON();
+            btn.siblings('.swiper-img-field').val(att.url);
+            btn.siblings('.swiper-preview').attr('src', att.url).show();
+        });
+
+        frame.open();
+    });
+
+    // Add swiper item
+    $('body').on('click', '.add-swiper', function(e){
+        e.preventDefault();
+
+        let wrapper = $('#swipers-wrapper');
+        let index = wrapper.find('.swiper-item').length;
+
+        wrapper.append(`
+            <div class="swiper-item" style="margin:10px 0;padding:10px;border:1px solid #ccc;">
+                
+                <p><input type="text" 
+                          name="swipers_meta[${index}][text]" 
+                          placeholder="Swiper Text" 
+                          style="width:100%;"></p>
+
+                <input type="hidden" 
+                       name="swipers_meta[${index}][image]" 
+                       class="swiper-img-field">
+
+                <img src="" class="swiper-preview" style="max-width:150px;display:none;margin-bottom:10px;">
+
+                <button type="button" class="button upload-swiper-image">Upload Image</button>
+                <button type="button" class="button remove-swiper" style="background:#f33;color:#fff;margin-left:10px;">Remove</button>
+
+            </div>
+        `);
+    });
+
+    // Remove swiper
+    $('body').on('click', '.remove-swiper', function(e){
+        e.preventDefault();
+        $(this).closest('.swiper-item').remove();
+    });
+
+});
+</script>
+<?php }
+
 
 
 function get_installations_by_net_type($term_slug, $limit = -1) {
@@ -2454,6 +2553,163 @@ add_action('save_post_installation', 'save_installation_gallery');
 
 
 
+/**
+ * Custom Excerpt Metabox
+ * Attach to configurable post types
+ */
+
+add_action('add_meta_boxes', 'ce_add_custom_excerpt_metabox');
+function ce_add_custom_excerpt_metabox() {
+
+    // CONFIGURE WHICH POST TYPES GET THIS METABOX
+    $custom_excerpt_post_types = ['dudunet-products', 'page']; 
+    // Add yours:  ['post', 'page', 'installation', 'product', 'news']
+
+    foreach ($custom_excerpt_post_types as $pt) {
+        add_meta_box(
+            'ce_custom_excerpt_box',
+            'Custom Excerpt',
+            'ce_custom_excerpt_metabox_html',
+            $pt,
+            'normal',
+            'default'
+        );
+    }
+}
+
+function ce_custom_excerpt_metabox_html($post) {
+    wp_nonce_field('ce_custom_excerpt_save_action', 'ce_custom_excerpt_nonce');
+
+    $value = get_post_meta($post->ID, 'custom_excerpt', true);
+    ?>
+
+    <textarea 
+        name="custom_excerpt" 
+        style="width:100%; min-height:120px;"
+        placeholder="Enter a custom excerpt"
+    ><?php echo esc_textarea($value); ?></textarea>
+
+    <?php
+}
+
+// SAVE FIELD
+add_action('save_post', 'ce_custom_excerpt_save');
+function ce_custom_excerpt_save($post_id) {
+
+    if (!isset($_POST['ce_custom_excerpt_nonce'])) return;
+    if (!wp_verify_nonce($_POST['ce_custom_excerpt_nonce'], 'ce_custom_excerpt_save_action')) return;
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+    if (isset($_POST['custom_excerpt'])) {
+        update_post_meta($post_id, 'custom_excerpt', sanitize_textarea_field($_POST['custom_excerpt']));
+    }
+}
+
+/**
+ * Assign dudunet-products to Installation
+ */
+add_action('add_meta_boxes', 'dp_installation_add_products_metabox');
+function dp_installation_add_products_metabox() {
+    add_meta_box(
+        'dp_installation_products_box',
+        'Assign DuduNet Products',
+        'dp_installation_products_metabox_html',
+        'installation',
+        'side',
+        'default'
+    );
+}
+
+function dp_installation_products_metabox_html($post) {
+    wp_nonce_field('dp_installation_products_save_action', 'dp_installation_products_nonce');
+
+    // Get currently selected products
+    $selected = get_post_meta($post->ID, '_assigned_products', true);
+    if (!is_array($selected)) $selected = [];
+
+    // Get all dudunet-products
+    $products = get_posts([
+        'post_type' => 'dudunet-products',
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order'   => 'ASC'
+    ]);
+
+    echo '<p>Select products related to this installation:</p>';
+
+    echo '<div style="max-height:220px; overflow:auto; padding:5px; border:1px solid #ccc;">';
+
+    foreach ($products as $product) {
+        $checked = in_array($product->ID, $selected) ? 'checked' : '';
+
+        echo '<p>
+            <label>
+                <input type="checkbox" name="assigned_products[]" value="' . esc_attr($product->ID) . '" ' . $checked . '>
+                ' . esc_html($product->post_title) . '
+            </label>
+        </p>';
+    }
+
+    echo '</div>';
+}
+
+// SAVE DATA
+add_action('save_post_installation', 'dp_installation_save_products');
+function dp_installation_save_products($post_id) {
+
+    if (!isset($_POST['dp_installation_products_nonce'])) return;
+    if (!wp_verify_nonce($_POST['dp_installation_products_nonce'], 'dp_installation_products_save_action')) return;
+
+    if (isset($_POST['assigned_products'])) {
+        $clean = array_map('intval', $_POST['assigned_products']);
+        update_post_meta($post_id, '_assigned_products', $clean);
+    } else {
+        delete_post_meta($post_id, '_assigned_products');
+    }
+}
+
+
+/**
+ * Get Installation posts that share the same net_type terms
+ * as a given post (any post type).
+ *
+ * @param int   $post_id  The post to compare against.
+ * @param int   $limit    Number of installations to return (-1 for all).
+ * @return WP_Query       Query result of installations.
+ */
+function get_installations_by_net_type_on_page($post_id, $limit = -1) {
+
+    // 1. Get terms of this post under net_type
+    $terms = get_the_terms($post_id, 'net_type');
+    if (empty($terms) || is_wp_error($terms)) {
+        return false; // no related terms
+    }
+
+    // 2. Extract term IDs
+    $term_ids = wp_list_pluck($terms, 'term_id');
+
+    // 3. Query installations with these term IDs
+    $args = [
+        'post_type'      => 'installation',
+        'posts_per_page' => $limit,
+        'tax_query'      => [
+            [
+                'taxonomy' => 'net_type',
+                'field'    => 'term_id',
+                'terms'    => $term_ids,
+            ]
+        ]
+    ];
+
+      $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        return $query->posts; // Return array of WP_Post objects
+    }
+
+    return false;
+}
 
 
 
