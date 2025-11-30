@@ -1165,6 +1165,10 @@ video {
   height: 420px;
 }
 
+.h-\[450px\]{
+  height: 450px;
+}
+
 .h-\[45px\]{
   height: 45px;
 }
@@ -1215,6 +1219,10 @@ video {
 
 .max-h-\[230px\]{
   max-height: 230px;
+}
+
+.max-h-\[450px\]{
+  max-height: 450px;
 }
 
 .w-1{
@@ -1516,6 +1524,10 @@ video {
 .gap-x-6{
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
+}
+
+.gap-y-10{
+  row-gap: 2.5rem;
 }
 
 .gap-y-3{
@@ -3251,6 +3263,10 @@ select{
 
   .lg\:mt-5{
     margin-top: 1.25rem;
+  }
+
+  .lg\:mt-\[60px\]{
+    margin-top: 60px;
   }
 
   .lg\:block{
