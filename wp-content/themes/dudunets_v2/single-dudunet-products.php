@@ -6,6 +6,7 @@ $the_page = get_queried_object();
 $swipers = get_post_meta($the_page->ID, 'swipers_meta', true);
 $reviews = get_custom_posts_by_slug('customer_reviews');
 //$galleries =  get_term_meta(get_queried_object_id(), 'net_type_gallery', true);
+$galleries = get_post_meta($the_page->ID, '_pig_gallery', true);
 //$media_gallery = get_term_meta($term->term_id, 'net_type_media_gallery', true);
 $contact_page = get_page_by_slug('contact');
 //$term_id = get_queried_object_id();
@@ -151,9 +152,11 @@ $installations = get_installations_by_net_type_on_page($the_page->ID);
                         <div class="mt-3">
                             <div class="masonry-grid">
                                 <?php if(!empty($galleries)):?>
-                                <?php foreach($galleries as $gallery):?>
+                                <?php foreach($galleries as $gallery):
+                                    $image = wp_get_attachment_url($gallery);
+                                    ?>
                                     <div class="masonry-grid-item"> 
-                                        <img class="h-auto max-w-full" src="<?php echo $gallery['image']?>" alt="<?php echo $gallery['title']?>">
+                                        <img class="h-auto max-w-full" src="<?php echo $image; ?>" alt="<?php echo $the_page->post_title?>">
                                     </div>
                                 <?php endforeach;?>
                                 <?php endif;?>

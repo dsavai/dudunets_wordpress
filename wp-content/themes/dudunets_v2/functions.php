@@ -2712,6 +2712,167 @@ function get_installations_by_net_type_on_page($post_id, $limit = -1) {
 }
 
 
+// product installation gallery
+
+/**
+ * Product Installation Gallery Metabox
+ */
+function pig_get_allowed_posts() {
+
+    return array(
+        'post_type' => 'dudunet-products', // Changeable CPT
+        'post_ids'  => array(),        // Example: array(12, 55, 102)
+        'templates' => array(),        // Example: array('custom-template.php')
+    );
+}
+
+function pig_add_metabox() {
+
+    $settings = pig_get_allowed_posts();
+    $current_post_id = isset($_GET['post']) ? intval($_GET['post']) : 0;
+
+    // Check post type rule
+    $allowed = false;
+    $screen = get_current_screen();
+
+    if (in_array($screen->post_type, (array)$settings['post_type'])) {
+        $allowed = true;
+    }
+
+    // Check post IDs rule
+    if (!$allowed && in_array($current_post_id, (array)$settings['post_ids'])) {
+        $allowed = true;
+    }
+
+    // Check template rule
+    if (!$allowed) {
+        $template = get_post_meta($current_post_id, '_wp_page_template', true);
+        if (in_array($template, (array)$settings['templates'])) {
+            $allowed = true;
+        }
+    }
+
+    if (!$allowed) return;
+
+    add_meta_box(
+        'product_installation_gallery',
+        'Product Installation Gallery',
+        'pig_render_metabox',
+        $screen->post_type,
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'pig_add_metabox');
+
+// render gallery on UI
+function pig_render_metabox($post) {
+
+    wp_nonce_field('pig_save_gallery', 'pig_gallery_nonce');
+
+    $images = get_post_meta($post->ID, '_pig_gallery', true);
+    $images = is_array($images) ? $images : [];
+
+    echo '<div id="pig-gallery-wrapper">';
+
+    // Thumbnails Display
+    echo '<ul style="margin:0; padding:0;">';
+
+    if (!empty($images)) {
+        foreach ($images as $img_id) {
+            $thumb = wp_get_attachment_image_src($img_id, 'thumbnail');
+            echo '
+                <li style="display:inline-block; margin:5px; text-align:center;">
+                    <img src="' . esc_url($thumb[0]) . '" style="width:100px;height:100px;object-fit:cover;border:1px solid #ccc;">
+                    <br>
+                    <button type="button" class="button pig-remove-image" data-id="' . $img_id . '">Remove</button>
+                </li>
+            ';
+        }
+    }
+
+    echo '</ul>';
+
+    echo '<input type="hidden" id="pig-gallery-field" name="pig_gallery" value="' . esc_attr(implode(',', $images)) . '">';
+
+    echo '<button type="button" class="button button-primary" id="pig-add-images">Add Images</button>';
+    echo '</div>';
+
+    ?>
+    <script>
+    jQuery(document).ready(function($){
+        let frame;
+
+        $('#pig-add-images').click(function(e){
+            e.preventDefault();
+
+            if(frame){ frame.open(); return; }
+
+            frame = wp.media({
+                title: 'Select or Upload Images',
+                multiple: true,
+                library: { type: 'image' }
+            });
+
+            frame.on('select', function(){
+                let list = $('#pig-gallery-field').val().split(',').filter(id => id !== "");
+                let selection = frame.state().get('selection');
+
+                selection.map(function(attachment) {
+                    attachment = attachment.toJSON();
+                    list.push(attachment.id);
+
+                    $('#pig-gallery-wrapper ul').append(
+                        `<li style="display:inline-block; margin:5px;">
+                            <img src="${attachment.sizes.thumbnail.url}" style="width:100px;height:100px;object-fit:cover;border:1px solid #ccc;">
+                            <br>
+                            <button type="button" class="button pig-remove-image" data-id="${attachment.id}">Remove</button>
+                        </li>`
+                    );
+                });
+
+                $('#pig-gallery-field').val(list.join(','));
+            });
+
+            frame.open();
+        });
+
+        $(document).on('click', '.pig-remove-image', function(){
+            let id = $(this).data('id');
+            let list = $('#pig-gallery-field').val().split(',').filter(v => v && v != id);
+
+            $('#pig-gallery-field').val(list.join(','));
+            $(this).parent().remove();
+        });
+    });
+    </script>
+    <?php
+}
+
+
+// save metabox data
+
+function pig_save_gallery($post_id) {
+
+    if (!isset($_POST['pig_gallery_nonce']) || !wp_verify_nonce($_POST['pig_gallery_nonce'], 'pig_save_gallery'))
+        return;
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+    if (!current_user_can('edit_post', $post_id)) return;
+
+    if (isset($_POST['pig_gallery'])) {
+        $ids = array_filter(array_map('intval', explode(',', $_POST['pig_gallery'])));
+        update_post_meta($post_id, '_pig_gallery', $ids);
+    }
+}
+add_action('save_post', 'pig_save_gallery');
+
+/**
+ * End Product Installation Gallery Metabox
+ */
+
+
 
 
 
