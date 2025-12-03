@@ -12,7 +12,9 @@ $contact_page = get_page_by_slug('contact');
 //$term_id = get_queried_object_id();
 //$ids_string = get_term_meta($term_id, 'best_pics_gallery', true);
 $terms = get_the_terms($the_page->ID, 'net_type');
-$installations = get_installations_by_net_type_on_page($the_page->ID);
+//$installations = get_installations_by_post_id($the_page->ID);
+$installations = brute_force_get_installations($the_page->ID);
+
 ?>
     <main class="main">
         <section class="module product-single-module">
@@ -190,6 +192,7 @@ $installations = get_installations_by_net_type_on_page($the_page->ID);
                     <?php endif;?>
                 </div>
             </div>
+            <?php echo apply_filters("the_content",$the_page->post_content);?>
             <?php get_template_part("template-parts/home-page/module","location");?>
         </section>
     </main>

@@ -2615,7 +2615,7 @@ function dp_installation_add_products_metabox() {
         'dp_installation_products_box',
         'Assign DuduNet Products',
         'dp_installation_products_metabox_html',
-        'installation',
+        'installationzzzzz', // remove metabox from installations page
         'side',
         'default'
     );
@@ -2871,6 +2871,176 @@ add_action('save_post', 'pig_save_gallery');
 /**
  * End Product Installation Gallery Metabox
  */
+
+
+
+function get_installations_by_post_id($post_id) {
+    $args = array(
+        'post_type'      => 'installation',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+        'meta_query'     => array(
+            array(
+                'key'     => '_assigned_products',   // change to your meta key
+                'value'   => '"' . $post_id . '"',
+                'compare' => 'LIKE'
+            ),
+        ),
+    );
+
+    return get_posts($args);
+}
+
+
+
+
+// new installations work flow
+
+/**
+ * Add metabox to Installation posts to select Dudunet Products
+ */
+function dnp_add_installation_metabox() {
+    add_meta_box(
+        'dnp_installation_metabox',
+        'Assign to Dudunet Product',
+        'dnp_render_installation_metabox',
+        'installation',
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'dnp_add_installation_metabox');
+
+
+/**
+ * Render the metabox
+ */
+function dnp_render_installation_metabox($post) {
+
+    wp_nonce_field('dnp_save_installation_products', 'dnp_installation_nonce');
+
+    // Get saved selections
+    $selected_products = get_post_meta($post->ID, '_dnp_assigned_products', true);
+    $selected_products = is_array($selected_products) ? $selected_products : [];
+
+    // Fetch Dudunet Products
+    $products = get_posts([
+        'post_type'      => 'dudunet-products',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+    ]);
+
+    if (empty($products)) {
+        echo "No Dudunet Products found.";
+        return;
+    }
+
+    echo '<ul>';
+
+    foreach ($products as $product) {
+        $checked = in_array($product->ID, $selected_products) ? 'checked' : '';
+        echo '
+            <li>
+                <label>
+                    <input type="checkbox" name="dnp_assigned_products[]" value="' . $product->ID . '" ' . $checked . '>
+                    ' . esc_html($product->post_title) . '
+                </label>
+            </li>
+        ';
+    }
+
+    echo '</ul>';
+}
+
+
+/**
+ * Save the metabox data
+ */
+function dnp_save_installation_metabox($post_id) {
+
+    if (!isset($_POST['dnp_installation_nonce']) ||
+        !wp_verify_nonce($_POST['dnp_installation_nonce'], 'dnp_save_installation_products')) {
+        return;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+        return;
+
+    if (!current_user_can('edit_post', $post_id))
+        return;
+
+    $products = isset($_POST['dnp_assigned_products'])
+        ? array_map('intval', $_POST['dnp_assigned_products'])
+        : [];
+
+    update_post_meta($post_id, '_dnp_assigned_products', $products);
+}
+add_action('save_post_installation', 'dnp_save_installation_metabox');
+
+
+
+function brute_force_get_installations($product_id) {
+
+    // Get ALL installation posts
+    $installations = get_posts([
+        'post_type'      => 'installation',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+    ]);
+
+    $matched = [];
+
+    foreach ($installations as $inst) {
+
+        // Get assigned Dudunet Products meta
+        $assigned = get_post_meta($inst->ID, '_dnp_assigned_products', true);
+
+        // Must be an array
+        if (is_array($assigned) && in_array($product_id, $assigned)) {
+            $matched[] = $inst;
+        }
+    }
+
+    return $matched;
+}
+
+
+function dnp_get_installations_for_product($product_id) {
+
+    // Create a unique cache key
+    $cache_key = 'dnp_installations_for_' . $product_id;
+
+    // Try to get cached
+    $cached = wp_cache_get($cache_key, 'dnp_cache');
+    if ($cached !== false) {
+        return $cached;
+    }
+
+    // Pull all installations
+    $installations = get_posts([
+        'post_type'      => 'installation',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'fields'         => 'ids', // faster
+    ]);
+
+    $matched = [];
+
+    foreach ($installations as $inst_id) {
+
+        $assigned = get_post_meta($inst_id, '_dnp_assigned_products', true);
+
+        if (is_array($assigned) && in_array($product_id, $assigned)) {
+            $matched[] = $inst_id;
+        }
+    }
+
+    // Save to cache for 10 minutes
+    wp_cache_set($cache_key, $matched, 'dnp_cache', 600);
+
+    return $matched;
+}
+
 
 
 

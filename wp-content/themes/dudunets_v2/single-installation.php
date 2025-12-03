@@ -7,6 +7,8 @@ $date = date('F d, Y', $timestamp);
 $avatar = get_user_avatar($post->post_author);
 $tags = get_post_tags($post->ID);
 $share_urls = get_share_links($post->ID);
+// $test = get_post_meta($post->ID, '_dnp_assigned_products', true);
+// var_dump($test);
 ?>
 
 <main class="main">
